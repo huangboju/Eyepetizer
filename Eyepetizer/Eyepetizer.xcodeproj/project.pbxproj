@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D8F04F381D334F0400BFE94D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F04F371D334F0400BFE94D /* AppDelegate.swift */; };
+		D8F04F3A1D334F0400BFE94D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F04F391D334F0400BFE94D /* ViewController.swift */; };
+		D8F04F3D1D334F0400BFE94D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8F04F3B1D334F0400BFE94D /* Main.storyboard */; };
+		D8F04F3F1D334F0400BFE94D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8F04F3E1D334F0400BFE94D /* Assets.xcassets */; };
+		D8F04F421D334F0400BFE94D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8F04F401D334F0400BFE94D /* LaunchScreen.storyboard */; };
+		D8F04F4D1D334F0400BFE94D /* EyepetizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F04F4C1D334F0400BFE94D /* EyepetizerTests.swift */; };
+		D8F04F581D334F0400BFE94D /* EyepetizerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F04F571D334F0400BFE94D /* EyepetizerUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D8F04F491D334F0400BFE94D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8F04F2C1D334F0400BFE94D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D8F04F331D334F0400BFE94D;
+			remoteInfo = Eyepetizer;
+		};
+		D8F04F541D334F0400BFE94D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8F04F2C1D334F0400BFE94D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D8F04F331D334F0400BFE94D;
+			remoteInfo = Eyepetizer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D8F04F341D334F0400BFE94D /* Eyepetizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eyepetizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8F04F371D334F0400BFE94D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D8F04F391D334F0400BFE94D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D8F04F3C1D334F0400BFE94D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D8F04F3E1D334F0400BFE94D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D8F04F411D334F0400BFE94D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D8F04F431D334F0400BFE94D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8F04F481D334F0400BFE94D /* EyepetizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EyepetizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8F04F4C1D334F0400BFE94D /* EyepetizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyepetizerTests.swift; sourceTree = "<group>"; };
+		D8F04F4E1D334F0400BFE94D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8F04F531D334F0400BFE94D /* EyepetizerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EyepetizerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8F04F571D334F0400BFE94D /* EyepetizerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyepetizerUITests.swift; sourceTree = "<group>"; };
+		D8F04F591D334F0400BFE94D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D8F04F311D334F0400BFE94D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8F04F451D334F0400BFE94D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8F04F501D334F0400BFE94D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D8F04F2B1D334F0400BFE94D = {
+			isa = PBXGroup;
+			children = (
+				D8F04F361D334F0400BFE94D /* Eyepetizer */,
+				D8F04F4B1D334F0400BFE94D /* EyepetizerTests */,
+				D8F04F561D334F0400BFE94D /* EyepetizerUITests */,
+				D8F04F351D334F0400BFE94D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D8F04F351D334F0400BFE94D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D8F04F341D334F0400BFE94D /* Eyepetizer.app */,
+				D8F04F481D334F0400BFE94D /* EyepetizerTests.xctest */,
+				D8F04F531D334F0400BFE94D /* EyepetizerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D8F04F361D334F0400BFE94D /* Eyepetizer */ = {
+			isa = PBXGroup;
+			children = (
+				D8F04F371D334F0400BFE94D /* AppDelegate.swift */,
+				D8F04F391D334F0400BFE94D /* ViewController.swift */,
+				D8F04F3B1D334F0400BFE94D /* Main.storyboard */,
+				D8F04F3E1D334F0400BFE94D /* Assets.xcassets */,
+				D8F04F401D334F0400BFE94D /* LaunchScreen.storyboard */,
+				D8F04F431D334F0400BFE94D /* Info.plist */,
+			);
+			path = Eyepetizer;
+			sourceTree = "<group>";
+		};
+		D8F04F4B1D334F0400BFE94D /* EyepetizerTests */ = {
+			isa = PBXGroup;
+			children = (
+				D8F04F4C1D334F0400BFE94D /* EyepetizerTests.swift */,
+				D8F04F4E1D334F0400BFE94D /* Info.plist */,
+			);
+			path = EyepetizerTests;
+			sourceTree = "<group>";
+		};
+		D8F04F561D334F0400BFE94D /* EyepetizerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D8F04F571D334F0400BFE94D /* EyepetizerUITests.swift */,
+				D8F04F591D334F0400BFE94D /* Info.plist */,
+			);
+			path = EyepetizerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D8F04F331D334F0400BFE94D /* Eyepetizer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8F04F5C1D334F0400BFE94D /* Build configuration list for PBXNativeTarget "Eyepetizer" */;
+			buildPhases = (
+				D8F04F301D334F0400BFE94D /* Sources */,
+				D8F04F311D334F0400BFE94D /* Frameworks */,
+				D8F04F321D334F0400BFE94D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Eyepetizer;
+			productName = Eyepetizer;
+			productReference = D8F04F341D334F0400BFE94D /* Eyepetizer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D8F04F471D334F0400BFE94D /* EyepetizerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8F04F5F1D334F0400BFE94D /* Build configuration list for PBXNativeTarget "EyepetizerTests" */;
+			buildPhases = (
+				D8F04F441D334F0400BFE94D /* Sources */,
+				D8F04F451D334F0400BFE94D /* Frameworks */,
+				D8F04F461D334F0400BFE94D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D8F04F4A1D334F0400BFE94D /* PBXTargetDependency */,
+			);
+			name = EyepetizerTests;
+			productName = EyepetizerTests;
+			productReference = D8F04F481D334F0400BFE94D /* EyepetizerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D8F04F521D334F0400BFE94D /* EyepetizerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8F04F621D334F0400BFE94D /* Build configuration list for PBXNativeTarget "EyepetizerUITests" */;
+			buildPhases = (
+				D8F04F4F1D334F0400BFE94D /* Sources */,
+				D8F04F501D334F0400BFE94D /* Frameworks */,
+				D8F04F511D334F0400BFE94D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D8F04F551D334F0400BFE94D /* PBXTargetDependency */,
+			);
+			name = EyepetizerUITests;
+			productName = EyepetizerUITests;
+			productReference = D8F04F531D334F0400BFE94D /* EyepetizerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D8F04F2C1D334F0400BFE94D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = xiAo_Ju;
+				TargetAttributes = {
+					D8F04F331D334F0400BFE94D = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					D8F04F471D334F0400BFE94D = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = D8F04F331D334F0400BFE94D;
+					};
+					D8F04F521D334F0400BFE94D = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = D8F04F331D334F0400BFE94D;
+					};
+				};
+			};
+			buildConfigurationList = D8F04F2F1D334F0400BFE94D /* Build configuration list for PBXProject "Eyepetizer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D8F04F2B1D334F0400BFE94D;
+			productRefGroup = D8F04F351D334F0400BFE94D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D8F04F331D334F0400BFE94D /* Eyepetizer */,
+				D8F04F471D334F0400BFE94D /* EyepetizerTests */,
+				D8F04F521D334F0400BFE94D /* EyepetizerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D8F04F321D334F0400BFE94D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8F04F421D334F0400BFE94D /* LaunchScreen.storyboard in Resources */,
+				D8F04F3F1D334F0400BFE94D /* Assets.xcassets in Resources */,
+				D8F04F3D1D334F0400BFE94D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8F04F461D334F0400BFE94D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8F04F511D334F0400BFE94D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D8F04F301D334F0400BFE94D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8F04F3A1D334F0400BFE94D /* ViewController.swift in Sources */,
+				D8F04F381D334F0400BFE94D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8F04F441D334F0400BFE94D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8F04F4D1D334F0400BFE94D /* EyepetizerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8F04F4F1D334F0400BFE94D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8F04F581D334F0400BFE94D /* EyepetizerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D8F04F4A1D334F0400BFE94D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D8F04F331D334F0400BFE94D /* Eyepetizer */;
+			targetProxy = D8F04F491D334F0400BFE94D /* PBXContainerItemProxy */;
+		};
+		D8F04F551D334F0400BFE94D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D8F04F331D334F0400BFE94D /* Eyepetizer */;
+			targetProxy = D8F04F541D334F0400BFE94D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D8F04F3B1D334F0400BFE94D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D8F04F3C1D334F0400BFE94D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D8F04F401D334F0400BFE94D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D8F04F411D334F0400BFE94D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D8F04F5A1D334F0400BFE94D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D8F04F5B1D334F0400BFE94D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D8F04F5D1D334F0400BFE94D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Eyepetizer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Eyepetizer.Eyepetizer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D8F04F5E1D334F0400BFE94D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Eyepetizer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Eyepetizer.Eyepetizer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D8F04F601D334F0400BFE94D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = EyepetizerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Eyepetizer.EyepetizerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Eyepetizer.app/Eyepetizer";
+			};
+			name = Debug;
+		};
+		D8F04F611D334F0400BFE94D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = EyepetizerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Eyepetizer.EyepetizerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Eyepetizer.app/Eyepetizer";
+			};
+			name = Release;
+		};
+		D8F04F631D334F0400BFE94D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = EyepetizerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Eyepetizer.EyepetizerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Eyepetizer;
+			};
+			name = Debug;
+		};
+		D8F04F641D334F0400BFE94D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = EyepetizerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Eyepetizer.EyepetizerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Eyepetizer;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D8F04F2F1D334F0400BFE94D /* Build configuration list for PBXProject "Eyepetizer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8F04F5A1D334F0400BFE94D /* Debug */,
+				D8F04F5B1D334F0400BFE94D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8F04F5C1D334F0400BFE94D /* Build configuration list for PBXNativeTarget "Eyepetizer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8F04F5D1D334F0400BFE94D /* Debug */,
+				D8F04F5E1D334F0400BFE94D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D8F04F5F1D334F0400BFE94D /* Build configuration list for PBXNativeTarget "EyepetizerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8F04F601D334F0400BFE94D /* Debug */,
+				D8F04F611D334F0400BFE94D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D8F04F621D334F0400BFE94D /* Build configuration list for PBXNativeTarget "EyepetizerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8F04F631D334F0400BFE94D /* Debug */,
+				D8F04F641D334F0400BFE94D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D8F04F2C1D334F0400BFE94D /* Project object */;
+}
