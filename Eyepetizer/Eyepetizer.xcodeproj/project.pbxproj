@@ -135,6 +135,7 @@
 				D8F04F301D334F0400BFE94D /* Sources */,
 				D8F04F311D334F0400BFE94D /* Frameworks */,
 				D8F04F321D334F0400BFE94D /* Resources */,
+				D8F04F671D33521A00BFE94D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -250,6 +251,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D8F04F671D33521A00BFE94D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D8F04F301D334F0400BFE94D /* Sources */ = {
