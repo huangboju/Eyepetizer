@@ -1,8 +1,4 @@
 //
-//  AppDelegate.swift
-//  Eyepetizer
-//
-//  Created by 伯驹 黄 on 16/7/11.
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
