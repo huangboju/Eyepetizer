@@ -23,6 +23,8 @@
 		D8BB322B1D348973002684CF /* EYETabbarTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB322A1D348973002684CF /* EYETabbarTransition.swift */; };
 		D8BB322E1D348C01002684CF /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB322D1D348C01002684CF /* ItemModel.swift */; };
 		D8BB32301D348E11002684CF /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB322F1D348E11002684CF /* Int+Extension.swift */; };
+		D8BB32321D3490D2002684CF /* EYEChoiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB32311D3490D2002684CF /* EYEChoiceModel.swift */; };
+		D8BB32341D3490F5002684CF /* IssueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB32331D3490F5002684CF /* IssueModel.swift */; };
 		D8F04F381D334F0400BFE94D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F04F371D334F0400BFE94D /* AppDelegate.swift */; };
 		D8F04F3A1D334F0400BFE94D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F04F391D334F0400BFE94D /* ViewController.swift */; };
 		D8F04F3D1D334F0400BFE94D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8F04F3B1D334F0400BFE94D /* Main.storyboard */; };
@@ -71,6 +73,8 @@
 		D8BB322A1D348973002684CF /* EYETabbarTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYETabbarTransition.swift; sourceTree = "<group>"; };
 		D8BB322D1D348C01002684CF /* ItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		D8BB322F1D348E11002684CF /* Int+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		D8BB32311D3490D2002684CF /* EYEChoiceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEChoiceModel.swift; sourceTree = "<group>"; };
+		D8BB32331D3490F5002684CF /* IssueModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueModel.swift; sourceTree = "<group>"; };
 		D8F04F341D334F0400BFE94D /* Eyepetizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eyepetizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8F04F371D334F0400BFE94D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8F04F391D334F0400BFE94D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +159,8 @@
 			isa = PBXGroup;
 			children = (
 				D8BB322D1D348C01002684CF /* ItemModel.swift */,
+				D8BB32311D3490D2002684CF /* EYEChoiceModel.swift */,
+				D8BB32331D3490F5002684CF /* IssueModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -454,6 +460,7 @@
 				D8BB322E1D348C01002684CF /* ItemModel.swift in Sources */,
 				D8BB32051D3385F5002684CF /* EYEChoiceController.swift in Sources */,
 				D8BB32011D3377E5002684CF /* UIFont+Extension.swift in Sources */,
+				D8BB32321D3490D2002684CF /* EYEChoiceModel.swift in Sources */,
 				D8BB32301D348E11002684CF /* Int+Extension.swift in Sources */,
 				D8F04F711D33670700BFE94D /* EYELaunchView.swift in Sources */,
 				D8F04F3A1D334F0400BFE94D /* ViewController.swift in Sources */,
@@ -463,6 +470,7 @@
 				D8BB32091D33868C002684CF /* EYEVideoDetailController.swift in Sources */,
 				D8BB32291D3487A7002684CF /* EYEPopularController.swift in Sources */,
 				D8F04F6F1D3363C400BFE94D /* EYEMainTabView.swift in Sources */,
+				D8BB32341D3490F5002684CF /* IssueModel.swift in Sources */,
 				D8F04F6C1D33632700BFE94D /* EYEMainViewController.swift in Sources */,
 				D8BB32071D338608002684CF /* EYEBaseViewController.swift in Sources */,
 				D8BB320D1D33896D002684CF /* EYEVideoDetailPushTransition.swift in Sources */,
