@@ -25,8 +25,17 @@
 		D8BB32301D348E11002684CF /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB322F1D348E11002684CF /* Int+Extension.swift */; };
 		D8BB32321D3490D2002684CF /* EYEChoiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB32311D3490D2002684CF /* EYEChoiceModel.swift */; };
 		D8BB32341D3490F5002684CF /* IssueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB32331D3490F5002684CF /* IssueModel.swift */; };
+		D8BB32361D349C02002684CF /* EYEVideoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB32351D349C02002684CF /* EYEVideoDetailView.swift */; };
+		D8BB32381D349DDE002684CF /* EYEVideoDetailPopTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB32371D349DDE002684CF /* EYEVideoDetailPopTransition.swift */; };
+		D8BB323A1D349F91002684CF /* EYEPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB32391D349F91002684CF /* EYEPlayerController.swift */; };
+		D8BB323C1D34A1E2002684CF /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB323B1D34A1E2002684CF /* UIBarButtonItem+Extension.swift */; };
+		D8BB323E1D34B865002684CF /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB323D1D34B865002684CF /* UIView+Extension.swift */; };
+		D8BB32401D34B9AF002684CF /* EYEShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB323F1D34B9AF002684CF /* EYEShapeView.swift */; };
+		D8BB32451D34BDF9002684CF /* FZLTXIHJW--GB1-0.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D8BB32421D34BDF9002684CF /* FZLTXIHJW--GB1-0.TTF */; };
+		D8BB32461D34BDF9002684CF /* FZLTZCHJW--GB1-0.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D8BB32431D34BDF9002684CF /* FZLTZCHJW--GB1-0.TTF */; };
+		D8BB32471D34BDF9002684CF /* Lobster 1.4.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8BB32441D34BDF9002684CF /* Lobster 1.4.otf */; };
+		D8BB32491D34BF6E002684CF /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB32481D34BF6D002684CF /* R.generated.swift */; };
 		D8F04F381D334F0400BFE94D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F04F371D334F0400BFE94D /* AppDelegate.swift */; };
-		D8F04F3A1D334F0400BFE94D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F04F391D334F0400BFE94D /* ViewController.swift */; };
 		D8F04F3D1D334F0400BFE94D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8F04F3B1D334F0400BFE94D /* Main.storyboard */; };
 		D8F04F3F1D334F0400BFE94D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8F04F3E1D334F0400BFE94D /* Assets.xcassets */; };
 		D8F04F421D334F0400BFE94D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8F04F401D334F0400BFE94D /* LaunchScreen.storyboard */; };
@@ -75,9 +84,18 @@
 		D8BB322F1D348E11002684CF /* Int+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		D8BB32311D3490D2002684CF /* EYEChoiceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEChoiceModel.swift; sourceTree = "<group>"; };
 		D8BB32331D3490F5002684CF /* IssueModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueModel.swift; sourceTree = "<group>"; };
+		D8BB32351D349C02002684CF /* EYEVideoDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEVideoDetailView.swift; sourceTree = "<group>"; };
+		D8BB32371D349DDE002684CF /* EYEVideoDetailPopTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEVideoDetailPopTransition.swift; sourceTree = "<group>"; };
+		D8BB32391D349F91002684CF /* EYEPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEPlayerController.swift; sourceTree = "<group>"; };
+		D8BB323B1D34A1E2002684CF /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
+		D8BB323D1D34B865002684CF /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		D8BB323F1D34B9AF002684CF /* EYEShapeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEShapeView.swift; sourceTree = "<group>"; };
+		D8BB32421D34BDF9002684CF /* FZLTXIHJW--GB1-0.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FZLTXIHJW--GB1-0.TTF"; sourceTree = "<group>"; };
+		D8BB32431D34BDF9002684CF /* FZLTZCHJW--GB1-0.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FZLTZCHJW--GB1-0.TTF"; sourceTree = "<group>"; };
+		D8BB32441D34BDF9002684CF /* Lobster 1.4.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lobster 1.4.otf"; sourceTree = "<group>"; };
+		D8BB32481D34BF6D002684CF /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		D8F04F341D334F0400BFE94D /* Eyepetizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eyepetizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8F04F371D334F0400BFE94D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D8F04F391D334F0400BFE94D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D8F04F3C1D334F0400BFE94D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D8F04F3E1D334F0400BFE94D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8F04F411D334F0400BFE94D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -142,6 +160,8 @@
 			children = (
 				D8BB32001D3377E5002684CF /* UIFont+Extension.swift */,
 				D8BB322F1D348E11002684CF /* Int+Extension.swift */,
+				D8BB323B1D34A1E2002684CF /* UIBarButtonItem+Extension.swift */,
+				D8BB323D1D34B865002684CF /* UIView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -151,6 +171,7 @@
 			children = (
 				D8BB320C1D33896D002684CF /* EYEVideoDetailPushTransition.swift */,
 				D8BB322A1D348973002684CF /* EYETabbarTransition.swift */,
+				D8BB32371D349DDE002684CF /* EYEVideoDetailPopTransition.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -163,6 +184,16 @@
 				D8BB32331D3490F5002684CF /* IssueModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D8BB32411D34BDAB002684CF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D8BB32421D34BDF9002684CF /* FZLTXIHJW--GB1-0.TTF */,
+				D8BB32431D34BDF9002684CF /* FZLTZCHJW--GB1-0.TTF */,
+				D8BB32441D34BDF9002684CF /* Lobster 1.4.otf */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		D8F04F2B1D334F0400BFE94D = {
@@ -190,6 +221,7 @@
 		D8F04F361D334F0400BFE94D /* Eyepetizer */ = {
 			isa = PBXGroup;
 			children = (
+				D8BB32411D34BDAB002684CF /* Resources */,
 				D8BB322C1D348BD5002684CF /* Models */,
 				D8BB320B1D338948002684CF /* Others */,
 				D8BB31FF1D3377AB002684CF /* Extensions */,
@@ -197,7 +229,7 @@
 				D8F04F6A1D33629700BFE94D /* Controllers */,
 				D8F04F691D33627600BFE94D /* Main */,
 				D8F04F371D334F0400BFE94D /* AppDelegate.swift */,
-				D8F04F391D334F0400BFE94D /* ViewController.swift */,
+				D8BB32481D34BF6D002684CF /* R.generated.swift */,
 				D8F04F681D3361FF00BFE94D /* Eyepetizer-Bridging-Header.h */,
 				D8F04F3B1D334F0400BFE94D /* Main.storyboard */,
 				D8F04F3E1D334F0400BFE94D /* Assets.xcassets */,
@@ -243,6 +275,7 @@
 				D8BB32081D33868C002684CF /* EYEVideoDetailController.swift */,
 				D8BB32261D34877E002684CF /* EYEDiscoverController.swift */,
 				D8BB32281D3487A7002684CF /* EYEPopularController.swift */,
+				D8BB32391D349F91002684CF /* EYEPlayerController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -255,6 +288,8 @@
 				D8F04F6E1D3363C400BFE94D /* EYEMainTabView.swift */,
 				D8F04F701D33670700BFE94D /* EYELaunchView.swift */,
 				D8BB320E1D338D16002684CF /* EYEChoiceCell.swift */,
+				D8BB32351D349C02002684CF /* EYEVideoDetailView.swift */,
+				D8BB323F1D34B9AF002684CF /* EYEShapeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -368,7 +403,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8F04F421D334F0400BFE94D /* LaunchScreen.storyboard in Resources */,
+				D8BB32451D34BDF9002684CF /* FZLTXIHJW--GB1-0.TTF in Resources */,
 				D8BB31FA1D337025002684CF /* EYEMainTabView.xib in Resources */,
+				D8BB32461D34BDF9002684CF /* FZLTZCHJW--GB1-0.TTF in Resources */,
+				D8BB32471D34BDF9002684CF /* Lobster 1.4.otf in Resources */,
 				D8BB31FC1D337059002684CF /* EYELaunchView.xib in Resources */,
 				D8F04F3F1D334F0400BFE94D /* Assets.xcassets in Resources */,
 				D8F04F3D1D334F0400BFE94D /* Main.storyboard in Resources */,
@@ -448,7 +486,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "";
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -463,19 +501,25 @@
 				D8BB32321D3490D2002684CF /* EYEChoiceModel.swift in Sources */,
 				D8BB32301D348E11002684CF /* Int+Extension.swift in Sources */,
 				D8F04F711D33670700BFE94D /* EYELaunchView.swift in Sources */,
-				D8F04F3A1D334F0400BFE94D /* ViewController.swift in Sources */,
 				D8BB32271D34877E002684CF /* EYEDiscoverController.swift in Sources */,
 				D8BB320F1D338D16002684CF /* EYEChoiceCell.swift in Sources */,
 				D8BB32031D33781D002684CF /* Constant.swift in Sources */,
 				D8BB32091D33868C002684CF /* EYEVideoDetailController.swift in Sources */,
+				D8BB32381D349DDE002684CF /* EYEVideoDetailPopTransition.swift in Sources */,
 				D8BB32291D3487A7002684CF /* EYEPopularController.swift in Sources */,
 				D8F04F6F1D3363C400BFE94D /* EYEMainTabView.swift in Sources */,
 				D8BB32341D3490F5002684CF /* IssueModel.swift in Sources */,
+				D8BB323A1D349F91002684CF /* EYEPlayerController.swift in Sources */,
+				D8BB323C1D34A1E2002684CF /* UIBarButtonItem+Extension.swift in Sources */,
 				D8F04F6C1D33632700BFE94D /* EYEMainViewController.swift in Sources */,
 				D8BB32071D338608002684CF /* EYEBaseViewController.swift in Sources */,
 				D8BB320D1D33896D002684CF /* EYEVideoDetailPushTransition.swift in Sources */,
+				D8BB32491D34BF6E002684CF /* R.generated.swift in Sources */,
+				D8BB32361D349C02002684CF /* EYEVideoDetailView.swift in Sources */,
 				D8F04F381D334F0400BFE94D /* AppDelegate.swift in Sources */,
+				D8BB32401D34B9AF002684CF /* EYEShapeView.swift in Sources */,
 				D8BB322B1D348973002684CF /* EYETabbarTransition.swift in Sources */,
+				D8BB323E1D34B865002684CF /* UIView+Extension.swift in Sources */,
 				D8BB31FE1D337728002684CF /* EYENavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

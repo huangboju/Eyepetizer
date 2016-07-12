@@ -38,7 +38,7 @@ class EYEVideoDetailPushTransition: NSObject, UIViewControllerAnimatedTransition
         
         let tabbarSnapshotView = fromVC?.tabBarController?.tabBar
         toVC?.view.frame = transitionContext.finalFrameForViewController(toVC!)
-        
+//        toVC?.detailView
     }
 }
 

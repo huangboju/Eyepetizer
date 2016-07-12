@@ -5,6 +5,9 @@ PODS:
   - JSAnimatedImagesView (1.0.0):
     - MSWeakTimer (~> 1.0)
   - MSWeakTimer (1.1.0)
+  - R.swift (2.4.0):
+    - R.swift.Library (~> 2.2.0)
+  - R.swift.Library (2.2.0)
   - SnapKit (0.21.1)
   - StarWars (1.0)
   - SwiftyJSON (2.3.2)
@@ -21,6 +24,7 @@ DEPENDENCIES:
   - APESuperHUD
   - DeviceKit (~> 0.3.2)
   - JSAnimatedImagesView
+  - R.swift
   - SnapKit
   - StarWars
   - SwiftyJSON
@@ -32,6 +36,8 @@ SPEC CHECKSUMS:
   DeviceKit: 79182140c0aa8daaf4f4b3920e0b079f5fa9db79
   JSAnimatedImagesView: d5c5f561280171ce13f1f08ba9834c47a1f27bfc
   MSWeakTimer: 9426150f933b80ed3acf3f6d228e4b61f0e303c8
+  R.swift: 0ef9c42dc6c94ac44a3c78a7639c73f855a8e159
+  R.swift.Library: 31a487b65381f37a7d203a6f1f935b43c9be35b0
   SnapKit: bbad04cb016c7cead63965f16b00c09318d271ee
   StarWars: 01f1731789f738f64c6a9533c209213aaf465014
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
@@ -39,6 +45,6 @@ SPEC CHECKSUMS:
   YYImage: 2cc79ed49b9549b71c6715cefe7b0f5ab3d33abf
   YYWebImage: 0431ed108e104527669b86f75efd58958425cca2
 
-PODFILE CHECKSUM: 01d8a033ea2561a1db668cd3a3d93645f90b9b95
+PODFILE CHECKSUM: 4ee22a1a4c48fa5c19364960604112675c8b837d
 
 COCOAPODS: 1.0.0.beta.3

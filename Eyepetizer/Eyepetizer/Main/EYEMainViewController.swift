@@ -7,7 +7,7 @@ class EYEMainViewController: UITabBarController {
     private lazy var tabView: EYEMainTabView = {
         var tabView = EYEMainTabView.tabView()
         tabView.frame = self.tabBar.bounds
-        tabView.delegate = self
+//        tabView.delegate = self
         return tabView
     }()
     

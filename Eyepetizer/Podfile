@@ -6,6 +6,7 @@ target 'Eyepetizer' do
   pod 'APESuperHUD'
   pod 'DeviceKit', '~> 0.3.2'
   pod 'JSAnimatedImagesView'
+  pod 'R.swift'
   pod 'SwiftyJSON'
   pod 'SnapKit'
   pod 'StarWars'
