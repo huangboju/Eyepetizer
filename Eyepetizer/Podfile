@@ -1,0 +1,14 @@
+platform:ios,'8.0'
+use_frameworks!
+
+target 'Eyepetizer' do
+  pod 'Alamofire'
+  pod 'APESuperHUD'
+  pod 'DeviceKit', '~> 0.3.2'
+  pod 'JSAnimatedImagesView'
+  pod 'SwiftyJSON'
+  pod 'SnapKit'
+  pod 'StarWars'
+
+  pod 'YYWebImage'
+end
