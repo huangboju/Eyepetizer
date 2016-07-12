@@ -35,6 +35,7 @@
 		D8BB32461D34BDF9002684CF /* FZLTZCHJW--GB1-0.TTF in Resources */ = {isa = PBXBuildFile; fileRef = D8BB32431D34BDF9002684CF /* FZLTZCHJW--GB1-0.TTF */; };
 		D8BB32471D34BDF9002684CF /* Lobster 1.4.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8BB32441D34BDF9002684CF /* Lobster 1.4.otf */; };
 		D8BB32491D34BF6E002684CF /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB32481D34BF6D002684CF /* R.generated.swift */; };
+		D8BB324D1D34C0FB002684CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB324C1D34C0FB002684CF /* ViewController.swift */; };
 		D8F04F381D334F0400BFE94D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F04F371D334F0400BFE94D /* AppDelegate.swift */; };
 		D8F04F3D1D334F0400BFE94D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8F04F3B1D334F0400BFE94D /* Main.storyboard */; };
 		D8F04F3F1D334F0400BFE94D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8F04F3E1D334F0400BFE94D /* Assets.xcassets */; };
@@ -94,6 +95,7 @@
 		D8BB32431D34BDF9002684CF /* FZLTZCHJW--GB1-0.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FZLTZCHJW--GB1-0.TTF"; sourceTree = "<group>"; };
 		D8BB32441D34BDF9002684CF /* Lobster 1.4.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lobster 1.4.otf"; sourceTree = "<group>"; };
 		D8BB32481D34BF6D002684CF /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		D8BB324C1D34C0FB002684CF /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D8F04F341D334F0400BFE94D /* Eyepetizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eyepetizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8F04F371D334F0400BFE94D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8F04F3C1D334F0400BFE94D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				D8F04F6A1D33629700BFE94D /* Controllers */,
 				D8F04F691D33627600BFE94D /* Main */,
 				D8F04F371D334F0400BFE94D /* AppDelegate.swift */,
+				D8BB324C1D34C0FB002684CF /* ViewController.swift */,
 				D8BB32481D34BF6D002684CF /* R.generated.swift */,
 				D8F04F681D3361FF00BFE94D /* Eyepetizer-Bridging-Header.h */,
 				D8F04F3B1D334F0400BFE94D /* Main.storyboard */,
@@ -516,6 +519,7 @@
 				D8BB320D1D33896D002684CF /* EYEVideoDetailPushTransition.swift in Sources */,
 				D8BB32491D34BF6E002684CF /* R.generated.swift in Sources */,
 				D8BB32361D349C02002684CF /* EYEVideoDetailView.swift in Sources */,
+				D8BB324D1D34C0FB002684CF /* ViewController.swift in Sources */,
 				D8F04F381D334F0400BFE94D /* AppDelegate.swift in Sources */,
 				D8BB32401D34B9AF002684CF /* EYEShapeView.swift in Sources */,
 				D8BB322B1D348973002684CF /* EYETabbarTransition.swift in Sources */,
