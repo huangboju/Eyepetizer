@@ -12,12 +12,14 @@ struct R {
     private init() {}
   }
   
-  /// This `R.file` struct is generated, and contains static references to 3 files.
+  /// This `R.file` struct is generated, and contains static references to 4 files.
   struct file {
     /// Resource file `FZLTXIHJW--GB1-0.TTF`.
     static let fZLTXIHJWGB10TTF = FileResource(bundle: _R.hostingBundle, name: "FZLTXIHJW--GB1-0", pathExtension: "TTF")
     /// Resource file `FZLTZCHJW--GB1-0.TTF`.
     static let fZLTZCHJWGB10TTF = FileResource(bundle: _R.hostingBundle, name: "FZLTZCHJW--GB1-0", pathExtension: "TTF")
+    /// Resource file `ic_menu@3x.png`.
+    static let ic_menu3xPng = FileResource(bundle: _R.hostingBundle, name: "ic_menu@3x", pathExtension: "png")
     /// Resource file `Lobster 1.4.otf`.
     static let lobster14Otf = FileResource(bundle: _R.hostingBundle, name: "Lobster 1.4", pathExtension: "otf")
     
@@ -30,6 +32,12 @@ struct R {
     /// `bundle.URLForResource("FZLTZCHJW--GB1-0", withExtension: "TTF")`
     static func fZLTZCHJWGB10TTF(_: Void) -> NSURL? {
       let fileResource = R.file.fZLTZCHJWGB10TTF
+      return fileResource.bundle.URLForResource(fileResource)
+    }
+    
+    /// `bundle.URLForResource("ic_menu@3x", withExtension: "png")`
+    static func ic_menu3xPng(_: Void) -> NSURL? {
+      let fileResource = R.file.ic_menu3xPng
       return fileResource.bundle.URLForResource(fileResource)
     }
     
@@ -69,7 +77,7 @@ struct R {
     private init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 39 images.
+  /// This `R.image` struct is generated, and contains static references to 40 images.
   struct image {
     /// Image `action_download_cut`.
     static let action_download_cut = ImageResource(bundle: _R.hostingBundle, name: "action_download_cut")
@@ -121,6 +129,8 @@ struct R {
     static let ic_launch_gray = ImageResource(bundle: _R.hostingBundle, name: "ic_launch_gray")
     /// Image `ic_launch_white`.
     static let ic_launch_white = ImageResource(bundle: _R.hostingBundle, name: "ic_launch_white")
+    /// Image `ic_menu`.
+    static let ic_menu = ImageResource(bundle: _R.hostingBundle, name: "ic_menu")
     /// Image `kr-video-player-close`.
     static let krVideoPlayerClose = ImageResource(bundle: _R.hostingBundle, name: "kr-video-player-close")
     /// Image `kr-video-player-fullscreen`.
@@ -273,6 +283,11 @@ struct R {
     /// `UIImage(named: "ic_launch_white", bundle: ..., traitCollection: ...)`
     static func ic_launch_white(compatibleWithTraitCollection traitCollection: UITraitCollection? = nil) -> UIImage? {
       return UIImage(resource: R.image.ic_launch_white, compatibleWithTraitCollection: traitCollection)
+    }
+    
+    /// `UIImage(named: "ic_menu", bundle: ..., traitCollection: ...)`
+    static func ic_menu(compatibleWithTraitCollection traitCollection: UITraitCollection? = nil) -> UIImage? {
+      return UIImage(resource: R.image.ic_menu, compatibleWithTraitCollection: traitCollection)
     }
     
     /// `UIImage(named: "kr-video-player-close", bundle: ..., traitCollection: ...)`

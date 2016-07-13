@@ -50,10 +50,9 @@ class EYEVideoDetailView: UIView {
     }()
     
     lazy var playImageView: UIImageView = {
-        var playImageView = UIImageView(image: UIImage(named: "ic_action_play"))
+        var playImageView = APPImageView(image: R.image.ic_action_play())
         playImageView.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
         playImageView.center = self.albumImageView.center
-        playImageView.contentMode = .ScaleAspectFit
         playImageView.viewAddTarget(self, action: #selector(playImageViewDidClick))
         return playImageView
     }()

@@ -8,8 +8,7 @@ extension UIBarButtonItem {
         superview.frame = CGRect(x: 0, y: 0, width: 80, height: 40)
         superview.backgroundColor = .redColor()
         
-        let imageView = UIImageView(image: image)
-        imageView.contentMode = .ScaleAspectFit
+        let imageView = APPImageView(image: image)
         imageView.frame = CGRect(x: -10, y: 0, width: 40, height: 40)
         imageView.backgroundColor = .blueColor()
         superview.addSubview(imageView)

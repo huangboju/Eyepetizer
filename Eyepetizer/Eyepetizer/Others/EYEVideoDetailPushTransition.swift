@@ -12,8 +12,10 @@ class EYEVideoDetailPushTransition: NSObject, UIViewControllerAnimatedTransition
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         let container = transitionContext.containerView()
+        
         let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as? EYEBaseViewController
         let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as? EYEVideoDetailController
+        
         self.fromVC = fromVC
         self.toVC = toVC
         
@@ -25,18 +27,23 @@ class EYEVideoDetailPushTransition: NSObject, UIViewControllerAnimatedTransition
         }
         snapshotView?.frame = container?.convertRect(rect, toView: selectCell) ?? CGRect.zero
         fromVC?.selectCell?.backgroundImageView.hidden = true
+        
         let coverView = fromVC?.selectCell?.coverButton.snapshotViewAfterScreenUpdates(false)
         guard let frame = fromVC?.selectCell?.coverButton.frame else {
             return
         }
+        
         coverView?.frame = container?.convertRect(frame, fromView: selectCell) ?? CGRect.zero
-        let blurImageView = UIImageView(image: fromVC!.selectCell!.backgroundImageView.image)
+        
+        let blurImageView = UIImageView(image: fromVC?.selectCell?.backgroundImageView.image)
         blurImageView.frame = CGRect(x: 0, y: snapshotView?.frame.maxY ?? 0, width: snapshotView?.frame.width ?? 0, height: 0)
+        
         let blurEffect = UIBlurEffect(style: .Light)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = blurImageView.frame
         
         let tabbarSnapshotView = fromVC?.tabBarController?.tabBar
+        
         toVC?.view.frame = transitionContext.finalFrameForViewController(toVC!)
         toVC?.detailView.albumImageView.alpha = 0
         toVC?.detailView.blurImageView.alpha = 0
@@ -61,7 +68,7 @@ class EYEVideoDetailPushTransition: NSObject, UIViewControllerAnimatedTransition
             coverView?.alpha = 0
             blurImageView.frame = toVC!.detailView.blurImageView.frame
             blurView.frame = toVC!.detailView.blurImageView.frame
-            }) { [unowned self] (flag) in
+            }) { [unowned self] flag in
                 toVC!.detailView.albumImageView.image = fromVC!.selectCell!.backgroundImageView.image
                 toVC!.detailView.albumImageView.alpha = 1
                 toVC!.detailView.blurImageView.alpha = 1
@@ -83,6 +90,13 @@ class EYEVideoDetailPushTransition: NSObject, UIViewControllerAnimatedTransition
                 
                 //一定要记得动画完成后执行此方法，让系统管理 navigation
                 transitionContext.completeTransition(true)
+        }
+        
+        UIView.animateWithDuration(0.1, delay: 0.2, options: .CurveLinear, animations: { 
+            tabbarSnapshotView?.frame.origin.y = SCREEN_HEIGHT
+            fromVC?.navigationController?.navigationBar.frame.origin.y = -NAV_BAR_HEIGHT
+            }) { flag in
+                fromVC?.navigationController?.navigationBarHidden = true
         }
         
     }
@@ -108,17 +122,3 @@ class EYEVideoDetailPushTransition: NSObject, UIViewControllerAnimatedTransition
             }, completion: nil)
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
