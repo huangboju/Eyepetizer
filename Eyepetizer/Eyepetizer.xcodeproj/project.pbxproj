@@ -21,6 +21,7 @@
 		D8A3331E1D35DE6600EAEF36 /* GuillotineMenuTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A3331C1D35DE6600EAEF36 /* GuillotineMenuTransitionAnimation.swift */; };
 		D8A3331F1D35DE6600EAEF36 /* ic_menu@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A3331D1D35DE6600EAEF36 /* ic_menu@3x.png */; };
 		D8A333211D35DF5500EAEF36 /* EYEPullToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A333201D35DF5500EAEF36 /* EYEPullToRefreshView.swift */; };
+		D8B87AB51D3625F4009AD20E /* EYEPullToRefreshFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B87AB41D3625F4009AD20E /* EYEPullToRefreshFooterView.swift */; };
 		D8BB31FA1D337025002684CF /* EYEMainTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8BB31F91D337025002684CF /* EYEMainTabView.xib */; };
 		D8BB31FC1D337059002684CF /* EYELaunchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8BB31FB1D337059002684CF /* EYELaunchView.xib */; };
 		D8BB31FE1D337728002684CF /* EYENavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB31FD1D337728002684CF /* EYENavigationController.swift */; };
@@ -94,6 +95,7 @@
 		D8A3331C1D35DE6600EAEF36 /* GuillotineMenuTransitionAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuillotineMenuTransitionAnimation.swift; sourceTree = "<group>"; };
 		D8A3331D1D35DE6600EAEF36 /* ic_menu@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_menu@3x.png"; sourceTree = "<group>"; };
 		D8A333201D35DF5500EAEF36 /* EYEPullToRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEPullToRefreshView.swift; sourceTree = "<group>"; };
+		D8B87AB41D3625F4009AD20E /* EYEPullToRefreshFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEPullToRefreshFooterView.swift; sourceTree = "<group>"; };
 		D8BB31F91D337025002684CF /* EYEMainTabView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EYEMainTabView.xib; sourceTree = "<group>"; };
 		D8BB31FB1D337059002684CF /* EYELaunchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EYELaunchView.xib; sourceTree = "<group>"; };
 		D8BB31FD1D337728002684CF /* EYENavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYENavigationController.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 				D8A333101D35D5CE00EAEF36 /* EYECollectionView.swift */,
 				D8A333181D35D8CD00EAEF36 /* EYEChoiceHeaderView.swift */,
 				D8A333201D35DF5500EAEF36 /* EYEPullToRefreshView.swift */,
+				D8B87AB41D3625F4009AD20E /* EYEPullToRefreshFooterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 				D8BB32401D34B9AF002684CF /* EYEShapeView.swift in Sources */,
 				D8BB322B1D348973002684CF /* EYETabbarTransition.swift in Sources */,
 				D8BB323E1D34B865002684CF /* UIView+Extension.swift in Sources */,
+				D8B87AB51D3625F4009AD20E /* EYEPullToRefreshFooterView.swift in Sources */,
 				D8BB31FE1D337728002684CF /* EYENavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
