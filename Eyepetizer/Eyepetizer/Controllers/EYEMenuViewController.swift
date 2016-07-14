@@ -44,7 +44,7 @@ class EYEMenuViewController: UIViewController, GuillotineMenu {
         view.addSubview(tableView)
         tableView.snp_makeConstraints { make in
             make.left.right.bottom.equalTo(view)
-            make.top.equalTo(view).offset(NAV_BAR_HEIGHT)
+            make.top.equalTo(view).offset(NAV_BAR_HEIGHT + STATUS_BAR_HEIGHT)
         }
     }
     

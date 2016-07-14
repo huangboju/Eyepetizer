@@ -13,6 +13,14 @@
 		D828026F1D373D0C0019A7A2 /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D828026E1D373D0C0019A7A2 /* NSDate.swift */; };
 		D82802711D373DAB0019A7A2 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82802701D373DAB0019A7A2 /* String+Extension.swift */; };
 		D82802731D375F450019A7A2 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82802721D375F450019A7A2 /* UILabel+Extension.swift */; };
+		D82802761D3763470019A7A2 /* EYEDiscoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82802751D3763470019A7A2 /* EYEDiscoverController.swift */; };
+		D82802781D3763600019A7A2 /* EYEDiscoverDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82802771D3763600019A7A2 /* EYEDiscoverDetailController.swift */; };
+		D828027A1D3764080019A7A2 /* EYEDiscoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82802791D3764080019A7A2 /* EYEDiscoverCell.swift */; };
+		D828027C1D37657E0019A7A2 /* EYEDiscoverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D828027B1D37657E0019A7A2 /* EYEDiscoverModel.swift */; };
+		D828027E1D3766910019A7A2 /* Cell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D828027D1D3766910019A7A2 /* Cell+Extension.swift */; };
+		D82802801D3776C50019A7A2 /* EYEPopularHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D828027F1D3776C50019A7A2 /* EYEPopularHeaderView.swift */; };
+		D82802821D377B690019A7A2 /* EYEDiscoverDetailTimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82802811D377B690019A7A2 /* EYEDiscoverDetailTimeController.swift */; };
+		D82802841D377B810019A7A2 /* EYEDiscoverDetailShareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82802831D377B810019A7A2 /* EYEDiscoverDetailShareController.swift */; };
 		D8A333071D34EFCE00EAEF36 /* LoadingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A333061D34EFCE00EAEF36 /* LoadingPresenter.swift */; };
 		D8A333091D34F01B00EAEF36 /* EYELoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A333081D34F01B00EAEF36 /* EYELoaderView.swift */; };
 		D8A3330B1D34F11300EAEF36 /* APPImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A3330A1D34F11300EAEF36 /* APPImageView.swift */; };
@@ -38,7 +46,6 @@
 		D8BB32091D33868C002684CF /* EYEVideoDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB32081D33868C002684CF /* EYEVideoDetailController.swift */; };
 		D8BB320D1D33896D002684CF /* EYEVideoDetailPushTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB320C1D33896D002684CF /* EYEVideoDetailPushTransition.swift */; };
 		D8BB320F1D338D16002684CF /* EYEChoiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB320E1D338D16002684CF /* EYEChoiceCell.swift */; };
-		D8BB32271D34877E002684CF /* EYEDiscoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB32261D34877E002684CF /* EYEDiscoverController.swift */; };
 		D8BB32291D3487A7002684CF /* EYEPopularController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB32281D3487A7002684CF /* EYEPopularController.swift */; };
 		D8BB322B1D348973002684CF /* EYETabbarTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB322A1D348973002684CF /* EYETabbarTransition.swift */; };
 		D8BB322E1D348C01002684CF /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB322D1D348C01002684CF /* ItemModel.swift */; };
@@ -93,6 +100,14 @@
 		D828026E1D373D0C0019A7A2 /* NSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
 		D82802701D373DAB0019A7A2 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		D82802721D375F450019A7A2 /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		D82802751D3763470019A7A2 /* EYEDiscoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEDiscoverController.swift; sourceTree = "<group>"; };
+		D82802771D3763600019A7A2 /* EYEDiscoverDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEDiscoverDetailController.swift; sourceTree = "<group>"; };
+		D82802791D3764080019A7A2 /* EYEDiscoverCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEDiscoverCell.swift; sourceTree = "<group>"; };
+		D828027B1D37657E0019A7A2 /* EYEDiscoverModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEDiscoverModel.swift; sourceTree = "<group>"; };
+		D828027D1D3766910019A7A2 /* Cell+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Cell+Extension.swift"; sourceTree = "<group>"; };
+		D828027F1D3776C50019A7A2 /* EYEPopularHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEPopularHeaderView.swift; sourceTree = "<group>"; };
+		D82802811D377B690019A7A2 /* EYEDiscoverDetailTimeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEDiscoverDetailTimeController.swift; sourceTree = "<group>"; };
+		D82802831D377B810019A7A2 /* EYEDiscoverDetailShareController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEDiscoverDetailShareController.swift; sourceTree = "<group>"; };
 		D8A333061D34EFCE00EAEF36 /* LoadingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingPresenter.swift; sourceTree = "<group>"; };
 		D8A333081D34F01B00EAEF36 /* EYELoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYELoaderView.swift; sourceTree = "<group>"; };
 		D8A3330A1D34F11300EAEF36 /* APPImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APPImageView.swift; sourceTree = "<group>"; };
@@ -118,7 +133,6 @@
 		D8BB32081D33868C002684CF /* EYEVideoDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEVideoDetailController.swift; sourceTree = "<group>"; };
 		D8BB320C1D33896D002684CF /* EYEVideoDetailPushTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEVideoDetailPushTransition.swift; sourceTree = "<group>"; };
 		D8BB320E1D338D16002684CF /* EYEChoiceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEChoiceCell.swift; sourceTree = "<group>"; };
-		D8BB32261D34877E002684CF /* EYEDiscoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEDiscoverController.swift; sourceTree = "<group>"; };
 		D8BB32281D3487A7002684CF /* EYEPopularController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEPopularController.swift; sourceTree = "<group>"; };
 		D8BB322A1D348973002684CF /* EYETabbarTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYETabbarTransition.swift; sourceTree = "<group>"; };
 		D8BB322D1D348C01002684CF /* ItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
@@ -197,6 +211,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D82802741D37630D0019A7A2 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				D82802751D3763470019A7A2 /* EYEDiscoverController.swift */,
+				D82802771D3763600019A7A2 /* EYEDiscoverDetailController.swift */,
+				D82802811D377B690019A7A2 /* EYEDiscoverDetailTimeController.swift */,
+				D82802831D377B810019A7A2 /* EYEDiscoverDetailShareController.swift */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
 		D8A333051D34EF9500EAEF36 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +262,7 @@
 				D828026E1D373D0C0019A7A2 /* NSDate.swift */,
 				D82802701D373DAB0019A7A2 /* String+Extension.swift */,
 				D82802721D375F450019A7A2 /* UILabel+Extension.swift */,
+				D828027D1D3766910019A7A2 /* Cell+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -258,6 +284,7 @@
 				D8BB322D1D348C01002684CF /* ItemModel.swift */,
 				D8BB32311D3490D2002684CF /* EYEChoiceModel.swift */,
 				D8BB32331D3490F5002684CF /* IssueModel.swift */,
+				D828027B1D37657E0019A7A2 /* EYEDiscoverModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -349,10 +376,10 @@
 		D8F04F6A1D33629700BFE94D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D82802741D37630D0019A7A2 /* Discover */,
 				D8BB32041D3385F5002684CF /* EYEChoiceController.swift */,
 				D8BB32061D338608002684CF /* EYEBaseViewController.swift */,
 				D8BB32081D33868C002684CF /* EYEVideoDetailController.swift */,
-				D8BB32261D34877E002684CF /* EYEDiscoverController.swift */,
 				D8BB32281D3487A7002684CF /* EYEPopularController.swift */,
 				D8BB32391D349F91002684CF /* EYEPlayerController.swift */,
 				D8B326091D3726AD009D77A5 /* EYEMenuViewController.swift */,
@@ -377,6 +404,8 @@
 				D8A333181D35D8CD00EAEF36 /* EYEChoiceHeaderView.swift */,
 				D8A333201D35DF5500EAEF36 /* EYEPullToRefreshView.swift */,
 				D8B3260B1D3727DA009D77A5 /* EYEMenuHeaderView.swift */,
+				D82802791D3764080019A7A2 /* EYEDiscoverCell.swift */,
+				D828027F1D3776C50019A7A2 /* EYEPopularHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -592,26 +621,32 @@
 				D8BB32321D3490D2002684CF /* EYEChoiceModel.swift in Sources */,
 				D8BB32301D348E11002684CF /* Int+Extension.swift in Sources */,
 				D8F04F711D33670700BFE94D /* EYELaunchView.swift in Sources */,
-				D8BB32271D34877E002684CF /* EYEDiscoverController.swift in Sources */,
 				D8A333171D35D7BF00EAEF36 /* EYECollectionLayout.swift in Sources */,
 				D8A3330F1D35D0C700EAEF36 /* EYEMenuBtn.swift in Sources */,
 				D8BB320F1D338D16002684CF /* EYEChoiceCell.swift in Sources */,
+				D82802821D377B690019A7A2 /* EYEDiscoverDetailTimeController.swift in Sources */,
 				D8BB32031D33781D002684CF /* Constant.swift in Sources */,
 				D8A333111D35D5CE00EAEF36 /* EYECollectionView.swift in Sources */,
 				D8A3330D1D35D09600EAEF36 /* MenuPresenter.swift in Sources */,
 				D8BB32091D33868C002684CF /* EYEVideoDetailController.swift in Sources */,
 				D8BB32381D349DDE002684CF /* EYEVideoDetailPopTransition.swift in Sources */,
 				D8BB32291D3487A7002684CF /* EYEPopularController.swift in Sources */,
+				D828027A1D3764080019A7A2 /* EYEDiscoverCell.swift in Sources */,
 				D8F04F6F1D3363C400BFE94D /* EYEMainTabView.swift in Sources */,
 				D8A333211D35DF5500EAEF36 /* EYEPullToRefreshView.swift in Sources */,
+				D82802761D3763470019A7A2 /* EYEDiscoverController.swift in Sources */,
 				D8BB32341D3490F5002684CF /* IssueModel.swift in Sources */,
 				D828026F1D373D0C0019A7A2 /* NSDate.swift in Sources */,
 				D8A3330B1D34F11300EAEF36 /* APPImageView.swift in Sources */,
+				D82802841D377B810019A7A2 /* EYEDiscoverDetailShareController.swift in Sources */,
+				D828027C1D37657E0019A7A2 /* EYEDiscoverModel.swift in Sources */,
 				D8BB323A1D349F91002684CF /* EYEPlayerController.swift in Sources */,
+				D82802781D3763600019A7A2 /* EYEDiscoverDetailController.swift in Sources */,
 				D8BB323C1D34A1E2002684CF /* UIBarButtonItem+Extension.swift in Sources */,
 				D82802731D375F450019A7A2 /* UILabel+Extension.swift in Sources */,
 				D8B3260C1D3727DA009D77A5 /* EYEMenuHeaderView.swift in Sources */,
 				D8F04F6C1D33632700BFE94D /* EYEMainViewController.swift in Sources */,
+				D82802801D3776C50019A7A2 /* EYEPopularHeaderView.swift in Sources */,
 				D82802711D373DAB0019A7A2 /* String+Extension.swift in Sources */,
 				D8BB32071D338608002684CF /* EYEBaseViewController.swift in Sources */,
 				D8BB320D1D33896D002684CF /* EYEVideoDetailPushTransition.swift in Sources */,
@@ -621,6 +656,7 @@
 				D8A333091D34F01B00EAEF36 /* EYELoaderView.swift in Sources */,
 				D8BB324D1D34C0FB002684CF /* ViewController.swift in Sources */,
 				D8F04F381D334F0400BFE94D /* AppDelegate.swift in Sources */,
+				D828027E1D3766910019A7A2 /* Cell+Extension.swift in Sources */,
 				D8A333071D34EFCE00EAEF36 /* LoadingPresenter.swift in Sources */,
 				D8BB32401D34B9AF002684CF /* EYEShapeView.swift in Sources */,
 				D8BB322B1D348973002684CF /* EYETabbarTransition.swift in Sources */,
