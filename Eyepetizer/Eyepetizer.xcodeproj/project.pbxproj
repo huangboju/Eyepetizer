@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		6D701304C12142799F941ADF /* Pods_Eyepetizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4722CD8F01DB54D9D85935 /* Pods_Eyepetizer.framework */; };
+		D828026B1D3732BE0019A7A2 /* Request+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D828026A1D3732BE0019A7A2 /* Request+Extension.swift */; };
+		D828026D1D3734690019A7A2 /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D828026C1D3734690019A7A2 /* UIScrollView+Extension.swift */; };
+		D828026F1D373D0C0019A7A2 /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D828026E1D373D0C0019A7A2 /* NSDate.swift */; };
+		D82802711D373DAB0019A7A2 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82802701D373DAB0019A7A2 /* String+Extension.swift */; };
 		D8A333071D34EFCE00EAEF36 /* LoadingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A333061D34EFCE00EAEF36 /* LoadingPresenter.swift */; };
 		D8A333091D34F01B00EAEF36 /* EYELoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A333081D34F01B00EAEF36 /* EYELoaderView.swift */; };
 		D8A3330B1D34F11300EAEF36 /* APPImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A3330A1D34F11300EAEF36 /* APPImageView.swift */; };
@@ -21,7 +25,8 @@
 		D8A3331E1D35DE6600EAEF36 /* GuillotineMenuTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A3331C1D35DE6600EAEF36 /* GuillotineMenuTransitionAnimation.swift */; };
 		D8A3331F1D35DE6600EAEF36 /* ic_menu@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A3331D1D35DE6600EAEF36 /* ic_menu@3x.png */; };
 		D8A333211D35DF5500EAEF36 /* EYEPullToRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A333201D35DF5500EAEF36 /* EYEPullToRefreshView.swift */; };
-		D8B87AB51D3625F4009AD20E /* EYEPullToRefreshFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B87AB41D3625F4009AD20E /* EYEPullToRefreshFooterView.swift */; };
+		D8B3260A1D3726AD009D77A5 /* EYEMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B326091D3726AD009D77A5 /* EYEMenuViewController.swift */; };
+		D8B3260C1D3727DA009D77A5 /* EYEMenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B3260B1D3727DA009D77A5 /* EYEMenuHeaderView.swift */; };
 		D8BB31FA1D337025002684CF /* EYEMainTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8BB31F91D337025002684CF /* EYEMainTabView.xib */; };
 		D8BB31FC1D337059002684CF /* EYELaunchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8BB31FB1D337059002684CF /* EYELaunchView.xib */; };
 		D8BB31FE1D337728002684CF /* EYENavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB31FD1D337728002684CF /* EYENavigationController.swift */; };
@@ -82,6 +87,10 @@
 		04DB4FB3CDD17F126B3F7FE0 /* Pods-Eyepetizer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eyepetizer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Eyepetizer/Pods-Eyepetizer.debug.xcconfig"; sourceTree = "<group>"; };
 		08539C316B4FBF156918296D /* Pods-Eyepetizer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eyepetizer.release.xcconfig"; path = "Pods/Target Support Files/Pods-Eyepetizer/Pods-Eyepetizer.release.xcconfig"; sourceTree = "<group>"; };
 		3F4722CD8F01DB54D9D85935 /* Pods_Eyepetizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eyepetizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D828026A1D3732BE0019A7A2 /* Request+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Extension.swift"; sourceTree = "<group>"; };
+		D828026C1D3734690019A7A2 /* UIScrollView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extension.swift"; sourceTree = "<group>"; };
+		D828026E1D373D0C0019A7A2 /* NSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
+		D82802701D373DAB0019A7A2 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		D8A333061D34EFCE00EAEF36 /* LoadingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingPresenter.swift; sourceTree = "<group>"; };
 		D8A333081D34F01B00EAEF36 /* EYELoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYELoaderView.swift; sourceTree = "<group>"; };
 		D8A3330A1D34F11300EAEF36 /* APPImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APPImageView.swift; sourceTree = "<group>"; };
@@ -95,7 +104,8 @@
 		D8A3331C1D35DE6600EAEF36 /* GuillotineMenuTransitionAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuillotineMenuTransitionAnimation.swift; sourceTree = "<group>"; };
 		D8A3331D1D35DE6600EAEF36 /* ic_menu@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_menu@3x.png"; sourceTree = "<group>"; };
 		D8A333201D35DF5500EAEF36 /* EYEPullToRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEPullToRefreshView.swift; sourceTree = "<group>"; };
-		D8B87AB41D3625F4009AD20E /* EYEPullToRefreshFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEPullToRefreshFooterView.swift; sourceTree = "<group>"; };
+		D8B326091D3726AD009D77A5 /* EYEMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEMenuViewController.swift; sourceTree = "<group>"; };
+		D8B3260B1D3727DA009D77A5 /* EYEMenuHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEMenuHeaderView.swift; sourceTree = "<group>"; };
 		D8BB31F91D337025002684CF /* EYEMainTabView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EYEMainTabView.xib; sourceTree = "<group>"; };
 		D8BB31FB1D337059002684CF /* EYELaunchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EYELaunchView.xib; sourceTree = "<group>"; };
 		D8BB31FD1D337728002684CF /* EYENavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYENavigationController.swift; sourceTree = "<group>"; };
@@ -220,6 +230,10 @@
 				D8BB323B1D34A1E2002684CF /* UIBarButtonItem+Extension.swift */,
 				D8BB323D1D34B865002684CF /* UIView+Extension.swift */,
 				D8A333141D35D67B00EAEF36 /* UICollectionView+Extension.swift */,
+				D828026A1D3732BE0019A7A2 /* Request+Extension.swift */,
+				D828026C1D3734690019A7A2 /* UIScrollView+Extension.swift */,
+				D828026E1D373D0C0019A7A2 /* NSDate.swift */,
+				D82802701D373DAB0019A7A2 /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -338,6 +352,7 @@
 				D8BB32261D34877E002684CF /* EYEDiscoverController.swift */,
 				D8BB32281D3487A7002684CF /* EYEPopularController.swift */,
 				D8BB32391D349F91002684CF /* EYEPlayerController.swift */,
+				D8B326091D3726AD009D77A5 /* EYEMenuViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -358,7 +373,7 @@
 				D8A333101D35D5CE00EAEF36 /* EYECollectionView.swift */,
 				D8A333181D35D8CD00EAEF36 /* EYEChoiceHeaderView.swift */,
 				D8A333201D35DF5500EAEF36 /* EYEPullToRefreshView.swift */,
-				D8B87AB41D3625F4009AD20E /* EYEPullToRefreshFooterView.swift */,
+				D8B3260B1D3727DA009D77A5 /* EYEMenuHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -587,10 +602,13 @@
 				D8F04F6F1D3363C400BFE94D /* EYEMainTabView.swift in Sources */,
 				D8A333211D35DF5500EAEF36 /* EYEPullToRefreshView.swift in Sources */,
 				D8BB32341D3490F5002684CF /* IssueModel.swift in Sources */,
+				D828026F1D373D0C0019A7A2 /* NSDate.swift in Sources */,
 				D8A3330B1D34F11300EAEF36 /* APPImageView.swift in Sources */,
 				D8BB323A1D349F91002684CF /* EYEPlayerController.swift in Sources */,
 				D8BB323C1D34A1E2002684CF /* UIBarButtonItem+Extension.swift in Sources */,
+				D8B3260C1D3727DA009D77A5 /* EYEMenuHeaderView.swift in Sources */,
 				D8F04F6C1D33632700BFE94D /* EYEMainViewController.swift in Sources */,
+				D82802711D373DAB0019A7A2 /* String+Extension.swift in Sources */,
 				D8BB32071D338608002684CF /* EYEBaseViewController.swift in Sources */,
 				D8BB320D1D33896D002684CF /* EYEVideoDetailPushTransition.swift in Sources */,
 				D8BB32491D34BF6E002684CF /* R.generated.swift in Sources */,
@@ -602,9 +620,11 @@
 				D8A333071D34EFCE00EAEF36 /* LoadingPresenter.swift in Sources */,
 				D8BB32401D34B9AF002684CF /* EYEShapeView.swift in Sources */,
 				D8BB322B1D348973002684CF /* EYETabbarTransition.swift in Sources */,
+				D828026D1D3734690019A7A2 /* UIScrollView+Extension.swift in Sources */,
+				D8B3260A1D3726AD009D77A5 /* EYEMenuViewController.swift in Sources */,
 				D8BB323E1D34B865002684CF /* UIView+Extension.swift in Sources */,
-				D8B87AB51D3625F4009AD20E /* EYEPullToRefreshFooterView.swift in Sources */,
 				D8BB31FE1D337728002684CF /* EYENavigationController.swift in Sources */,
+				D828026B1D3732BE0019A7A2 /* Request+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
