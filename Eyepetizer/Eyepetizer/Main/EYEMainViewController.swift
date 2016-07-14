@@ -7,7 +7,7 @@ class EYEMainViewController: UITabBarController {
     private lazy var tabView: EYEMainTabView = {
         var tabView = EYEMainTabView.tabView()
         tabView.frame = self.tabBar.bounds
-//        tabView.delegate = self
+        tabView.delegate = self
         return tabView
     }()
     
@@ -75,11 +75,8 @@ extension EYEMainViewController: UITabBarControllerDelegate {
     }
 }
 
-
-
-
-
-
-
-
-
+extension EYEMainViewController: EYEMainTabViewDelegate {
+    func tabBarDidSelector(fromSelectorButton from: Int, toSelectorButton to: Int, title : String) {
+        selectedIndex = to
+    }
+}

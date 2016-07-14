@@ -50,7 +50,7 @@ class EYEVideoDetailView: UIView {
     }()
     
     lazy var playImageView: UIImageView = {
-        var playImageView = APPImageView(image: R.image.ic_action_play())
+        let playImageView = APPImageView(image: R.image.ic_action_play())
         playImageView.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
         playImageView.center = self.albumImageView.center
         playImageView.viewAddTarget(self, action: #selector(playImageViewDidClick))
@@ -67,20 +67,20 @@ class EYEVideoDetailView: UIView {
     }()
     
     private lazy var lineView: UIView = {
-        var lineView = UIView(frame: CGRect(x: MARGIN_10, y: self.videoTitleLabel.frame.maxY + MARGIN_10, width: self.frame.width - 2 * MARGIN_10, height: 0.5))
+        let lineView = UIView(frame: CGRect(x: MARGIN_10, y: self.videoTitleLabel.frame.maxY + MARGIN_10, width: self.frame.width - 2 * MARGIN_10, height: 0.5))
         lineView.backgroundColor = UIColor.whiteColor()
         return lineView
     }()
     
     lazy var classifyLabel: UILabel = {
-        var classifyLabel = UILabel(frame: CGRect(x: MARGIN_10, y: self.lineView.frame.maxY + MARGIN_10, width: self.frame.width - 2 * MARGIN_10, height: 20))
+        let classifyLabel = UILabel(frame: CGRect(x: MARGIN_10, y: self.lineView.frame.maxY + MARGIN_10, width: self.frame.width - 2 * MARGIN_10, height: 20))
         classifyLabel.textColor = UIColor.whiteColor()
         classifyLabel.font = UIFont.customFont_FZLTXIHJW()
         return classifyLabel
     }()
     
     lazy var describeLabel: UILabel = {
-        var describeLabel = UILabel(frame: CGRect(x: MARGIN_10, y: self.classifyLabel.frame.maxY + MARGIN_10, width: self.frame.width - 2 * MARGIN_10, height: 200))
+        let describeLabel = UILabel(frame: CGRect(x: MARGIN_10, y: self.classifyLabel.frame.maxY + MARGIN_10, width: self.frame.width - 2 * MARGIN_10, height: 200))
         describeLabel.numberOfLines = 0
         describeLabel.textColor = UIColor.whiteColor()
         describeLabel.font = UIFont.customFont_FZLTXIHJW()
@@ -106,10 +106,31 @@ class EYEVideoDetailView: UIView {
         addSubview(classifyLabel)
         addSubview(describeLabel)
         addSubview(bottomToolView)
+        
+        let itemSize: CGFloat = 80
+        for i in 0..<bottomImages.count {
+            let btn = BottomItemBtn(frame: CGRect(x: MARGIN_15 + CGFloat(i) * itemSize, y: 0, width: itemSize, height: bottomToolView.frame.height), title: "0", image: bottomImages[i]!)
+            items.append(btn)
+            bottomToolView.addSubview(btn)
+        }
     }
     
     var model: ItemModel! {
         didSet {
+            blurImageView.yy_setImageWithURL(NSURL(string:model.feed), options: .AllowBackgroundTask)
+            videoTitleLabel.animationString = model.title
+            classifyLabel.text = model.subTitle
+            
+            // 显示底部数据
+            items.first?.setTitle(model.collectionCount.description, forState: .Normal)
+            items[1].setTitle(model.shareCount.description, forState: .Normal)
+            items[2].setTitle(model.replyCount.description, forState: .Normal)
+            items.last?.setTitle("缓存", forState: .Normal)
+            
+
+            describeLabel.text = model.description
+            let size = self.describeLabel.boundingRectWithSize(describeLabel.frame.size)
+            describeLabel.frame = CGRect(origin: describeLabel.frame.origin, size: size)
         }
     }
     

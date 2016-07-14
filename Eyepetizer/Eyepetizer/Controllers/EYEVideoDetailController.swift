@@ -6,6 +6,7 @@ class EYEVideoDetailController: UIViewController {
     var model: ItemModel?
     var panIsCancel = false
     private var percentDrivenTransition: UIPercentDrivenInteractiveTransition?
+    
     lazy var detailView: EYEVideoDetailView = {
         let detailView = EYEVideoDetailView(frame: self.view.bounds)
         detailView.delegate = self
@@ -19,10 +20,9 @@ class EYEVideoDetailController: UIViewController {
         view.addSubview(detailView)
         detailView.model = model
         navigationController?.delegate = self
-        navigationItem.leftBarButtonItem = UIBarButtonItem.barButtonItemWithImg(UIImage(named: "ic_action_back"), selectedImg: nil, target: self, action: #selector(leftBtnDidClick))
-        
+        navigationItem.leftBarButtonItem = UIBarButtonItem.barButtonItemWithImg(R.image.ic_action_back(), selectedImg: nil, target: self, action: #selector(leftBtnDidClick))
         let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(edgePanGesture))
-        edgePan.edges = UIRectEdge.Left
+        edgePan.edges = .Left
         view.addGestureRecognizer(edgePan)
     }
     
