@@ -23,7 +23,6 @@ class EYEMainViewController: UITabBarController {
         tabBar.addSubview(tabView)
         
         addChildVC()
-        
         view.addSubview(launchView)
         launchView.animationDidStop { [unowned self] (launchView) in
             self.launchViewRemoveAnimation()

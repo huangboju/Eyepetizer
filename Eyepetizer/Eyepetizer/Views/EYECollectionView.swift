@@ -7,7 +7,7 @@ class EYECollectionView: UICollectionView {
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         backgroundColor = UIColor.whiteColor()
-        registerClass(EYEChoiceCell.self, forCellWithReuseIdentifier: EYEChoiceCell.reuseIdentifier)
+        registerClass(EYEChoiceCell.self, forCellWithReuseIdentifier: EYEChoiceCell.cellID)
     }
     
     required init?(coder aDecoder: NSCoder) {

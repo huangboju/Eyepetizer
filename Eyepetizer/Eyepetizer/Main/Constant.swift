@@ -11,11 +11,11 @@ let IPHONE5_HEIGHT: CGFloat = 568
 let SCREEN_WIDTH = UIScreen.mainScreen().bounds.width
 let SCREEN_HEIGHT = UIScreen.mainScreen().bounds.height
 
-let IS_6P = SCREEN_WIDTH == IPHONE6P_WIDTH
-
 let NAV_BAR_HEIGHT: CGFloat = 44
-let STATUS_BAR_HEIGHT: CGFloat = IS_6P ? 27 : 20
-let TAB_BAR_HEIGHT: CGFloat = IS_6P ? (146 / 3) : 49
+let STATUS_BAR_HEIGHT: CGFloat = 20
+let TAB_BAR_HEIGHT: CGFloat = 49
+
+let ROW_HEIGHT: CGFloat = 44
 
 // 周排行-月排行-总排行高度
 let CHARTS_HEIGHT: CGFloat = 50

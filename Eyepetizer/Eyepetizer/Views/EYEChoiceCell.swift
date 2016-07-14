@@ -4,7 +4,7 @@
 
 import  SnapKit
 
-class EYEChoiceCell: UICollectionViewCell, Reusable {
+class EYEChoiceCell: UICollectionViewCell {
     var model: ItemModel? {
         didSet {
             if let feed = model?.feed {

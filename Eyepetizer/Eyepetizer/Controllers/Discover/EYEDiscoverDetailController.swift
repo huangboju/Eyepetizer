@@ -23,6 +23,7 @@ class EYEDiscoverDetailController: EYEBaseViewController {
         headerView.headerViewTitleDidClick { [unowned self] (targetBtn, index) in
             self.itemDidClick(index)
         }
+        itemDidClick(0)
     }
     
     override func viewWillAppear(animated: Bool) {
