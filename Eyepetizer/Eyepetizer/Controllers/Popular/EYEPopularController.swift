@@ -24,7 +24,7 @@ class EYEPopularController: EYEBaseViewController, LoadingPresenter {
         itemDidClick(0)
     }
     
-    private func itemDidClick(index : Int) {
+    private func itemDidClick(index: Int) {
         var actionController: UIViewController!
         // 再添加控制器
         switch index {
