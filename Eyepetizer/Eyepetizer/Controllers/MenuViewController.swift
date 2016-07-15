@@ -2,7 +2,7 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-class EYEMenuViewController: UIViewController, GuillotineMenu {
+class MenuViewController: UIViewController, GuillotineMenu {
     let titles = ["我的缓存", "功能开关", "我要投稿", "更多应用"]
     private let menuViewCellId = "menuViewCellId"
     
@@ -57,7 +57,7 @@ class EYEMenuViewController: UIViewController, GuillotineMenu {
     }
 }
 
-extension EYEMenuViewController: UITableViewDataSource, UITableViewDelegate {
+extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }

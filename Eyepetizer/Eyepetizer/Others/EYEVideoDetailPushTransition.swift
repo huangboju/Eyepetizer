@@ -3,7 +3,7 @@
 //
 
 class EYEVideoDetailPushTransition: NSObject, UIViewControllerAnimatedTransitioning {
-    private var toVC: EYEVideoDetailController?
+    private var toVC: VideoDetailController?
     private var fromVC: BaseController?
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
@@ -14,7 +14,7 @@ class EYEVideoDetailPushTransition: NSObject, UIViewControllerAnimatedTransition
         let container = transitionContext.containerView()
         
         let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as? BaseController
-        let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as? EYEVideoDetailController
+        let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as? VideoDetailController
         
         self.fromVC = fromVC
         self.toVC = toVC

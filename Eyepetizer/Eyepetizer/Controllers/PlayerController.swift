@@ -4,7 +4,7 @@
 
 import AVFoundation
 
-class EYEPlayerController: UIViewController {
+class PlayerController: UIViewController {
     private enum PlayerState {
         case Buffering  //缓冲中
         case Playing    //播放中

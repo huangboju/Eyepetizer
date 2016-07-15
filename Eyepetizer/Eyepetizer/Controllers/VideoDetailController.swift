@@ -2,7 +2,7 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-class EYEVideoDetailController: UIViewController {
+class VideoDetailController: UIViewController {
     var model: ItemModel?
     var panIsCancel = false
     private var percentDrivenTransition: UIPercentDrivenInteractiveTransition?
@@ -64,19 +64,19 @@ class EYEVideoDetailController: UIViewController {
     }
 }
 
-extension EYEVideoDetailController: UINavigationControllerDelegate {
+extension VideoDetailController: UINavigationControllerDelegate {
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return operation == .Pop ? EYEVideoDetailPopTransition() : nil
     }
     
     func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return animationController is EYEVideoDetailController ? percentDrivenTransition : nil
+        return animationController is VideoDetailController ? percentDrivenTransition : nil
     }
 }
 
-extension EYEVideoDetailController: EYEVideoDetailViewDelegate {
+extension VideoDetailController: EYEVideoDetailViewDelegate {
     func playImageViewDidClick() {
-        let playerController = EYEPlayerController(url: model!.playUrl, title: model!.title)
+        let playerController = PlayerController(url: model!.playUrl, title: model!.title)
         navigationController?.pushViewController(playerController, animated: false)
     }
     

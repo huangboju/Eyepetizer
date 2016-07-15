@@ -19,7 +19,7 @@ class BaseController: UIViewController {
 extension BaseController: UINavigationControllerDelegate {
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
-        if operation == .Push && toVC is EYEVideoDetailController {
+        if operation == .Push && toVC is VideoDetailController {
             return EYEVideoDetailPushTransition()
         }
         return nil

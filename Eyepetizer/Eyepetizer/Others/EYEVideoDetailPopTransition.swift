@@ -3,7 +3,7 @@
 //
 
 class EYEVideoDetailPopTransition: NSObject, UIViewControllerAnimatedTransitioning {
-    private var fromVC: EYEVideoDetailController!
+    private var fromVC: VideoDetailController!
     private var toVC: BaseController!
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
@@ -11,7 +11,7 @@ class EYEVideoDetailPopTransition: NSObject, UIViewControllerAnimatedTransitioni
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as! EYEVideoDetailController
+        let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as! VideoDetailController
         let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as! BaseController
         let container = transitionContext.containerView()
         self.fromVC = fromVC

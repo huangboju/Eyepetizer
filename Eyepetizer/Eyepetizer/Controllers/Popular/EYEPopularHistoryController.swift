@@ -72,7 +72,7 @@ extension EYEPopularHistoryController: UICollectionViewDelegate, UICollectionVie
             (parentViewController as? EYEPopularController)?.selectCell = collectionView.cellForItemAtIndexPath(indexPath) as? EYEChoiceCell
         }
         let model = models[indexPath.row]
-        navigationController?.pushViewController(EYEVideoDetailController(model: model), animated: true)
+        navigationController?.pushViewController(VideoDetailController(model: model), animated: true)
     }
     
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {

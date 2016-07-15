@@ -82,7 +82,7 @@ class ChoiceController: BaseController, LoadingPresenter, MenuPresenter {
     }
     
     func menuBtnDidClick() {
-        let menuController = EYEMenuViewController()
+        let menuController = MenuViewController()
         menuController.modalPresentationStyle = .Custom
         menuController.transitioningDelegate = self
         
@@ -127,7 +127,7 @@ extension ChoiceController: UICollectionViewDelegate, UICollectionViewDataSource
             APESuperHUD.showOrUpdateHUD(icon: .SadFace, message: "没有播放地址", duration: 0.3, presentingView: view, completion: nil)
             return
         }
-        navigationController?.pushViewController(EYEVideoDetailController(model: model), animated: true)
+        navigationController?.pushViewController(VideoDetailController(model: model), animated: true)
     }
     
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {

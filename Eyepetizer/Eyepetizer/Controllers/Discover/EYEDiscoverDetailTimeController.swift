@@ -88,6 +88,6 @@ extension EYEDiscoverDetailTimeController: UICollectionViewDelegate, UICollectio
             (parentViewController as! EYEDiscoverDetailController).selectCell = collectionView.cellForItemAtIndexPath(indexPath) as? EYEChoiceCell
         }
         let model = models[indexPath.row]
-        navigationController?.pushViewController(EYEVideoDetailController(model: model), animated: true)
+        navigationController?.pushViewController(VideoDetailController(model: model), animated: true)
     }
 }
