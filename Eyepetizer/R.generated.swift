@@ -363,12 +363,14 @@ struct R {
     private init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 3 nibs.
   struct nib {
     /// Nib `EYELaunchView`.
     static let eYELaunchView = _R.nib._EYELaunchView()
     /// Nib `EYEMainTabView`.
     static let eYEMainTabView = _R.nib._EYEMainTabView()
+    /// Nib `EYEPlayerView`.
+    static let eYEPlayerView = _R.nib._EYEPlayerView()
     
     /// `UINib(name: "EYELaunchView", bundle: ...)`
     static func eYELaunchView(_: Void) -> UINib {
@@ -378,6 +380,11 @@ struct R {
     /// `UINib(name: "EYEMainTabView", bundle: ...)`
     static func eYEMainTabView(_: Void) -> UINib {
       return UINib(resource: R.nib.eYEMainTabView)
+    }
+    
+    /// `UINib(name: "EYEPlayerView", bundle: ...)`
+    static func eYEPlayerView(_: Void) -> UINib {
+      return UINib(resource: R.nib.eYEPlayerView)
     }
     
     private init() {}
@@ -443,6 +450,17 @@ struct _R {
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> EYEMainTabView? {
         return instantiateWithOwner(ownerOrNil, options: optionsOrNil)[0] as? EYEMainTabView
+      }
+      
+      private init() {}
+    }
+    
+    struct _EYEPlayerView: NibResourceType {
+      let bundle = _R.hostingBundle
+      let name = "EYEPlayerView"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> EYEPlayerView? {
+        return instantiateWithOwner(ownerOrNil, options: optionsOrNil)[0] as? EYEPlayerView
       }
       
       private init() {}

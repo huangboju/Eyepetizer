@@ -63,6 +63,7 @@ class EYEPopularController: EYEBaseViewController, LoadingPresenter {
             toVC.view.alpha = 1
             }) { (flag) in
                 fromVC.view.removeFromSuperview()
+                self.currentController = nil
                 self.currentController = toVC
         }
     }

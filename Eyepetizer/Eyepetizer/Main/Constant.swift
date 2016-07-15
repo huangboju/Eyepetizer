@@ -46,6 +46,7 @@ let MARGIN_15: CGFloat = 15
 let MARGIN_20: CGFloat = 20
 
 let launchImgKey = "launchImgKey"
+let NotificationManager = NSNotificationCenter.defaultCenter()
 
 //MARK: - EYEAPIHeaper
 struct EYEAPIHeaper {

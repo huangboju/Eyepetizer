@@ -6,7 +6,7 @@ import Alamofire
 import SwiftyJSON
 
 extension Request {
-    public func responseSwiftyJSON(completionHandler: (NSURLRequest, NSHTTPURLResponse?, SwiftyJSON.JSON, ErrorType?)  -> Void) -> Self {
+    public func responseSwiftyJSON(completionHandler: (NSURLRequest, NSHTTPURLResponse?, SwiftyJSON.JSON, ErrorType?) -> Void) -> Self {
         return responseSwiftyJSON(nil, options: .AllowFragments, completionHandler:completionHandler)
     }
     

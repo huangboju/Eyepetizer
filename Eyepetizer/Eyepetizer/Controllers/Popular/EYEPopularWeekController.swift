@@ -20,23 +20,23 @@ class EYEPopularWeekController: UIViewController, LoadingPresenter {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(collectionView)
         setupLoaderView()
         getData()
     }
     
-    private func getData(api : String = EYEAPIHeaper.API_Popular_Weakly) {
+    private func getData(api: String = EYEAPIHeaper.API_Popular_Weakly) {
         setLoaderViewHidden(false)
         Alamofire.request(.GET, api).responseSwiftyJSON ({ [unowned self](request, response, json, error) in
-            // 字典转模型 刷新数据
             if json != .null && error == nil {
                 if let dataDict = json.rawValue as? [String : AnyObject] {
                     let itemArray = dataDict["videoList"] as! NSArray
                     self.models = itemArray.map({ (dict) -> ItemModel in
                         ItemModel(dict: dict as? [String : AnyObject])
                     })
-                    
-                    self.collectionView.reloadData()
+                    print(self.models)
                 }
+                self.collectionView.reloadData()
             }
             self.setLoaderViewHidden(true)
             })
@@ -50,6 +50,7 @@ class EYEPopularWeekController: UIViewController, LoadingPresenter {
 extension EYEPopularWeekController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(models, "models")
         return models.count
     }
     

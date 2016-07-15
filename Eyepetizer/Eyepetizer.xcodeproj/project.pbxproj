@@ -26,6 +26,9 @@
 		D828028B1D37BB160019A7A2 /* EYEPopularMonthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D828028A1D37BB160019A7A2 /* EYEPopularMonthController.swift */; };
 		D828028D1D37BB270019A7A2 /* EYEPopularHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D828028C1D37BB270019A7A2 /* EYEPopularHistoryController.swift */; };
 		D83A5E0D1D38730C002078DB /* EYEPopularFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83A5E0C1D38730C002078DB /* EYEPopularFooterView.swift */; };
+		D83A5E101D388C4F002078DB /* EYEPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D83A5E0E1D388C4F002078DB /* EYEPlayerView.xib */; };
+		D83A5E111D388C4F002078DB /* EYEPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83A5E0F1D388C4F002078DB /* EYEPlayerView.swift */; };
+		D83A5E131D388E27002078DB /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83A5E121D388E27002078DB /* Notification.swift */; };
 		D8A333071D34EFCE00EAEF36 /* LoadingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A333061D34EFCE00EAEF36 /* LoadingPresenter.swift */; };
 		D8A333091D34F01B00EAEF36 /* EYELoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A333081D34F01B00EAEF36 /* EYELoaderView.swift */; };
 		D8A3330B1D34F11300EAEF36 /* APPImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A3330A1D34F11300EAEF36 /* APPImageView.swift */; };
@@ -117,6 +120,9 @@
 		D828028A1D37BB160019A7A2 /* EYEPopularMonthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEPopularMonthController.swift; sourceTree = "<group>"; };
 		D828028C1D37BB270019A7A2 /* EYEPopularHistoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEPopularHistoryController.swift; sourceTree = "<group>"; };
 		D83A5E0C1D38730C002078DB /* EYEPopularFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEPopularFooterView.swift; sourceTree = "<group>"; };
+		D83A5E0E1D388C4F002078DB /* EYEPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EYEPlayerView.xib; sourceTree = "<group>"; };
+		D83A5E0F1D388C4F002078DB /* EYEPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEPlayerView.swift; sourceTree = "<group>"; };
+		D83A5E121D388E27002078DB /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		D8A333061D34EFCE00EAEF36 /* LoadingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingPresenter.swift; sourceTree = "<group>"; };
 		D8A333081D34F01B00EAEF36 /* EYELoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYELoaderView.swift; sourceTree = "<group>"; };
 		D8A3330A1D34F11300EAEF36 /* APPImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APPImageView.swift; sourceTree = "<group>"; };
@@ -289,6 +295,7 @@
 		D8BB320B1D338948002684CF /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				D83A5E121D388E27002078DB /* Notification.swift */,
 				D8BB320C1D33896D002684CF /* EYEVideoDetailPushTransition.swift */,
 				D8BB322A1D348973002684CF /* EYETabbarTransition.swift */,
 				D8BB32371D349DDE002684CF /* EYEVideoDetailPopTransition.swift */,
@@ -409,12 +416,14 @@
 		D8F04F6D1D33639100BFE94D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D83A5E0E1D388C4F002078DB /* EYEPlayerView.xib */,
 				D8BB31FB1D337059002684CF /* EYELaunchView.xib */,
 				D8BB31F91D337025002684CF /* EYEMainTabView.xib */,
 				D8F04F6E1D3363C400BFE94D /* EYEMainTabView.swift */,
 				D8F04F701D33670700BFE94D /* EYELaunchView.swift */,
 				D8BB320E1D338D16002684CF /* EYEChoiceCell.swift */,
 				D8BB32351D349C02002684CF /* EYEVideoDetailView.swift */,
+				D83A5E0F1D388C4F002078DB /* EYEPlayerView.swift */,
 				D8BB323F1D34B9AF002684CF /* EYEShapeView.swift */,
 				D8A333081D34F01B00EAEF36 /* EYELoaderView.swift */,
 				D8A3330A1D34F11300EAEF36 /* APPImageView.swift */,
@@ -543,6 +552,7 @@
 				D8BB31FA1D337025002684CF /* EYEMainTabView.xib in Resources */,
 				D8BB32461D34BDF9002684CF /* FZLTZCHJW--GB1-0.TTF in Resources */,
 				D8BB32471D34BDF9002684CF /* Lobster 1.4.otf in Resources */,
+				D83A5E101D388C4F002078DB /* EYEPlayerView.xib in Resources */,
 				D8BB31FC1D337059002684CF /* EYELaunchView.xib in Resources */,
 				D8A3331F1D35DE6600EAEF36 /* ic_menu@3x.png in Resources */,
 				D8F04F3F1D334F0400BFE94D /* Assets.xcassets in Resources */,
@@ -645,6 +655,7 @@
 				D8A3330F1D35D0C700EAEF36 /* EYEMenuBtn.swift in Sources */,
 				D8BB320F1D338D16002684CF /* EYEChoiceCell.swift in Sources */,
 				D82802821D377B690019A7A2 /* EYEDiscoverDetailTimeController.swift in Sources */,
+				D83A5E111D388C4F002078DB /* EYEPlayerView.swift in Sources */,
 				D8BB32031D33781D002684CF /* Constant.swift in Sources */,
 				D8A333111D35D5CE00EAEF36 /* EYECollectionView.swift in Sources */,
 				D8A3330D1D35D09600EAEF36 /* MenuPresenter.swift in Sources */,
@@ -681,6 +692,7 @@
 				D8F04F381D334F0400BFE94D /* AppDelegate.swift in Sources */,
 				D828027E1D3766910019A7A2 /* Cell+Extension.swift in Sources */,
 				D8A333071D34EFCE00EAEF36 /* LoadingPresenter.swift in Sources */,
+				D83A5E131D388E27002078DB /* Notification.swift in Sources */,
 				D8BB32401D34B9AF002684CF /* EYEShapeView.swift in Sources */,
 				D8BB322B1D348973002684CF /* EYETabbarTransition.swift in Sources */,
 				D828026D1D3734690019A7A2 /* UIScrollView+Extension.swift in Sources */,

@@ -22,6 +22,7 @@ class EYEPopularMonthController: UIViewController, LoadingPresenter {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(collectionView)
         setupLoaderView()
         
         getData()
