@@ -115,7 +115,7 @@ class EYEPullToRefreshHeaderView: EYEPullToRefreshView {
                 if PullToRefreshViewState.Refreshing == oldState {
                     UIView.animateWithDuration(animationDuration, animations: {
                         var contentInset = self.scrollView.contentInset
-                        contentInset.top = self.scrollViewOriginalInset.top + NAV_BAR_HEIGHT + STATUS_BAR_HEIGHT
+                        contentInset.top = self.scrollViewOriginalInset.top + TOP_BAR_HEIGHT
                         self.scrollView.contentInset = contentInset
                     })
                     

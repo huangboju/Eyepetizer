@@ -14,7 +14,7 @@ class EYELaunchView: UIView {
     // 黑色背景
     @IBOutlet weak var blackBgView: UIView!
     // 动画完成回调
-    typealias AnimationDidStopCallBack = (launchView : EYELaunchView) -> Void
+    typealias AnimationDidStopCallBack = (launchView: EYELaunchView) -> Void
     var callBack : AnimationDidStopCallBack?
     
     class func launchView() -> EYELaunchView {

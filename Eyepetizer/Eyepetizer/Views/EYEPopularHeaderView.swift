@@ -59,7 +59,7 @@ class EYEPopularHeaderView: UIView {
             return
         }
         
-        self.startAnimation(sender.tag)
+        startAnimation(sender.tag)
         
         if let handle = handle {
             handle(targetBtn: sender, index: sender.tag)
@@ -86,7 +86,7 @@ class EYEPopularHeaderView: UIView {
     func setupLineViewWidth(width: CGFloat) {
         bottomLineView.frame.size.width = width
         topLineView.frame.size.width = width
-        bottomLineView.center = CGPoint(x: titleLabels.first!.center.x, y: frame.height-12)
+        bottomLineView.center = CGPoint(x: titleLabels.first!.center.x, y: frame.height - 12)
         topLineView.center = CGPoint(x: titleLabels.first!.center.x, y: 12)
     }
     

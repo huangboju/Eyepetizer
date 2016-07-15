@@ -10,7 +10,7 @@ class EYEDiscoverDetailController: EYEBaseViewController {
     private var categoryId = 0
     
     private lazy var headerView: EYEPopularHeaderView = {
-        let headerView = EYEPopularHeaderView(frame: CGRect(x: 0, y: NAV_BAR_HEIGHT + STATUS_BAR_HEIGHT, width: SCREEN_WIDTH, height: CHARTS_HEIGHT), titles: self.titles)
+        let headerView = EYEPopularHeaderView(frame: CGRect(x: 0, y: TOP_BAR_HEIGHT, width: SCREEN_WIDTH, height: CHARTS_HEIGHT), titles: self.titles)
         headerView.setupLineViewWidth(65)
         return headerView
     }()

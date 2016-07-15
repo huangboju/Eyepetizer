@@ -13,6 +13,7 @@ let SCREEN_HEIGHT = UIScreen.mainScreen().bounds.height
 
 let NAV_BAR_HEIGHT: CGFloat = 44
 let STATUS_BAR_HEIGHT: CGFloat = 20
+let TOP_BAR_HEIGHT = STATUS_BAR_HEIGHT + NAV_BAR_HEIGHT
 let TAB_BAR_HEIGHT: CGFloat = 49
 
 let ROW_HEIGHT: CGFloat = 44

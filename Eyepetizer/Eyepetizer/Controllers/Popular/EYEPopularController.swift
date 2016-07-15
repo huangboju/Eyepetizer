@@ -11,14 +11,14 @@ class EYEPopularController: EYEBaseViewController, LoadingPresenter {
     private var currentController: UIViewController?
     
     private lazy var headerView: EYEPopularHeaderView = {
-        let headerView = EYEPopularHeaderView(frame: CGRect(x: 0, y: NAV_BAR_HEIGHT + STATUS_BAR_HEIGHT, width: SCREEN_WIDTH, height: CHARTS_HEIGHT), titles: self.titles)
+        let headerView = EYEPopularHeaderView(frame: CGRect(x: 0, y: TOP_BAR_HEIGHT, width: SCREEN_WIDTH, height: CHARTS_HEIGHT), titles: self.titles)
         return headerView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(headerView)
-        headerView.headerViewTitleDidClick { [unowned self](targetBtn, index) in
+        headerView.headerViewTitleDidClick { [unowned self] (targetBtn, index) in
             self.itemDidClick(index)
         }
         itemDidClick(0)
@@ -49,8 +49,8 @@ class EYEPopularController: EYEBaseViewController, LoadingPresenter {
         addChildViewController(actionController)
         view.addSubview(actionController.view)
         setupControllerFrame(actionController.view)
-        if let currentVC = currentController {
-            startAnimation(currentVC, toVC: actionController)
+        if let currentController = currentController {
+            startAnimation(currentController, toVC: actionController)
         } else {
             currentController = actionController
         }
@@ -75,12 +75,3 @@ class EYEPopularController: EYEBaseViewController, LoadingPresenter {
         }
     }
 }
-
-
-
-
-
-
-
-
-
