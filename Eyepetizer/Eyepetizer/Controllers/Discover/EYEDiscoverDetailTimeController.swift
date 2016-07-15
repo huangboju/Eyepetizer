@@ -12,7 +12,7 @@ class EYEDiscoverDetailTimeController: UIViewController, LoadingPresenter {
     
     private lazy var collectionView : EYECollectionView = {
         let rect = CGRect(x: 0, y: 0, width: self.view.frame.width, height: SCREEN_HEIGHT - TAB_BAR_HEIGHT - NAV_BAR_HEIGHT - STATUS_BAR_HEIGHT)
-        let collectionView = EYECollectionView(frame: rect, collectionViewLayout:EYECollectionLayout())
+        let collectionView = EYECollectionView(frame: rect, collectionViewLayout:CollectionLayout())
         collectionView.delegate = self
         collectionView.dataSource = self
         return collectionView

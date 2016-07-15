@@ -10,10 +10,10 @@ class PopularMonthController: UIViewController, LoadingPresenter {
     
     private lazy var collectionView: EYECollectionView = {
         let rect = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - TAB_BAR_HEIGHT - CHARTS_HEIGHT - TOP_BAR_HEIGHT)
-        let collectionView = EYECollectionView(frame: rect, collectionViewLayout:EYECollectionLayout())
+        let collectionView = EYECollectionView(frame: rect, collectionViewLayout:CollectionLayout())
         collectionView.registerClass(EYEChoiceHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: EYEChoiceHeaderView.reuseIdentifier)
         collectionView.registerClass(EYEPopularFooterView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: EYEPopularFooterView.reuseIdentifier)
-        let layout = collectionView.collectionViewLayout as? EYECollectionLayout
+        let layout = collectionView.collectionViewLayout as? CollectionLayout
         layout?.footerReferenceSize = CGSize(width: collectionView.frame.width, height: 50)
         collectionView.delegate = self
         collectionView.dataSource = self

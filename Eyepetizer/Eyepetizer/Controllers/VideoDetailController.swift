@@ -66,7 +66,7 @@ class VideoDetailController: UIViewController {
 
 extension VideoDetailController: UINavigationControllerDelegate {
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return operation == .Pop ? EYEVideoDetailPopTransition() : nil
+        return operation == .Pop ? VideoDetailPopTransition() : nil
     }
     
     func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {

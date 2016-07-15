@@ -2,7 +2,7 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-struct EYEDiscoverModel {
+struct DiscoverModel {
     var id = 0
     /// 分类名
     var name = ""

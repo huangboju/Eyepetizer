@@ -6,7 +6,7 @@ import Alamofire
 
 class EYEDiscoverController: UIViewController, LoadingPresenter {
     var loaderView: EYELoaderView?
-    var models = [EYEDiscoverModel]()
+    var models = [DiscoverModel]()
     
     private lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -37,8 +37,8 @@ class EYEDiscoverController: UIViewController, LoadingPresenter {
             
             if json != .null && error == nil{
                 let jsonArray = json.arrayValue
-                self.models = jsonArray.map({ (dict) -> EYEDiscoverModel in
-                    return EYEDiscoverModel(dict: dict.rawValue as? [String : AnyObject] ?? [String : AnyObject]())
+                self.models = jsonArray.map({ (dict) -> DiscoverModel in
+                    return DiscoverModel(dict: dict.rawValue as? [String : AnyObject] ?? [String : AnyObject]())
                 })
                 self.collectionView.reloadData()
             }

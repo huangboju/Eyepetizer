@@ -2,7 +2,7 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-class EYECollectionLayout: UICollectionViewFlowLayout {
+class CollectionLayout: UICollectionViewFlowLayout {
     override init () {
         super.init()
         itemSize = CGSize(width: SCREEN_WIDTH, height: 200 * SCREEN_WIDTH / IPHONE5_WIDTH)

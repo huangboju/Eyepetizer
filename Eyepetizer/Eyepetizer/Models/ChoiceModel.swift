@@ -2,7 +2,7 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-struct EYEChoiceModel {
+struct ChoiceModel {
     var issueList = [IssueModel]()
     /// 下一个page的地址
     var nextPageUrl = ""

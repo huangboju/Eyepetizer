@@ -9,8 +9,8 @@ class PopularWeekController: UIViewController, LoadingPresenter {
     private var models = [ItemModel]()
     private lazy var collectionView: EYECollectionView = {
         let rect = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - TAB_BAR_HEIGHT - CHARTS_HEIGHT - TOP_BAR_HEIGHT)
-        let collectionView = EYECollectionView(frame: rect, collectionViewLayout: EYECollectionLayout())
-        let layout = collectionView.collectionViewLayout as? EYECollectionLayout
+        let collectionView = EYECollectionView(frame: rect, collectionViewLayout: CollectionLayout())
+        let layout = collectionView.collectionViewLayout as? CollectionLayout
         layout?.footerReferenceSize = CGSize(width: collectionView.frame.width, height: 50)
         collectionView.registerClass(EYEPopularFooterView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: EYEPopularFooterView.reuseIdentifier)
         collectionView.delegate = self

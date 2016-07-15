@@ -11,7 +11,7 @@ class ChoiceController: BaseController, LoadingPresenter, MenuPresenter {
     var menuBtn: EYEMenuBtn?
     
     private lazy var collectionView: EYECollectionView = {
-        let collectionView = EYECollectionView(frame: self.view.bounds, collectionViewLayout: EYECollectionLayout())
+        let collectionView = EYECollectionView(frame: self.view.bounds, collectionViewLayout: CollectionLayout())
         collectionView.registerClass(EYEChoiceHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: EYEChoiceHeaderView.reuseIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self

@@ -2,7 +2,7 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-class EYEVideoDetailPopTransition: NSObject, UIViewControllerAnimatedTransitioning {
+class VideoDetailPopTransition: NSObject, UIViewControllerAnimatedTransitioning {
     private var fromVC: VideoDetailController!
     private var toVC: BaseController!
     

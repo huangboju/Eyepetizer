@@ -2,7 +2,7 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-class EYEVideoDetailPushTransition: NSObject, UIViewControllerAnimatedTransitioning {
+class VideoDetailPushTransition: NSObject, UIViewControllerAnimatedTransitioning {
     private var toVC: VideoDetailController?
     private var fromVC: BaseController?
     

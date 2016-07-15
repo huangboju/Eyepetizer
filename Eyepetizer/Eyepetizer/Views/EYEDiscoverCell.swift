@@ -23,7 +23,7 @@ class EYEDiscoverCell: UICollectionViewCell {
         return titleLabel
     }()
     
-    var model: EYEDiscoverModel! {
+    var model: DiscoverModel! {
         didSet {
             self.backgroundImageView.yy_setImageWithURL(NSURL(string: model.bgPicture)!, options: .ProgressiveBlur)
             self.titleLabel.text = model.name
