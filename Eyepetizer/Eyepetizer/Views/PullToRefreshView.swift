@@ -16,10 +16,10 @@ enum PullToRefreshViewState {
     case  Normal, Pulling, Refreshing
 }
 
-//MARK: - EYEPullToRefreshView
-class EYEPullToRefreshView: UIView {
+//MARK: - PullToRefreshView
+class PullToRefreshView: UIView {
     typealias beginRefreshingBlock = () -> Void
-    var loadView: EYELoaderView!
+    var loadView: LoaderView!
     var beginRefreshingCallback: beginRefreshingBlock?
     var oldState: PullToRefreshViewState! = .Normal
     private var scrollView: UIScrollView!
@@ -50,7 +50,7 @@ class EYEPullToRefreshView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        loadView = EYELoaderView(frame: CGRect(origin: CGPoint.zero, size: frame.size))
+        loadView = LoaderView(frame: CGRect(origin: CGPoint.zero, size: frame.size))
         loadView.center = center
         addSubview(loadView)
     }
@@ -102,8 +102,8 @@ class EYEPullToRefreshView: UIView {
     }
 }
 
-//MARK: - EYEPullToRefreshHeaderView
-class EYEPullToRefreshHeaderView: EYEPullToRefreshView {
+//MARK: - PullToRefreshHeaderView
+class PullToRefreshHeaderView: PullToRefreshView {
     override var state: PullToRefreshViewState {
         willSet {
             oldState = state
@@ -137,8 +137,8 @@ class EYEPullToRefreshHeaderView: EYEPullToRefreshView {
         }
     }
     
-    class func headerView() -> EYEPullToRefreshHeaderView {
-        return EYEPullToRefreshHeaderView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: pullToRefreshHeight))
+    class func headerView() -> PullToRefreshHeaderView {
+        return PullToRefreshHeaderView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: pullToRefreshHeight))
     }
     
     override func willMoveToSuperview(newSuperview: UIView!) {
@@ -178,8 +178,8 @@ class EYEPullToRefreshHeaderView: EYEPullToRefreshView {
     }
 }
 
-//MARK: - EYEPullToRefreshFooterView
-class EYEPullToRefreshFooterView: EYEPullToRefreshView {
+//MARK: - PullToRefreshFooterView
+class PullToRefreshFooterView: PullToRefreshView {
     
     private var lastRefreshCount = 0
     
@@ -223,8 +223,8 @@ class EYEPullToRefreshFooterView: EYEPullToRefreshView {
         }
     }
     
-    class func footerView() -> EYEPullToRefreshFooterView {
-        return EYEPullToRefreshFooterView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: pullToRefreshHeight))
+    class func footerView() -> PullToRefreshFooterView {
+        return PullToRefreshFooterView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: pullToRefreshHeight))
     }
     
     override func willMoveToSuperview(newSuperview: UIView?) {

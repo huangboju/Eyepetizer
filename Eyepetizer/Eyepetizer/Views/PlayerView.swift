@@ -1,6 +1,6 @@
 //
-//  EYEPlayerView.swift
-//  EyepetizerApp
+//  PlayerView.swift
+//  petizerApp
 //
 //  Created by 梁亦明 on 16/3/29.
 //  Copyright © 2016年 xiaoming. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EYEPlayerView: UIView {
+class PlayerView: UIView {
     // 播放进度
     @IBOutlet weak var sliderView: UISlider!
     // 开始时间
@@ -58,15 +58,15 @@ class EYEPlayerView: UIView {
         horizontalLabel.hidden = true
         
         // 点击屏幕
-        let tap = UITapGestureRecognizer(target: self, action: #selector(EYEPlayerView.tapAction))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(PlayerView.tapAction))
         addGestureRecognizer(tap)
     }
     
     /**
      加载view
      */
-    class func playerView() -> EYEPlayerView {
-        return NSBundle.mainBundle().loadNibNamed("EYEPlayerView", owner: nil, options: nil).first as! EYEPlayerView
+    class func playerView() -> PlayerView {
+        return NSBundle.mainBundle().loadNibNamed("PlayerView", owner: nil, options: nil).first as! PlayerView
     }
     
     /**
@@ -132,7 +132,7 @@ class EYEPlayerView: UIView {
      */
     private func afterHidden() {
         
-        NSObject.cancelPreviousPerformRequestsWithTarget(self, selector: #selector(EYEPlayerView.hiddenAnimation), object: nil)
-        performSelector(#selector(EYEPlayerView.hiddenAnimation), withObject: nil, afterDelay: 5.0)
+        NSObject.cancelPreviousPerformRequestsWithTarget(self, selector: #selector(PlayerView.hiddenAnimation), object: nil)
+        performSelector(#selector(PlayerView.hiddenAnimation), withObject: nil, afterDelay: 5.0)
     }
 }

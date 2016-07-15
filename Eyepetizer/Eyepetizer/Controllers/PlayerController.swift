@@ -19,8 +19,8 @@ class PlayerController: UIViewController {
         "playbackLikelyToKeepUp"
     ]
     
-    private lazy var playView: EYEPlayerView = {
-        let playView = EYEPlayerView.playerView()
+    private lazy var playView: PlayerView = {
+        let playView = PlayerView.playerView()
         playView.titleLabel.text = self.videoTitle
         playView.frame = self.view.bounds
         return playView

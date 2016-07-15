@@ -1,24 +1,24 @@
 //
-//  EYEMainTabView.swift
-//  EyepetizerApp
+//  MainTabView.swift
+//  petizerApp
 //
 //  Created by 梁亦明 on 16/3/11.
 //  Copyright © 2016年 xiaoming. All rights reserved.
 //
 import UIKit
 
-protocol EYEMainTabViewDelegate {
+protocol MainTabViewDelegate {
     // 点击前回调
     // tabbar点击时调用 定义协议规则  from:to: 从某个按钮跳到某个按钮
     func tabBarDidSelector(fromSelectorButton from:Int,toSelectorButton to:Int, title : String)
 }
 
-class EYEMainTabView: UIView {
+class MainTabView: UIView {
     @IBOutlet weak var choiceBtn: UIButton!
     @IBOutlet weak var discoverBtn: UIButton!
     @IBOutlet weak var popularBtn: UIButton!
     private weak var selectorBtn: UIButton!
-    var delegate : EYEMainTabViewDelegate?
+    var delegate : MainTabViewDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,8 +34,8 @@ class EYEMainTabView: UIView {
         selectorBtn = choiceBtn
     }
     
-    class func tabView() -> EYEMainTabView {
-        return NSBundle.mainBundle().loadNibNamed("EYEMainTabView", owner: nil, options: nil).first as! EYEMainTabView
+    class func tabView() -> MainTabView {
+        return NSBundle.mainBundle().loadNibNamed("MainTabView", owner: nil, options: nil).first as! MainTabView
     }
     @IBAction func choiceBtnClick(sender: UIButton) {
         setupSelectBtn(sender)

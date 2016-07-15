@@ -3,15 +3,15 @@
 //
 
 class PopularController: BaseController, LoadingPresenter {
-    var loaderView: EYELoaderView?
+    var loaderView: LoaderView?
     private let titles = ["周排行", "月排行", "总排行"]
     private var weekController: PopularWeekController?
     private var monthController: PopularMonthController?
     private var historyController: PopularHistoryController?
     private var currentController: UIViewController?
     
-    private lazy var headerView: EYEPopularHeaderView = {
-        let headerView = EYEPopularHeaderView(frame: CGRect(x: 0, y: TOP_BAR_HEIGHT, width: SCREEN_WIDTH, height: CHARTS_HEIGHT), titles: self.titles)
+    private lazy var headerView: PopularHeaderView = {
+        let headerView = PopularHeaderView(frame: CGRect(x: 0, y: TOP_BAR_HEIGHT, width: SCREEN_WIDTH, height: CHARTS_HEIGHT), titles: self.titles)
         return headerView
     }()
     

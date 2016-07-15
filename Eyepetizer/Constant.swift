@@ -50,8 +50,8 @@ let launchImgKey = "launchImgKey"
 let NotificationManager = NSNotificationCenter.defaultCenter()
 let ApplicationManager = UIApplication.sharedApplication()
 
-//MARK: - EYEAPIHeaper
-struct EYEAPIHeaper {
+//MARK: - APIHeaper
+struct APIHeaper {
     static let API_Service = "http://baobab.wandoujia.com/api/v2/"
     /// 一.每日精选api 参数 1.date:时间戳 2.num：数量(默认7)  date=1457883945551&num=7
     static let API_Choice = API_Service + "feed"

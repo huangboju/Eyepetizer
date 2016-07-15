@@ -2,13 +2,13 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-protocol EYEVideoDetailViewDelegate: class {
+protocol VideoDetailViewDelegate: class {
     func playImageViewDidClick()
     func backBtnDidClick()
 }
 
-class EYEVideoDetailView: UIView {
-    weak var delegate: EYEVideoDetailViewDelegate!
+class VideoDetailView: UIView {
+    weak var delegate: VideoDetailViewDelegate!
     private var items = [BottomItemBtn]()
     private var bottomImages = [
         R.image.ic_action_favorites_without_padding(),
@@ -57,10 +57,10 @@ class EYEVideoDetailView: UIView {
         return playImageView
     }()
     
-    lazy var videoTitleLabel: EYEShapeView = {
+    lazy var videoTitleLabel: ShapeView = {
         let rect = CGRect(x: MARGIN_10, y: self.albumImageView.frame.maxY + MARGIN_10, width: self.frame.width - 2 * MARGIN_10, height: 20)
         let font = UIFont.customFont_FZLTZCHJW(fontSize: LABEL_FONT_SIZE)
-        var videoTitleLabel = EYEShapeView(frame: rect)
+        var videoTitleLabel = ShapeView(frame: rect)
         videoTitleLabel.font = font
         videoTitleLabel.fontSize = LABEL_FONT_SIZE
         return videoTitleLabel

@@ -7,8 +7,8 @@ class VideoDetailController: UIViewController {
     var panIsCancel = false
     private var percentDrivenTransition: UIPercentDrivenInteractiveTransition?
     
-    lazy var detailView: EYEVideoDetailView = {
-        let detailView = EYEVideoDetailView(frame: self.view.bounds)
+    lazy var detailView: VideoDetailView = {
+        let detailView = VideoDetailView(frame: self.view.bounds)
         detailView.delegate = self
         return detailView
     }()
@@ -29,7 +29,7 @@ class VideoDetailController: UIViewController {
     convenience init(model: ItemModel) {
         self.init()
         self.model = model
-        title = "Eyepelizer"
+        title = "pelizer"
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -74,7 +74,7 @@ extension VideoDetailController: UINavigationControllerDelegate {
     }
 }
 
-extension VideoDetailController: EYEVideoDetailViewDelegate {
+extension VideoDetailController: VideoDetailViewDelegate {
     func playImageViewDidClick() {
         let playerController = PlayerController(url: model!.playUrl, title: model!.title)
         navigationController?.pushViewController(playerController, animated: false)

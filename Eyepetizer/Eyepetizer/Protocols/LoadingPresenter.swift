@@ -3,13 +3,13 @@
 //
 
 protocol LoadingPresenter: class {
-    var loaderView: EYELoaderView? { get set }
+    var loaderView: LoaderView? { get set }
 }
 
 extension LoadingPresenter where Self: UIViewController {
     func setupLoaderView() {
         if  loaderView == nil {
-            loaderView = EYELoaderView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 100))
+            loaderView = LoaderView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: 100))
             loaderView?.center = CGPoint(x: SCREEN_WIDTH * 0.5, y: SCREEN_HEIGHT * 0.4)
             view.addSubview(loaderView!)
         }

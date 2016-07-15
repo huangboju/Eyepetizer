@@ -2,15 +2,15 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-class EYEDiscoverDetailController: BaseController {
+class DiscoverDetailController: BaseController {
     private let titles = ["按时间排序", "分享排行榜"]
-    private var timeController: EYEDiscoverDetailTimeController?
-    private var shareController: EYEDiscoverDetailShareController?
+    private var timeController: DiscoverDetailTimeController?
+    private var shareController: DiscoverDetailShareController?
     private var currentController: UIViewController?
     private var categoryId = 0
     
-    private lazy var headerView: EYEPopularHeaderView = {
-        let headerView = EYEPopularHeaderView(frame: CGRect(x: 0, y: TOP_BAR_HEIGHT, width: SCREEN_WIDTH, height: CHARTS_HEIGHT), titles: self.titles)
+    private lazy var headerView: PopularHeaderView = {
+        let headerView = PopularHeaderView(frame: CGRect(x: 0, y: TOP_BAR_HEIGHT, width: SCREEN_WIDTH, height: CHARTS_HEIGHT), titles: self.titles)
         headerView.setupLineViewWidth(65)
         return headerView
     }()
@@ -43,12 +43,12 @@ class EYEDiscoverDetailController: BaseController {
         switch index {
         case 0:
             if timeController == nil {
-                timeController = EYEDiscoverDetailTimeController(categoryId: categoryId)
+                timeController = DiscoverDetailTimeController(categoryId: categoryId)
             }
             actionController = timeController
         case 1:
             if shareController == nil {
-                shareController = EYEDiscoverDetailShareController(categoryId: categoryId)
+                shareController = DiscoverDetailShareController(categoryId: categoryId)
             }
             actionController = shareController
         default:

@@ -4,15 +4,15 @@
 
 import Alamofire
 
-class EYEDiscoverDetailTimeController: UIViewController, LoadingPresenter {
-    var loaderView: EYELoaderView?
+class DiscoverDetailTimeController: UIViewController, LoadingPresenter {
+    var loaderView: LoaderView?
     private var models = [ItemModel]()
     private var nextURL: String?
     private var categoryId = 0
     
-    private lazy var collectionView : EYECollectionView = {
+    private lazy var collectionView : CollectionView = {
         let rect = CGRect(x: 0, y: 0, width: self.view.frame.width, height: SCREEN_HEIGHT - TAB_BAR_HEIGHT - NAV_BAR_HEIGHT - STATUS_BAR_HEIGHT)
-        let collectionView = EYECollectionView(frame: rect, collectionViewLayout:CollectionLayout())
+        let collectionView = CollectionView(frame: rect, collectionViewLayout:CollectionLayout())
         collectionView.delegate = self
         collectionView.dataSource = self
         return collectionView
@@ -31,7 +31,7 @@ class EYEDiscoverDetailTimeController: UIViewController, LoadingPresenter {
         }
     }
     
-    private func getData(api : String = EYEAPIHeaper.API_Discover_Date, params:[String: AnyObject]? = nil) {
+    private func getData(api : String = APIHeaper.API_Discover_Date, params:[String: AnyObject]? = nil) {
         print("\(api) - \(params)")
         Alamofire.request(.POST, api, parameters: params).responseSwiftyJSON ({ [unowned self](request, response, json, error) -> Void in
             // 字典转模型 刷新数据
@@ -70,22 +70,22 @@ class EYEDiscoverDetailTimeController: UIViewController, LoadingPresenter {
     }
 }
 
-extension EYEDiscoverDetailTimeController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension DiscoverDetailTimeController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return models.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCellWithReuseIdentifier(EYEChoiceCell.cellID, forIndexPath: indexPath)
+        return collectionView.dequeueReusableCellWithReuseIdentifier(ChoiceCell.cellID, forIndexPath: indexPath)
     }
     
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        (cell as? EYEChoiceCell)?.model = models[indexPath.row]
+        (cell as? ChoiceCell)?.model = models[indexPath.row]
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        if parentViewController is EYEDiscoverDetailController {
-            (parentViewController as! EYEDiscoverDetailController).selectCell = collectionView.cellForItemAtIndexPath(indexPath) as? EYEChoiceCell
+        if parentViewController is DiscoverDetailController {
+            (parentViewController as! DiscoverDetailController).selectCell = collectionView.cellForItemAtIndexPath(indexPath) as? ChoiceCell
         }
         let model = models[indexPath.row]
         navigationController?.pushViewController(VideoDetailController(model: model), animated: true)

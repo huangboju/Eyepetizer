@@ -365,26 +365,26 @@ struct R {
   
   /// This `R.nib` struct is generated, and contains static references to 3 nibs.
   struct nib {
-    /// Nib `EYELaunchView`.
-    static let eYELaunchView = _R.nib._EYELaunchView()
-    /// Nib `EYEMainTabView`.
-    static let eYEMainTabView = _R.nib._EYEMainTabView()
-    /// Nib `EYEPlayerView`.
-    static let eYEPlayerView = _R.nib._EYEPlayerView()
+    /// Nib `LaunchView`.
+    static let launchView = _R.nib._LaunchView()
+    /// Nib `MainTabView`.
+    static let mainTabView = _R.nib._MainTabView()
+    /// Nib `PlayerView`.
+    static let playerView = _R.nib._PlayerView()
     
-    /// `UINib(name: "EYELaunchView", bundle: ...)`
-    static func eYELaunchView(_: Void) -> UINib {
-      return UINib(resource: R.nib.eYELaunchView)
+    /// `UINib(name: "LaunchView", bundle: ...)`
+    static func launchView(_: Void) -> UINib {
+      return UINib(resource: R.nib.launchView)
     }
     
-    /// `UINib(name: "EYEMainTabView", bundle: ...)`
-    static func eYEMainTabView(_: Void) -> UINib {
-      return UINib(resource: R.nib.eYEMainTabView)
+    /// `UINib(name: "MainTabView", bundle: ...)`
+    static func mainTabView(_: Void) -> UINib {
+      return UINib(resource: R.nib.mainTabView)
     }
     
-    /// `UINib(name: "EYEPlayerView", bundle: ...)`
-    static func eYEPlayerView(_: Void) -> UINib {
-      return UINib(resource: R.nib.eYEPlayerView)
+    /// `UINib(name: "PlayerView", bundle: ...)`
+    static func playerView(_: Void) -> UINib {
+      return UINib(resource: R.nib.playerView)
     }
     
     private init() {}
@@ -433,34 +433,34 @@ struct _R {
   static let hostingBundle = NSBundle(identifier: "Eyepetizer.Eyepetizer") ?? NSBundle.mainBundle()
   
   struct nib {
-    struct _EYELaunchView: NibResourceType {
+    struct _LaunchView: NibResourceType {
       let bundle = _R.hostingBundle
-      let name = "EYELaunchView"
+      let name = "LaunchView"
       
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> EYELaunchView? {
-        return instantiateWithOwner(ownerOrNil, options: optionsOrNil)[0] as? EYELaunchView
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> LaunchView? {
+        return instantiateWithOwner(ownerOrNil, options: optionsOrNil)[0] as? LaunchView
       }
       
       private init() {}
     }
     
-    struct _EYEMainTabView: NibResourceType {
+    struct _MainTabView: NibResourceType {
       let bundle = _R.hostingBundle
-      let name = "EYEMainTabView"
+      let name = "MainTabView"
       
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> EYEMainTabView? {
-        return instantiateWithOwner(ownerOrNil, options: optionsOrNil)[0] as? EYEMainTabView
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> MainTabView? {
+        return instantiateWithOwner(ownerOrNil, options: optionsOrNil)[0] as? MainTabView
       }
       
       private init() {}
     }
     
-    struct _EYEPlayerView: NibResourceType {
+    struct _PlayerView: NibResourceType {
       let bundle = _R.hostingBundle
-      let name = "EYEPlayerView"
+      let name = "PlayerView"
       
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> EYEPlayerView? {
-        return instantiateWithOwner(ownerOrNil, options: optionsOrNil)[0] as? EYEPlayerView
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> PlayerView? {
+        return instantiateWithOwner(ownerOrNil, options: optionsOrNil)[0] as? PlayerView
       }
       
       private init() {}

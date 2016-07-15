@@ -5,14 +5,14 @@
 import Alamofire
 
 class PopularMonthController: UIViewController, LoadingPresenter {
-    var loaderView: EYELoaderView?
+    var loaderView: LoaderView?
     var models = [ItemModel]()
     
-    private lazy var collectionView: EYECollectionView = {
+    private lazy var collectionView: CollectionView = {
         let rect = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - TAB_BAR_HEIGHT - CHARTS_HEIGHT - TOP_BAR_HEIGHT)
-        let collectionView = EYECollectionView(frame: rect, collectionViewLayout:CollectionLayout())
-        collectionView.registerClass(EYEChoiceHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: EYEChoiceHeaderView.reuseIdentifier)
-        collectionView.registerClass(EYEPopularFooterView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: EYEPopularFooterView.reuseIdentifier)
+        let collectionView = CollectionView(frame: rect, collectionViewLayout:CollectionLayout())
+        collectionView.registerClass(ChoiceHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: ChoiceHeaderView.reuseIdentifier)
+        collectionView.registerClass(PopularFooterView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: PopularFooterView.reuseIdentifier)
         let layout = collectionView.collectionViewLayout as? CollectionLayout
         layout?.footerReferenceSize = CGSize(width: collectionView.frame.width, height: 50)
         collectionView.delegate = self
@@ -31,7 +31,7 @@ class PopularMonthController: UIViewController, LoadingPresenter {
     private func getData() {
         
         setLoaderViewHidden(false)
-        Alamofire.request(.GET, EYEAPIHeaper.API_Popular_Monthly).responseSwiftyJSON ({ [unowned self](request, response, json, error) in
+        Alamofire.request(.GET, APIHeaper.API_Popular_Monthly).responseSwiftyJSON ({ [unowned self](request, response, json, error) in
             // 字典转模型 刷新数据
             if json != .null && error == nil {
                 if let dataDict = json.rawValue as? [String : AnyObject] {
@@ -57,18 +57,18 @@ extension PopularMonthController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCellWithReuseIdentifier(EYEChoiceCell.cellID, forIndexPath: indexPath)
+        return collectionView.dequeueReusableCellWithReuseIdentifier(ChoiceCell.cellID, forIndexPath: indexPath)
     }
     
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        let cell = cell as? EYEChoiceCell
+        let cell = cell as? ChoiceCell
         cell?.model = models[indexPath.row]
         cell?.index = "\(indexPath.row + 1)"
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if parentViewController is PopularController {
-            (parentViewController as? PopularController)?.selectCell = collectionView.cellForItemAtIndexPath(indexPath) as? EYEChoiceCell
+            (parentViewController as? PopularController)?.selectCell = collectionView.cellForItemAtIndexPath(indexPath) as? ChoiceCell
         }
         let model = models[indexPath.row]
         navigationController?.pushViewController(VideoDetailController(model: model), animated: true)
@@ -76,7 +76,7 @@ extension PopularMonthController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         if kind == UICollectionElementKindSectionFooter {
-            let footView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: EYEPopularFooterView.reuseIdentifier, forIndexPath: indexPath)
+            let footView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: PopularFooterView.reuseIdentifier, forIndexPath: indexPath)
             return footView
         }
         return UICollectionReusableView()

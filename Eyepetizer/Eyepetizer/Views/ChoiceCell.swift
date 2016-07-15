@@ -4,7 +4,7 @@
 
 import  SnapKit
 
-class EYEChoiceCell: UICollectionViewCell {
+class ChoiceCell: UICollectionViewCell {
     var model: ItemModel? {
         didSet {
             if let feed = model?.feed {

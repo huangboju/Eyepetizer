@@ -4,8 +4,8 @@
 
 import Alamofire
 
-class EYEDiscoverController: UIViewController, LoadingPresenter {
-    var loaderView: EYELoaderView?
+class DiscoverController: UIViewController, LoadingPresenter {
+    var loaderView: LoaderView?
     var models = [DiscoverModel]()
     
     private lazy var collectionView : UICollectionView = {
@@ -17,7 +17,7 @@ class EYEDiscoverController: UIViewController, LoadingPresenter {
         layout.minimumLineSpacing = 1
         
         let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
-        collectionView.registerClass(EYEDiscoverCell.self, forCellWithReuseIdentifier: EYEDiscoverCell.cellID)
+        collectionView.registerClass(DiscoverCell.self, forCellWithReuseIdentifier: DiscoverCell.cellID)
         collectionView.backgroundColor = UIColor.whiteColor()
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -33,7 +33,7 @@ class EYEDiscoverController: UIViewController, LoadingPresenter {
     
     private func getData() {
         setLoaderViewHidden(false)
-        Alamofire.request(.GET, EYEAPIHeaper.API_Discover).responseSwiftyJSON ({ [unowned self](request, response, json, error) -> Void in
+        Alamofire.request(.GET, APIHeaper.API_Discover).responseSwiftyJSON ({ [unowned self](request, response, json, error) -> Void in
             
             if json != .null && error == nil{
                 let jsonArray = json.arrayValue
@@ -47,23 +47,23 @@ class EYEDiscoverController: UIViewController, LoadingPresenter {
     }
 }
 
-extension EYEDiscoverController : UICollectionViewDelegate, UICollectionViewDataSource {
+extension DiscoverController : UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return models.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCellWithReuseIdentifier(EYEDiscoverCell.cellID, forIndexPath: indexPath)
+        return collectionView.dequeueReusableCellWithReuseIdentifier(DiscoverCell.cellID, forIndexPath: indexPath)
     }
     
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        let cell = cell as? EYEDiscoverCell
+        let cell = cell as? DiscoverCell
         cell?.model = models[indexPath.row]
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let model = models[indexPath.row]
-        let detailController = EYEDiscoverDetailController(title: model.name, categoryId: model.id)
+        let detailController = DiscoverDetailController(title: model.name, categoryId: model.id)
         detailController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(detailController, animated: true)
     }

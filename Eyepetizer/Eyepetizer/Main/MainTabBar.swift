@@ -4,15 +4,15 @@
 
 class MainTabBar: UITabBarController {
     
-    private lazy var tabView: EYEMainTabView = {
-        var tabView = EYEMainTabView.tabView()
+    private lazy var tabView: MainTabView = {
+        var tabView = MainTabView.tabView()
         tabView.frame = self.tabBar.bounds
         tabView.delegate = self
         return tabView
     }()
     
-    private lazy var launchView: EYELaunchView = {
-        var launchView = EYELaunchView.launchView()
+    private lazy var launchView: LaunchView = {
+        var launchView = LaunchView.launchView()
         launchView.frame = self.view.bounds
         return launchView
     }()
@@ -41,7 +41,7 @@ class MainTabBar: UITabBarController {
     
     private func addChildVC() {
         let choiceController = ChoiceController()
-        let discoverController = EYEDiscoverController()
+        let discoverController = DiscoverController()
         let popularController = PopularController()
         
         setupChildController(choiceController)
@@ -50,7 +50,7 @@ class MainTabBar: UITabBarController {
     }
     
     private func setupChildController(controller: UIViewController) {
-        controller.title = "Eyepetizer"
+        controller.title = "petizer"
         addChildViewController(MainNavigation(rootViewController: controller))
         view.bringSubviewToFront(controller.view)
     }
@@ -74,7 +74,7 @@ extension MainTabBar: UITabBarControllerDelegate {
     }
 }
 
-extension MainTabBar: EYEMainTabViewDelegate {
+extension MainTabBar: MainTabViewDelegate {
     func tabBarDidSelector(fromSelectorButton from: Int, toSelectorButton to: Int, title : String) {
         selectedIndex = to
     }

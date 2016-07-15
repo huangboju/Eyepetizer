@@ -8,17 +8,17 @@
 
 import UIKit
 
-class EYELaunchView: UIView {
+class LaunchView: UIView {
     // 图片
     @IBOutlet weak var imageView: UIImageView!
     // 黑色背景
     @IBOutlet weak var blackBgView: UIView!
     // 动画完成回调
-    typealias AnimationDidStopCallBack = (launchView: EYELaunchView) -> Void
+    typealias AnimationDidStopCallBack = (launchView: LaunchView) -> Void
     var callBack : AnimationDidStopCallBack?
     
-    class func launchView() -> EYELaunchView {
-        return NSBundle.mainBundle().loadNibNamed("EYELaunchView", owner: nil, options: nil).first as! EYELaunchView
+    class func launchView() -> LaunchView {
+        return NSBundle.mainBundle().loadNibNamed("LaunchView", owner: nil, options: nil).first as! LaunchView
     }
 
     override func awakeFromNib() {

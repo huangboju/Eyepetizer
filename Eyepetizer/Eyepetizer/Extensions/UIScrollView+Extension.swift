@@ -5,7 +5,7 @@
 extension UIScrollView {
     //MARK: --------------------------- 下拉刷新 --------------------------
     func headerViewPulltoRefresh(handle: (() -> Void)?) {
-        let headerView = EYEPullToRefreshHeaderView.headerView()
+        let headerView = PullToRefreshHeaderView.headerView()
         headerView.beginRefreshingCallback = handle
         headerView.state = .Normal
         addSubview(headerView)
@@ -25,7 +25,7 @@ extension UIScrollView {
     
     //MARK: -------------------------  上拉加载更多 ------------------------
     func footerViewPullToRefresh(callback: (() -> Void)?) {
-        let footView = EYEPullToRefreshFooterView.footerView()
+        let footView = PullToRefreshFooterView.footerView()
         footView.beginRefreshingCallback = callback
         footView.state = .Normal
         addSubview(footView)
@@ -43,18 +43,18 @@ extension UIScrollView {
         }
     }
     
-    func getHeaderView(handle: ((EYEPullToRefreshHeaderView?) -> Void)) {
+    func getHeaderView(handle: ((PullToRefreshHeaderView?) -> Void)) {
         for subview in subviews {
-            if subview is EYEPullToRefreshHeaderView {
-                handle((subview as? EYEPullToRefreshHeaderView))
+            if subview is PullToRefreshHeaderView {
+                handle((subview as? PullToRefreshHeaderView))
             }
         }
     }
     
-    func getFooterView(handle: ((EYEPullToRefreshFooterView?) -> Void)) {
+    func getFooterView(handle: ((PullToRefreshFooterView?) -> Void)) {
         for subview in subviews {
-            if subview is EYEPullToRefreshFooterView {
-                handle((subview as? EYEPullToRefreshFooterView))
+            if subview is PullToRefreshFooterView {
+                handle((subview as? PullToRefreshFooterView))
             }
         }
     }

@@ -2,7 +2,7 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-class EYEPopularHeaderView: UIView {
+class PopularHeaderView: UIView {
     typealias HeaderViewBtnClickhandle = (targetBtn: UIButton, index : Int) -> Void
     private var titles = [String]()
     private var titleLabels = [UIButton]()

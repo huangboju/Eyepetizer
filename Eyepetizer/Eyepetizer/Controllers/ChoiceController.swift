@@ -7,12 +7,12 @@ import Alamofire
 class ChoiceController: BaseController, LoadingPresenter, MenuPresenter {
     var issueList = [IssueModel]()
     var nextPageUrl: String?
-    var loaderView: EYELoaderView?
-    var menuBtn: EYEMenuBtn?
+    var loaderView: LoaderView?
+    var menuBtn: MenuBtn?
     
-    private lazy var collectionView: EYECollectionView = {
-        let collectionView = EYECollectionView(frame: self.view.bounds, collectionViewLayout: CollectionLayout())
-        collectionView.registerClass(EYEChoiceHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: EYEChoiceHeaderView.reuseIdentifier)
+    private lazy var collectionView: CollectionView = {
+        let collectionView = CollectionView(frame: self.view.bounds, collectionViewLayout: CollectionLayout())
+        collectionView.registerClass(ChoiceHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: ChoiceHeaderView.reuseIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
         return collectionView
@@ -26,7 +26,7 @@ class ChoiceController: BaseController, LoadingPresenter, MenuPresenter {
         
         setupLoaderView()
         
-        getData(EYEAPIHeaper.API_Choice, params: [
+        getData(APIHeaper.API_Choice, params: [
             "date" : NSDate.getCurrentTimeStamp(),
             "num" : "7"
             ])
@@ -36,7 +36,7 @@ class ChoiceController: BaseController, LoadingPresenter, MenuPresenter {
         setupMenuBtn()
         
         collectionView.headerViewPulltoRefresh { [unowned self] in
-            self.getData(EYEAPIHeaper.API_Choice, params: [
+            self.getData(APIHeaper.API_Choice, params: [
                 "date" : NSDate.getCurrentTimeStamp(),
                 "num" : "7"
                 ])
@@ -51,7 +51,7 @@ class ChoiceController: BaseController, LoadingPresenter, MenuPresenter {
     
     private func getData(api: String, params: [String : AnyObject]? = nil) {
         Alamofire.request(.GET, api, parameters: params).responseSwiftyJSON ({[unowned self](request, Response, json, error) in
-            print("\(EYEAPIHeaper.API_Choice)- \(params)")
+            print("\(APIHeaper.API_Choice)- \(params)")
             
             if json != .null && error == nil {
                 // 转模型
@@ -108,17 +108,17 @@ extension ChoiceController: UICollectionViewDelegate, UICollectionViewDataSource
     }
     
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        let cell = cell as? EYEChoiceCell
+        let cell = cell as? ChoiceCell
         let issueModel = issueList[indexPath.section]
         cell?.model = issueModel.itemList[indexPath.row]
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCellWithReuseIdentifier(EYEChoiceCell.cellID, forIndexPath: indexPath)
+        return collectionView.dequeueReusableCellWithReuseIdentifier(ChoiceCell.cellID, forIndexPath: indexPath)
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        selectCell = collectionView.cellForItemAtIndexPath(indexPath) as? EYEChoiceCell
+        selectCell = collectionView.cellForItemAtIndexPath(indexPath) as? ChoiceCell
     
         let issueModel = issueList[indexPath.section]
         let model = issueModel.itemList[indexPath.row]
@@ -132,7 +132,7 @@ extension ChoiceController: UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         if kind == UICollectionElementKindSectionHeader {
-            let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: EYEChoiceHeaderView.reuseIdentifier, forIndexPath: indexPath) as? EYEChoiceHeaderView
+            let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: ChoiceHeaderView.reuseIdentifier, forIndexPath: indexPath) as? ChoiceHeaderView
             let issueModel = issueList[indexPath.section]
             if let image = issueModel.headerImage {
                 headerView?.image = image

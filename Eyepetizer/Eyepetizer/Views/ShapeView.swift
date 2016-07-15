@@ -2,7 +2,7 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-class EYEShapeView: UIView {
+class ShapeView: UIView {
     var font: UIFont?
     var fontSize: CGFloat?
     var pathLayer: CAShapeLayer?

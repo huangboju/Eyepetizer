@@ -2,7 +2,7 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-class EYEDiscoverCell: UICollectionViewCell {
+class DiscoverCell: UICollectionViewCell {
     private var backgroundImageView: UIImageView = {
         let backgroundImageView = UIImageView()
         return backgroundImageView

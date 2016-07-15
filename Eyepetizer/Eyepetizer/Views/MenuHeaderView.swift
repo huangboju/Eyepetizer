@@ -2,7 +2,7 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-class EYEMenuHeaderView: UIView {
+class MenuHeaderView: UIView {
     private lazy var backgroundIconView: UIView = {
         let backgroundIconView = UIView()
         backgroundIconView.backgroundColor = UIColor.lightGrayColor()
@@ -11,10 +11,10 @@ class EYEMenuHeaderView: UIView {
         return backgroundIconView
     }()
     
-    private lazy var eyeIconView: UIImageView = {
-        let eyeIconView = UIImageView(image: R.image.ic_action_focus_white())
-        eyeIconView.contentMode = .ScaleAspectFit
-        return eyeIconView
+    private lazy var IconView: UIImageView = {
+        let IconView = UIImageView(image: R.image.ic_action_focus_white())
+        IconView.contentMode = .ScaleAspectFit
+        return IconView
     }()
     
     private lazy var loginLabel: UILabel = {
@@ -61,8 +61,8 @@ class EYEMenuHeaderView: UIView {
         }
         backgroundIconView.layer.cornerRadius = 50
         
-        backgroundIconView.addSubview(eyeIconView)
-        eyeIconView.snp_makeConstraints { (make) in
+        backgroundIconView.addSubview(IconView)
+        IconView.snp_makeConstraints { (make) in
             make.edges.equalTo(backgroundIconView)
         }
         

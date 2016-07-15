@@ -2,7 +2,7 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-class EYEPopularFooterView: UICollectionReusableView, Reusable {
+class PopularFooterView: UICollectionReusableView, Reusable {
     private lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.text = "-The End-"

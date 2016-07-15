@@ -9,7 +9,7 @@ class MenuViewController: UIViewController, GuillotineMenu {
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = UIColor.clearColor()
-        tableView.tableHeaderView = EYEMenuHeaderView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 200))
+        tableView.tableHeaderView = MenuHeaderView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 200))
         tableView.sectionHeaderHeight = 200
         tableView.rowHeight = 70
         tableView.separatorStyle = .None
@@ -28,7 +28,7 @@ class MenuViewController: UIViewController, GuillotineMenu {
     lazy var titleLabel: UILabel! = {
         var titleLabel = UILabel()
         titleLabel.numberOfLines = 1
-        titleLabel.text = "Eyepetizer"
+        titleLabel.text = "petizer"
         titleLabel.textColor = UIColor.blackColor()
         titleLabel.sizeToFit()
         return titleLabel
