@@ -31,7 +31,7 @@ class DiscoverDetailTimeController: UIViewController, LoadingPresenter {
         }
     }
     
-    private func getData(api : String = APIHeaper.API_Discover_Date, params:[String: AnyObject]? = nil) {
+    private func getData(api: String = APIHeaper.API_Discover_Date, params:[String: AnyObject]? = nil) {
         print("\(api) - \(params)")
         Alamofire.request(.POST, api, parameters: params).responseSwiftyJSON ({ [unowned self](request, response, json, error) -> Void in
             // 字典转模型 刷新数据

@@ -4,7 +4,7 @@
 
 import Alamofire
 
-class PopularMonthController: PopularBaseController {
+class PopularMonthController: CollectionContoller {
     
     override func listViewCreated() {
         collectionView.registerClass(ChoiceHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: ChoiceHeaderView.reuseIdentifier)

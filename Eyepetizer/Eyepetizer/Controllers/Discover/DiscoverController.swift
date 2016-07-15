@@ -8,7 +8,7 @@ class DiscoverController: UIViewController, LoadingPresenter {
     var loaderView: LoaderView?
     var models = [DiscoverModel]()
     
-    private lazy var collectionView : UICollectionView = {
+    private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let itemSize = SCREEN_WIDTH / 2 - 0.5
         layout.itemSize = CGSize(width: itemSize, height: itemSize)
@@ -47,7 +47,7 @@ class DiscoverController: UIViewController, LoadingPresenter {
     }
 }
 
-extension DiscoverController : UICollectionViewDelegate, UICollectionViewDataSource {
+extension DiscoverController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return models.count
     }

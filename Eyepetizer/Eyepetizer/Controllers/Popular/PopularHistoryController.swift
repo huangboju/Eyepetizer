@@ -4,7 +4,7 @@
 
 import Alamofire
 
-class PopularHistoryController: PopularBaseController {
+class PopularHistoryController: CollectionContoller {
     
     override func listViewCreated() {
         collectionView.registerClass(PopularFooterView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: PopularFooterView.reuseIdentifier)
