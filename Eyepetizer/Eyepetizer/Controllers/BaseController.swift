@@ -2,7 +2,7 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-class EYEBaseViewController: UIViewController {
+class BaseController: UIViewController {
     var selectCell: EYEChoiceCell?
     
     override func viewDidLoad() {
@@ -16,7 +16,7 @@ class EYEBaseViewController: UIViewController {
     }
 }
 
-extension EYEBaseViewController: UINavigationControllerDelegate {
+extension BaseController: UINavigationControllerDelegate {
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         if operation == .Push && toVC is EYEVideoDetailController {

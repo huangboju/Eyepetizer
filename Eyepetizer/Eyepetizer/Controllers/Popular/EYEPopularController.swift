@@ -2,7 +2,7 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-class EYEPopularController: EYEBaseViewController, LoadingPresenter {
+class EYEPopularController: BaseController, LoadingPresenter {
     var loaderView: EYELoaderView?
     private let titles = ["周排行", "月排行", "总排行"]
     private var weekController: EYEPopularWeekController?

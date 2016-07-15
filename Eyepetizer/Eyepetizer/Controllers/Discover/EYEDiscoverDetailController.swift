@@ -2,7 +2,7 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-class EYEDiscoverDetailController: EYEBaseViewController {
+class EYEDiscoverDetailController: BaseController {
     private let titles = ["按时间排序", "分享排行榜"]
     private var timeController: EYEDiscoverDetailTimeController?
     private var shareController: EYEDiscoverDetailShareController?

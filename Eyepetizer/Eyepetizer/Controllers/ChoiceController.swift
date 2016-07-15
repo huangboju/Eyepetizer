@@ -4,7 +4,7 @@
 
 import Alamofire
 
-class ChoiceController: EYEBaseViewController, LoadingPresenter, MenuPresenter {
+class ChoiceController: BaseController, LoadingPresenter, MenuPresenter {
     var issueList = [IssueModel]()
     var nextPageUrl: String?
     var loaderView: EYELoaderView?
