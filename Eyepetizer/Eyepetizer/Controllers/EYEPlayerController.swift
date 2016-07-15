@@ -59,7 +59,7 @@ class EYEPlayerController: UIViewController {
         
         // 初始化playerItem
         playerItem  = AVPlayerItem(URL: NSURL(string: url)!)
-        player.replaceCurrentItemWithPlayerItem(self.playerItem)
+        player.replaceCurrentItemWithPlayerItem(playerItem)
     }
     
     //隐藏状态栏
@@ -72,7 +72,7 @@ class EYEPlayerController: UIViewController {
         view.addSubview(playView)
         ApplicationManager.setStatusBarOrientation( .LandscapeRight, animated: false)
         view.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/2))
-        view.bounds = SCREEN_BOUNDS
+        view.bounds = CGRect(x: 0, y: 0, width: SCREEN_HEIGHT, height: SCREEN_WIDTH)
         playerLayer = AVPlayerLayer(player: player)
         playerLayer.frame = playView.bounds
         // AVLayerVideoGravityResize              非均匀模式。两个维度完全填充至整个视图区域
@@ -98,7 +98,7 @@ class EYEPlayerController: UIViewController {
     func addObserverAndNotifacation() {
         NotificationManager.addObserver(self, selector: #selector(moviePlayDidEnd), name: AVPlayerItemDidPlayToEndTimeNotification, object: player.currentItem)
         NotificationManager.addObserver(self, selector: #selector(appDidEnterBackground), name: UIApplicationWillResignActiveNotification, object: nil)
-        NotificationManager.addObserver(self, selector: #selector(appDidEnterPlayGround), name: UIApplicationDidBecomeActiveNotification, object: nil)
+        NotificationManager.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplicationDidBecomeActiveNotification, object: nil)
         
         playView.sliderView.addTarget(self, action: #selector(progressSliderTouchBegan), forControlEvents: .TouchDown)
         playView.sliderView.addTarget(self, action: #selector(progressSliderValueChanged), forControlEvents: .ValueChanged)
@@ -108,13 +108,6 @@ class EYEPlayerController: UIViewController {
         
         keyPathes.forEach { (keyPath) in
             player.currentItem?.addObserver(self, forKeyPath: keyPath, options: .New, context: nil)
-        }
-    }
-    
-    private func unregisterNotifacation() {
-        NotificationManager.removeObserver(self)
-        keyPathes.forEach { (keyPath) in
-           player.currentItem?.removeObserver(self, forKeyPath: keyPath)
         }
     }
     
@@ -232,7 +225,7 @@ class EYEPlayerController: UIViewController {
         state = .Pause
     }
     
-    func appDidEnterPlayGround() {
+    func appDidBecomeActive() {
         player.play()
         state = .Playing
     }
@@ -319,7 +312,11 @@ class EYEPlayerController: UIViewController {
     }
     
     deinit {
-        unregisterNotifacation()
+        NotificationManager.removeObserver(self)
+        keyPathes.forEach { (keyPath) in
+            player.currentItem?.removeObserver(self, forKeyPath: keyPath)
+        }
+        print("播放器销毁")
     }
 
     override func didReceiveMemoryWarning() {
