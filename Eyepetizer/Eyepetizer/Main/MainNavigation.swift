@@ -2,7 +2,7 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-class EYENavigationController: UINavigationController, UIGestureRecognizerDelegate, UINavigationControllerDelegate {
+class MainNavigation: UINavigationController, UIGestureRecognizerDelegate, UINavigationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()

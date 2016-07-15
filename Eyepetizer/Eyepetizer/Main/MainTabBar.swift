@@ -2,7 +2,7 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-class EYEMainViewController: UITabBarController {
+class MainTabBar: UITabBarController {
     
     private lazy var tabView: EYEMainTabView = {
         var tabView = EYEMainTabView.tabView()
@@ -40,7 +40,7 @@ class EYEMainViewController: UITabBarController {
     }
     
     private func addChildVC() {
-        let choiceController = EYEChoiceController()
+        let choiceController = ChoiceController()
         let discoverController = EYEDiscoverController()
         let popularController = EYEPopularController()
         
@@ -51,7 +51,7 @@ class EYEMainViewController: UITabBarController {
     
     private func setupChildController(controller: UIViewController) {
         controller.title = "Eyepetizer"
-        addChildViewController(EYENavigationController(rootViewController: controller))
+        addChildViewController(MainNavigation(rootViewController: controller))
         view.bringSubviewToFront(controller.view)
     }
     
@@ -68,13 +68,13 @@ class EYEMainViewController: UITabBarController {
     }
 }
 
-extension EYEMainViewController: UITabBarControllerDelegate {
+extension MainTabBar: UITabBarControllerDelegate {
     func tabBarController(tabBarController: UITabBarController, animationControllerForTransitionFromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return EYETabbarTransition()
     }
 }
 
-extension EYEMainViewController: EYEMainTabViewDelegate {
+extension MainTabBar: EYEMainTabViewDelegate {
     func tabBarDidSelector(fromSelectorButton from: Int, toSelectorButton to: Int, title : String) {
         selectedIndex = to
     }

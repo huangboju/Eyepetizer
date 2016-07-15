@@ -4,7 +4,7 @@
 
 import Alamofire
 
-class EYEChoiceController: EYEBaseViewController, LoadingPresenter, MenuPresenter {
+class ChoiceController: EYEBaseViewController, LoadingPresenter, MenuPresenter {
     var issueList = [IssueModel]()
     var nextPageUrl: String?
     var loaderView: EYELoaderView?
@@ -97,7 +97,7 @@ class EYEChoiceController: EYEBaseViewController, LoadingPresenter, MenuPresente
     }
 }
 
-extension EYEChoiceController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ChoiceController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return issueList.count
     }
@@ -151,7 +151,7 @@ extension EYEChoiceController: UICollectionViewDelegate, UICollectionViewDataSou
     }
 }
 
-extension EYEChoiceController: UIViewControllerTransitioningDelegate {
+extension ChoiceController: UIViewControllerTransitioningDelegate {
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         presentationAnimator.mode = .Presentation
         return presentationAnimator

@@ -479,9 +479,7 @@ struct _R {
       private init() {}
     }
     
-    struct main: StoryboardResourceWithInitialControllerType {
-      typealias InitialController = ViewController
-      
+    struct main: StoryboardResourceType {
       let bundle = _R.hostingBundle
       let name = "Main"
       
