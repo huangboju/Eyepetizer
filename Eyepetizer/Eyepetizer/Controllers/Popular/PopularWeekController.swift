@@ -4,30 +4,15 @@
 
 import Alamofire
 
-class PopularWeekController: UIViewController, LoadingPresenter {
-    var loaderView: LoaderView?
-    private var models = [ItemModel]()
-    private lazy var collectionView: CollectionView = {
-        let rect = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - TAB_BAR_HEIGHT - CHARTS_HEIGHT - TOP_BAR_HEIGHT)
-        let collectionView = CollectionView(frame: rect, collectionViewLayout: CollectionLayout())
-        let layout = collectionView.collectionViewLayout as? CollectionLayout
-        layout?.footerReferenceSize = CGSize(width: collectionView.frame.width, height: 50)
-        collectionView.registerClass(PopularFooterView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: PopularFooterView.reuseIdentifier)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        return collectionView
-    }()
+class PopularWeekController: PopularBaseController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.addSubview(collectionView)
-        setupLoaderView()
-        getData()
+    override func listViewCreated() {
+        collectionView.registerClass(PopularFooterView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: PopularFooterView.reuseIdentifier)
     }
     
-    private func getData(api: String = APIHeaper.API_Popular_Weakly) {
+    override func getData() {
         setLoaderViewHidden(false)
-        Alamofire.request(.GET, api).responseSwiftyJSON ({ [unowned self](request, response, json, error) in
+        Alamofire.request(.GET, APIHeaper.API_Popular_Weakly).responseSwiftyJSON ({ [unowned self](request, response, json, error) in
             if json != .null && error == nil {
                 if let dataDict = json.rawValue as? [String : AnyObject] {
                     let itemArray = dataDict["videoList"] as! NSArray
@@ -43,41 +28,5 @@ class PopularWeekController: UIViewController, LoadingPresenter {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-}
-
-extension PopularWeekController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return models.count
-    }
-    
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCellWithReuseIdentifier(ChoiceCell.cellID, forIndexPath: indexPath)
-    }
-    
-    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        
-        let cell = cell as? ChoiceCell
-        cell?.model = models[indexPath.row]
-        cell?.index = "\(indexPath.row+1)"
-    }
-    
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        if parentViewController is PopularController {
-            (parentViewController as? PopularController)?.selectCell = collectionView.cellForItemAtIndexPath(indexPath) as? ChoiceCell
-        }
-        
-        let model = models[indexPath.row]
-        navigationController?.pushViewController(VideoDetailController(model: model), animated: true)
-    }
-    
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        
-        if kind == UICollectionElementKindSectionFooter  {
-            let footerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: PopularFooterView.reuseIdentifier, forIndexPath: indexPath)
-            return footerView
-        }
-        return UICollectionReusableView()
     }
 }
