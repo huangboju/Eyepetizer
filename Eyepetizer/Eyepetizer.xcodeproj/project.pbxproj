@@ -23,8 +23,8 @@
 		D82802841D377B810019A7A2 /* EYEDiscoverDetailShareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82802831D377B810019A7A2 /* EYEDiscoverDetailShareController.swift */; };
 		D82802871D37B9A00019A7A2 /* PopularController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82802861D37B9A00019A7A2 /* PopularController.swift */; };
 		D82802891D37BB030019A7A2 /* PopularWeekController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82802881D37BB030019A7A2 /* PopularWeekController.swift */; };
-		D828028B1D37BB160019A7A2 /* EYEPopularMonthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D828028A1D37BB160019A7A2 /* EYEPopularMonthController.swift */; };
-		D828028D1D37BB270019A7A2 /* EYEPopularHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D828028C1D37BB270019A7A2 /* EYEPopularHistoryController.swift */; };
+		D828028B1D37BB160019A7A2 /* PopularMonthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D828028A1D37BB160019A7A2 /* PopularMonthController.swift */; };
+		D828028D1D37BB270019A7A2 /* PopularHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D828028C1D37BB270019A7A2 /* PopularHistoryController.swift */; };
 		D83A5E0D1D38730C002078DB /* EYEPopularFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83A5E0C1D38730C002078DB /* EYEPopularFooterView.swift */; };
 		D83A5E101D388C4F002078DB /* EYEPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D83A5E0E1D388C4F002078DB /* EYEPlayerView.xib */; };
 		D83A5E111D388C4F002078DB /* EYEPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83A5E0F1D388C4F002078DB /* EYEPlayerView.swift */; };
@@ -116,8 +116,8 @@
 		D82802831D377B810019A7A2 /* EYEDiscoverDetailShareController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEDiscoverDetailShareController.swift; sourceTree = "<group>"; };
 		D82802861D37B9A00019A7A2 /* PopularController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularController.swift; sourceTree = "<group>"; };
 		D82802881D37BB030019A7A2 /* PopularWeekController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularWeekController.swift; sourceTree = "<group>"; };
-		D828028A1D37BB160019A7A2 /* EYEPopularMonthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEPopularMonthController.swift; sourceTree = "<group>"; };
-		D828028C1D37BB270019A7A2 /* EYEPopularHistoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEPopularHistoryController.swift; sourceTree = "<group>"; };
+		D828028A1D37BB160019A7A2 /* PopularMonthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularMonthController.swift; sourceTree = "<group>"; };
+		D828028C1D37BB270019A7A2 /* PopularHistoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularHistoryController.swift; sourceTree = "<group>"; };
 		D83A5E0C1D38730C002078DB /* EYEPopularFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEPopularFooterView.swift; sourceTree = "<group>"; };
 		D83A5E0E1D388C4F002078DB /* EYEPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EYEPlayerView.xib; sourceTree = "<group>"; };
 		D83A5E0F1D388C4F002078DB /* EYEPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEPlayerView.swift; sourceTree = "<group>"; };
@@ -239,8 +239,8 @@
 			children = (
 				D82802861D37B9A00019A7A2 /* PopularController.swift */,
 				D82802881D37BB030019A7A2 /* PopularWeekController.swift */,
-				D828028A1D37BB160019A7A2 /* EYEPopularMonthController.swift */,
-				D828028C1D37BB270019A7A2 /* EYEPopularHistoryController.swift */,
+				D828028A1D37BB160019A7A2 /* PopularMonthController.swift */,
+				D828028C1D37BB270019A7A2 /* PopularHistoryController.swift */,
 			);
 			path = Popular;
 			sourceTree = "<group>";
@@ -664,7 +664,7 @@
 				D83A5E111D388C4F002078DB /* EYEPlayerView.swift in Sources */,
 				D8A333111D35D5CE00EAEF36 /* EYECollectionView.swift in Sources */,
 				D8A3330D1D35D09600EAEF36 /* MenuPresenter.swift in Sources */,
-				D828028D1D37BB270019A7A2 /* EYEPopularHistoryController.swift in Sources */,
+				D828028D1D37BB270019A7A2 /* PopularHistoryController.swift in Sources */,
 				D8BB32091D33868C002684CF /* VideoDetailController.swift in Sources */,
 				D8BB32381D349DDE002684CF /* EYEVideoDetailPopTransition.swift in Sources */,
 				D828027A1D3764080019A7A2 /* EYEDiscoverCell.swift in Sources */,
@@ -691,7 +691,7 @@
 				D8BB32491D34BF6E002684CF /* R.generated.swift in Sources */,
 				D8BB32361D349C02002684CF /* EYEVideoDetailView.swift in Sources */,
 				D8A333191D35D8CD00EAEF36 /* EYEChoiceHeaderView.swift in Sources */,
-				D828028B1D37BB160019A7A2 /* EYEPopularMonthController.swift in Sources */,
+				D828028B1D37BB160019A7A2 /* PopularMonthController.swift in Sources */,
 				D8A333091D34F01B00EAEF36 /* EYELoaderView.swift in Sources */,
 				D828027E1D3766910019A7A2 /* Cell+Extension.swift in Sources */,
 				D8A333071D34EFCE00EAEF36 /* LoadingPresenter.swift in Sources */,

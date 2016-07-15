@@ -4,7 +4,7 @@
 
 import Alamofire
 
-class EYEPopularMonthController: UIViewController, LoadingPresenter {
+class PopularMonthController: UIViewController, LoadingPresenter {
     var loaderView: EYELoaderView?
     var models = [ItemModel]()
     
@@ -51,7 +51,7 @@ class EYEPopularMonthController: UIViewController, LoadingPresenter {
     }
 }
 
-extension EYEPopularMonthController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension PopularMonthController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return models.count
     }

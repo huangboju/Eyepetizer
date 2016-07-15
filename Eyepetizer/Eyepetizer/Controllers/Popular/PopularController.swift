@@ -6,8 +6,8 @@ class PopularController: BaseController, LoadingPresenter {
     var loaderView: EYELoaderView?
     private let titles = ["周排行", "月排行", "总排行"]
     private var weekController: PopularWeekController?
-    private var monthController: EYEPopularMonthController?
-    private var historyController: EYEPopularHistoryController?
+    private var monthController: PopularMonthController?
+    private var historyController: PopularHistoryController?
     private var currentController: UIViewController?
     
     private lazy var headerView: EYEPopularHeaderView = {
@@ -35,12 +35,12 @@ class PopularController: BaseController, LoadingPresenter {
             actionController = weekController
         case 1:
             if monthController == nil {
-                monthController = EYEPopularMonthController()
+                monthController = PopularMonthController()
             }
             actionController = monthController
         case 2:
             if historyController == nil {
-                historyController = EYEPopularHistoryController()
+                historyController = PopularHistoryController()
             }
             actionController = historyController
         default:

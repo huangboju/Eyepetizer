@@ -4,11 +4,11 @@
 
 import Alamofire
 
-class EYEPopularHistoryController: UIViewController, LoadingPresenter {
+class PopularHistoryController: UIViewController, LoadingPresenter {
     var loaderView: EYELoaderView?
     var models = [ItemModel]()
     
-    private lazy var collectionView : EYECollectionView = {
+    private lazy var collectionView: EYECollectionView = {
         let rect = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - TAB_BAR_HEIGHT - CHARTS_HEIGHT - TOP_BAR_HEIGHT)
         let collectionView = EYECollectionView(frame: rect, collectionViewLayout:EYECollectionLayout())
         let layout = collectionView.collectionViewLayout as? EYECollectionLayout
@@ -52,7 +52,7 @@ class EYEPopularHistoryController: UIViewController, LoadingPresenter {
     }
 }
 
-extension EYEPopularHistoryController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension PopularHistoryController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return models.count
     }
