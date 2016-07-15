@@ -21,8 +21,8 @@
 		D82802801D3776C50019A7A2 /* EYEPopularHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D828027F1D3776C50019A7A2 /* EYEPopularHeaderView.swift */; };
 		D82802821D377B690019A7A2 /* EYEDiscoverDetailTimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82802811D377B690019A7A2 /* EYEDiscoverDetailTimeController.swift */; };
 		D82802841D377B810019A7A2 /* EYEDiscoverDetailShareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82802831D377B810019A7A2 /* EYEDiscoverDetailShareController.swift */; };
-		D82802871D37B9A00019A7A2 /* EYEPopularController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82802861D37B9A00019A7A2 /* EYEPopularController.swift */; };
-		D82802891D37BB030019A7A2 /* EYEPopularWeekController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82802881D37BB030019A7A2 /* EYEPopularWeekController.swift */; };
+		D82802871D37B9A00019A7A2 /* PopularController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82802861D37B9A00019A7A2 /* PopularController.swift */; };
+		D82802891D37BB030019A7A2 /* PopularWeekController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82802881D37BB030019A7A2 /* PopularWeekController.swift */; };
 		D828028B1D37BB160019A7A2 /* EYEPopularMonthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D828028A1D37BB160019A7A2 /* EYEPopularMonthController.swift */; };
 		D828028D1D37BB270019A7A2 /* EYEPopularHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D828028C1D37BB270019A7A2 /* EYEPopularHistoryController.swift */; };
 		D83A5E0D1D38730C002078DB /* EYEPopularFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83A5E0C1D38730C002078DB /* EYEPopularFooterView.swift */; };
@@ -114,8 +114,8 @@
 		D828027F1D3776C50019A7A2 /* EYEPopularHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEPopularHeaderView.swift; sourceTree = "<group>"; };
 		D82802811D377B690019A7A2 /* EYEDiscoverDetailTimeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEDiscoverDetailTimeController.swift; sourceTree = "<group>"; };
 		D82802831D377B810019A7A2 /* EYEDiscoverDetailShareController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEDiscoverDetailShareController.swift; sourceTree = "<group>"; };
-		D82802861D37B9A00019A7A2 /* EYEPopularController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEPopularController.swift; sourceTree = "<group>"; };
-		D82802881D37BB030019A7A2 /* EYEPopularWeekController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEPopularWeekController.swift; sourceTree = "<group>"; };
+		D82802861D37B9A00019A7A2 /* PopularController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularController.swift; sourceTree = "<group>"; };
+		D82802881D37BB030019A7A2 /* PopularWeekController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularWeekController.swift; sourceTree = "<group>"; };
 		D828028A1D37BB160019A7A2 /* EYEPopularMonthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEPopularMonthController.swift; sourceTree = "<group>"; };
 		D828028C1D37BB270019A7A2 /* EYEPopularHistoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEPopularHistoryController.swift; sourceTree = "<group>"; };
 		D83A5E0C1D38730C002078DB /* EYEPopularFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EYEPopularFooterView.swift; sourceTree = "<group>"; };
@@ -237,8 +237,8 @@
 		D82802851D37B96F0019A7A2 /* Popular */ = {
 			isa = PBXGroup;
 			children = (
-				D82802861D37B9A00019A7A2 /* EYEPopularController.swift */,
-				D82802881D37BB030019A7A2 /* EYEPopularWeekController.swift */,
+				D82802861D37B9A00019A7A2 /* PopularController.swift */,
+				D82802881D37BB030019A7A2 /* PopularWeekController.swift */,
 				D828028A1D37BB160019A7A2 /* EYEPopularMonthController.swift */,
 				D828028C1D37BB270019A7A2 /* EYEPopularHistoryController.swift */,
 			);
@@ -672,7 +672,7 @@
 				D8A333211D35DF5500EAEF36 /* EYEPullToRefreshView.swift in Sources */,
 				D82802761D3763470019A7A2 /* EYEDiscoverController.swift in Sources */,
 				D8BB32341D3490F5002684CF /* IssueModel.swift in Sources */,
-				D82802891D37BB030019A7A2 /* EYEPopularWeekController.swift in Sources */,
+				D82802891D37BB030019A7A2 /* PopularWeekController.swift in Sources */,
 				D828026F1D373D0C0019A7A2 /* NSDate.swift in Sources */,
 				D8A3330B1D34F11300EAEF36 /* APPImageView.swift in Sources */,
 				D82802841D377B810019A7A2 /* EYEDiscoverDetailShareController.swift in Sources */,
@@ -704,7 +704,7 @@
 				D8BB31FE1D337728002684CF /* MainNavigation.swift in Sources */,
 				D828026B1D3732BE0019A7A2 /* Request+Extension.swift in Sources */,
 				D83A5E1C1D38BA86002078DB /* AppDelegate.swift in Sources */,
-				D82802871D37B9A00019A7A2 /* EYEPopularController.swift in Sources */,
+				D82802871D37B9A00019A7A2 /* PopularController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

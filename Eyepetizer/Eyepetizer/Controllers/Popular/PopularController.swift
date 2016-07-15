@@ -2,10 +2,10 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-class EYEPopularController: BaseController, LoadingPresenter {
+class PopularController: BaseController, LoadingPresenter {
     var loaderView: EYELoaderView?
     private let titles = ["周排行", "月排行", "总排行"]
-    private var weekController: EYEPopularWeekController?
+    private var weekController: PopularWeekController?
     private var monthController: EYEPopularMonthController?
     private var historyController: EYEPopularHistoryController?
     private var currentController: UIViewController?
@@ -30,7 +30,7 @@ class EYEPopularController: BaseController, LoadingPresenter {
         switch index {
         case 0:
             if weekController == nil {
-                weekController = EYEPopularWeekController()
+                weekController = PopularWeekController()
             }
             actionController = weekController
         case 1:

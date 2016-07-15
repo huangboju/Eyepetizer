@@ -67,8 +67,8 @@ extension EYEPopularMonthController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        if parentViewController is EYEPopularController {
-            (parentViewController as? EYEPopularController)?.selectCell = collectionView.cellForItemAtIndexPath(indexPath) as? EYEChoiceCell
+        if parentViewController is PopularController {
+            (parentViewController as? PopularController)?.selectCell = collectionView.cellForItemAtIndexPath(indexPath) as? EYEChoiceCell
         }
         let model = models[indexPath.row]
         navigationController?.pushViewController(VideoDetailController(model: model), animated: true)

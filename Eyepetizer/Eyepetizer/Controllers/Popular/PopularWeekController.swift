@@ -4,7 +4,7 @@
 
 import Alamofire
 
-class EYEPopularWeekController: UIViewController, LoadingPresenter {
+class PopularWeekController: UIViewController, LoadingPresenter {
     var loaderView: EYELoaderView?
     private var models = [ItemModel]()
     private lazy var collectionView: EYECollectionView = {
@@ -46,7 +46,7 @@ class EYEPopularWeekController: UIViewController, LoadingPresenter {
     }
 }
 
-extension EYEPopularWeekController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension PopularWeekController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return models.count
@@ -64,8 +64,8 @@ extension EYEPopularWeekController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        if parentViewController is EYEPopularController {
-            (parentViewController as? EYEPopularController)?.selectCell = collectionView.cellForItemAtIndexPath(indexPath) as? EYEChoiceCell
+        if parentViewController is PopularController {
+            (parentViewController as? PopularController)?.selectCell = collectionView.cellForItemAtIndexPath(indexPath) as? EYEChoiceCell
         }
         
         let model = models[indexPath.row]

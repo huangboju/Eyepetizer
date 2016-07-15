@@ -42,7 +42,7 @@ class MainTabBar: UITabBarController {
     private func addChildVC() {
         let choiceController = ChoiceController()
         let discoverController = EYEDiscoverController()
-        let popularController = EYEPopularController()
+        let popularController = PopularController()
         
         setupChildController(choiceController)
         setupChildController(discoverController)
