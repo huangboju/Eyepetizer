@@ -11,13 +11,21 @@ class EYEPlayerController: UIViewController {
         case Stopped    //停止播放
         case Pause      //暂停播放
     }
+    
     private let keyPathes = [
         "status",
         "loadedTimeRanges",
         "playbackBufferEmpty" ,
         "playbackLikelyToKeepUp"
     ]
-    private var videoTitle: String?
+    
+    private lazy var playView: EYEPlayerView = {
+        let playView = EYEPlayerView.playerView()
+        playView.titleLabel.text = self.videoTitle
+        playView.frame = self.view.bounds
+        return playView
+    }()
+    
     private var state: PlayerState = .Buffering {
         didSet {
             guard state == .Buffering else {
@@ -26,34 +34,69 @@ class EYEPlayerController: UIViewController {
             playView.indicatorView.stopAnimating()
         }
     }
-    private lazy var playView: EYEPlayerView = {
-        let playView = EYEPlayerView.playerView()
-        playView.titleLabel.text = self.videoTitle
-        playView.frame = self.view.bounds
-        return playView
-    }()
+    
     private lazy var player: AVPlayer = {
-        var player: AVPlayer = AVPlayer(playerItem: self.playerItem)
+        let player = AVPlayer(playerItem: self.playerItem)
         return player
     }()
-    private var playerItem: AVPlayerItem!
+    
+    private var url: String!
     private var timer: NSTimer!
-    private var isPauseByUser = false
-    private var sliderLastValue: Float = 0
-    private var isLocalVideo = false
+    private var videoTitle: String?
     private var isBuffering = false
+    private var isLocalVideo = false
+    private var isPauseByUser = false
+    private var playerItem: AVPlayerItem!
+    private var playerLayer: AVPlayerLayer!
+    private var sliderLastValue: Float = 0
     
     convenience init(url: String, title: String) {
         self.init()
+        self.url = url
+        videoTitle = title
+        // 播放状态
+        state = .Stopped
+        
+        // 初始化playerItem
+        playerItem  = AVPlayerItem(URL: NSURL(string: url)!)
+        player.replaceCurrentItemWithPlayerItem(self.playerItem)
+    }
+    
+    //隐藏状态栏
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(playView)
+        ApplicationManager.setStatusBarOrientation( .LandscapeRight, animated: false)
+        view.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/2))
+        view.bounds = SCREEN_BOUNDS
+        playerLayer = AVPlayerLayer(player: player)
+        playerLayer.frame = playView.bounds
+        // AVLayerVideoGravityResize              非均匀模式。两个维度完全填充至整个视图区域
+        // AVLayerVideoGravityResizeAspect        等比例填充，直到一个维度到达区域边界
+        // AVLayerVideoGravityResizeAspectFill    等比例填充，直到填充满整个视图区域，其中一个维度的部分区域会被裁剪
+        playerLayer.videoGravity = AVLayerVideoGravityResizeAspect
+        
+        // 添加playerLayer到self.layer
+        playView.layer.insertSublayer(playerLayer, atIndex: 0)
+    
+        addObserverAndNotifacation()
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(playerTimerAction), userInfo: nil, repeats: true)
+        NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
+        
+        // 开始播放
+        player.play()
+        playView.startButton.selected = true
+        
+        playView.indicatorView.startAnimating()
     }
     
     func addObserverAndNotifacation() {
-        NotificationManager.addObserver(self, selector: #selector(moviePlayDidEnd), name: AVPlayerItemDidPlayToEndTimeNotification, object: self.player.currentItem)
+        NotificationManager.addObserver(self, selector: #selector(moviePlayDidEnd), name: AVPlayerItemDidPlayToEndTimeNotification, object: player.currentItem)
         NotificationManager.addObserver(self, selector: #selector(appDidEnterBackground), name: UIApplicationWillResignActiveNotification, object: nil)
         NotificationManager.addObserver(self, selector: #selector(appDidEnterPlayGround), name: UIApplicationDidBecomeActiveNotification, object: nil)
         
@@ -75,9 +118,113 @@ class EYEPlayerController: UIViewController {
         }
     }
     
+    func startAction(button: UIButton) {
+        button.selected = !button.selected
+        isPauseByUser = !button.selected
+        if button.selected {
+            player.play()
+            state = .Playing
+        } else {
+            player.pause()
+            state = .Pause
+        }
+    }
+    
     func moviePlayDidEnd(notification: NSNotification) {
         state = .Stopped
         playView.startButton.selected = false
+    }
+    
+    func progressSliderTouchBegan(slide: UISlider) {
+        if player.status == .ReadyToPlay {
+            timer.fireDate = NSDate.distantFuture()
+        }
+    }
+    
+    //拖动改变视频播放进度
+    func progressSliderValueChanged(slider: UISlider) {
+        if player.status == .ReadyToPlay {
+            var style = ""
+            let value = slider.value - sliderLastValue
+            if value > 0 {
+                style = ">>"
+            } else if value < 0{
+                style = "<<"
+            }
+            
+            sliderLastValue = slider.value
+            player.pause()
+            //计算出拖动的当前秒数
+            let total = Float(self.playerItem.duration.value) / Float(playerItem.duration.timescale)
+            let dragedSeconds = Int64(floorf(total*slider.value))
+            //转换成CMTime才能给player来控制播放进度
+            let dragedCMTime = CMTimeMake(dragedSeconds, 1)
+            // 当前时长进度progress
+            let proMin = Int64(CMTimeGetSeconds(dragedCMTime)) / 60
+            let proSec = Int64(CMTimeGetSeconds(dragedCMTime)) % 60
+            // duration 总时长
+            let durMin = playerItem.duration.value / Int64(playerItem.duration.timescale) / 60
+            let durSec = playerItem.duration.value / Int64(playerItem.duration.timescale) % 60
+            
+            let currentTime = String(format: "%02zd:%02zd", proMin,proSec)
+            let totalTime = String(format: "%02zd:%02zd", durMin, durSec)
+            
+            if durSec > 0 {
+                // 当总时长>0时候才能拖动slider
+                self.playView.startLabel.text = currentTime
+                self.playView.horizontalLabel.hidden = false
+                self.playView.horizontalLabel.text = String(format:"%@ %@ / %@", style, currentTime, totalTime)
+            } else {
+                // 此时设置slider值为0
+                slider.value = 0
+            }
+        } else {
+            // player状态加载失败
+            // 此时设置slider值为0
+            slider.value = 0
+        }
+    }
+    
+    func progressSliderTouchEnded(slider: UISlider) {
+        if player.status == .ReadyToPlay {
+            // 继续开启timer
+            timer.fireDate = NSDate()
+            let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC)))
+            dispatch_after(delayTime, dispatch_get_main_queue()) {
+                self.playView.horizontalLabel.hidden = true
+            }
+            // 结束滑动时候把开始播放按钮改为播放状态
+            playView.startButton.selected = true
+            isPauseByUser = false
+            
+            //计算出拖动的当前秒数
+            let total = Float(self.playerItem.duration.value) / Float(playerItem.duration.timescale)
+            let dragedSeconds = Int64(floorf(total * slider.value))
+            //转换成CMTime才能给player来控制播放进度
+            let dragedCMTime = CMTimeMake(dragedSeconds, 1)
+            
+            // 滑动结束视频跳转
+            player.seekToTime(dragedCMTime, completionHandler: { (finish) in
+                // 如果点击了暂停按钮
+                if self.isPauseByUser == true {
+                    return
+                }
+                
+                self.player.play()
+                
+                if !self.playerItem.playbackLikelyToKeepUp && !self.isLocalVideo {
+                    self.state = .Buffering
+                    self.playView.indicatorView.startAnimating()
+                }
+            })
+        }
+    }
+    
+    func backButtonAction() {
+        timer.invalidate()
+        player.pause()
+        state = .Stopped
+        navigationController?.popViewControllerAnimated(false)
     }
     
     func appDidEnterBackground() {
@@ -116,7 +263,6 @@ class EYEPlayerController: UIViewController {
     }
     
     func playerTimerAction() {
-        
         guard playerItem.duration.timescale != 0 else {
             return
         }
@@ -133,39 +279,6 @@ class EYEPlayerController: UIViewController {
         
         playView.startLabel.text = String(format: "%02zd:%02zd", proMin,proSec)
         playView.endLabel.text = String(format: "%02zd:%02zd", durMin, durSec)
-    }
-    
-    func progressSliderTouchBegan(slide: UISlider) {
-        if player.status == .ReadyToPlay {
-            timer.fireDate = NSDate.distantFuture()
-        }
-    }
-    
-    func progressSliderValueChanged(slider: UISlider) {
-    
-    }
-    
-    func progressSliderTouchEnded(slider: UISlider) {
-    
-    }
-    
-    func startAction(button: UIButton) {
-        button.selected = !button.selected
-        self.isPauseByUser = !button.selected
-        if button.selected {
-            player.play()
-            state = .Playing
-        } else {
-            player.pause()
-            state = .Pause
-        }
-    }
-    
-    func backButtonAction() {
-        timer.invalidate()
-        player.pause()
-        state = .Stopped
-        navigationController?.popViewControllerAnimated(false)
     }
     
     private func availableDuration() -> NSTimeInterval {

@@ -34,7 +34,6 @@ class EYEPopularWeekController: UIViewController, LoadingPresenter {
                     self.models = itemArray.map({ (dict) -> ItemModel in
                         ItemModel(dict: dict as? [String : AnyObject])
                     })
-                    print(self.models)
                 }
                 self.collectionView.reloadData()
             }
@@ -50,7 +49,6 @@ class EYEPopularWeekController: UIViewController, LoadingPresenter {
 extension EYEPopularWeekController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(models, "models")
         return models.count
     }
     

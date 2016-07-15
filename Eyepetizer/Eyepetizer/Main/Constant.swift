@@ -8,8 +8,9 @@ let IPHONE6_WIDTH: CGFloat = 375
 let IPHONE6_HEIGHT: CGFloat = 667
 let IPHONE5_WIDTH: CGFloat = 320
 let IPHONE5_HEIGHT: CGFloat = 568
-let SCREEN_WIDTH = UIScreen.mainScreen().bounds.width
-let SCREEN_HEIGHT = UIScreen.mainScreen().bounds.height
+let SCREEN_BOUNDS = UIScreen.mainScreen().bounds
+let SCREEN_WIDTH = SCREEN_BOUNDS.width
+let SCREEN_HEIGHT = SCREEN_BOUNDS.height
 
 let NAV_BAR_HEIGHT: CGFloat = 44
 let STATUS_BAR_HEIGHT: CGFloat = 20
@@ -47,6 +48,7 @@ let MARGIN_20: CGFloat = 20
 
 let launchImgKey = "launchImgKey"
 let NotificationManager = NSNotificationCenter.defaultCenter()
+let ApplicationManager = UIApplication.sharedApplication()
 
 //MARK: - EYEAPIHeaper
 struct EYEAPIHeaper {

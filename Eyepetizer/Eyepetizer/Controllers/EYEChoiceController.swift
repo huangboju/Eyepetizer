@@ -50,7 +50,7 @@ class EYEChoiceController: EYEBaseViewController, LoadingPresenter, MenuPresente
     }
     
     private func getData(api: String, params: [String : AnyObject]? = nil) {
-        Alamofire.request(.GET, api, parameters: params).responseSwiftyJSON ({[unowned self](request, Response, json, error) -> Void in
+        Alamofire.request(.GET, api, parameters: params).responseSwiftyJSON ({[unowned self](request, Response, json, error) in
             print("\(EYEAPIHeaper.API_Choice)- \(params)")
             
             if json != .null && error == nil {
