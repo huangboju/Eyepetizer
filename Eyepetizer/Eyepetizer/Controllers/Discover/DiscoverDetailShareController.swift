@@ -10,7 +10,7 @@ class DiscoverDetailShareController: UIViewController, LoadingPresenter {
     private var nextURL: String?
     private var categoryId = 0
     
-    private lazy var collectionView : CollectionView = {
+    private lazy var collectionView: CollectionView = {
         let rect = CGRect(x: 0, y: 0, width: self.view.frame.width, height: SCREEN_HEIGHT-TAB_BAR_HEIGHT - STATUS_BAR_HEIGHT - NAV_BAR_HEIGHT)
         var collectionView = CollectionView(frame: rect, collectionViewLayout:CollectionLayout())
         collectionView.delegate = self
