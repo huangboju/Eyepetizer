@@ -11,10 +11,11 @@ PODS:
   - SnapKit (0.21.1)
   - StarWars (1.0)
   - SwiftyJSON (2.3.2)
+  - XCGLogger (3.3)
   - YYCache (1.0.3)
-  - YYImage (1.0.2):
-    - YYImage/Core (= 1.0.2)
-  - YYImage/Core (1.0.2)
+  - YYImage (1.0.3):
+    - YYImage/Core (= 1.0.3)
+  - YYImage/Core (1.0.3)
   - YYWebImage (1.0.4):
     - YYCache
     - YYImage
@@ -28,6 +29,7 @@ DEPENDENCIES:
   - SnapKit
   - StarWars
   - SwiftyJSON
+  - XCGLogger (~> 3.3)
   - YYWebImage
 
 SPEC CHECKSUMS:
@@ -41,10 +43,11 @@ SPEC CHECKSUMS:
   SnapKit: bbad04cb016c7cead63965f16b00c09318d271ee
   StarWars: 01f1731789f738f64c6a9533c209213aaf465014
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  XCGLogger: d6e196e78940ff6daab17d6917107876f973fa31
   YYCache: 282f35b5b0990833d0b7a06d864a87141a021da2
-  YYImage: 2cc79ed49b9549b71c6715cefe7b0f5ab3d33abf
+  YYImage: 362f44ffba1fc498f2152060f3bb54ed84600981
   YYWebImage: 0431ed108e104527669b86f75efd58958425cca2
 
-PODFILE CHECKSUM: 4ee22a1a4c48fa5c19364960604112675c8b837d
+PODFILE CHECKSUM: 356e558d5d4fec5882443ae7319f1311f87e4ae9
 
 COCOAPODS: 1.0.0.beta.3

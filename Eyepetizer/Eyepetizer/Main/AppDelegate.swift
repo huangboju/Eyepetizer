@@ -8,9 +8,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
+        
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window = UIWindow(frame: SCREEN_BOUNDS)
         window?.backgroundColor = UIColor.whiteColor()
         window?.makeKeyAndVisible()
         window?.rootViewController = MainTabBar()

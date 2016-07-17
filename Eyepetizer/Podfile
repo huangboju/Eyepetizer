@@ -10,6 +10,6 @@ target 'Eyepetizer' do
   pod 'SwiftyJSON'
   pod 'SnapKit'
   pod 'StarWars'
-
+  pod 'XCGLogger', '~> 3.3'               # https://github.com/DaveWoodCom/XCGLogger
   pod 'YYWebImage'
 end
