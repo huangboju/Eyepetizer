@@ -2,14 +2,18 @@ platform:ios,'8.0'
 use_frameworks!
 
 target 'Eyepetizer' do
-  pod 'Alamofire'
-  pod 'APESuperHUD'
-  pod 'DeviceKit', '~> 0.3.2'
-  pod 'JSAnimatedImagesView'
-  pod 'R.swift'
-  pod 'SwiftyJSON'
-  pod 'SnapKit'
-  pod 'StarWars'
+    
+  ################################### Swift ###################################
+  pod 'Alamofire'                         # https://github.com/Alamofire/Alamofire
+  pod 'APESuperHUD'                       # https://github.com/apegroup/APESuperHUD
+  pod 'DeviceKit', '~> 0.3.2'             # https://github.com/dennisweissmann/DeviceKit
+  pod 'R.swift'                           # https://github.com/mac-cain13/R.swift
+  pod 'SwiftyJSON'                        # https://github.com/SwiftyJSON/SwiftyJSON
+  pod 'SnapKit'                           # https://github.com/SnapKit/SnapKit
+  pod 'StarWars'                          # https://github.com/Yalantis/StarWars.iOS
   pod 'XCGLogger', '~> 3.3'               # https://github.com/DaveWoodCom/XCGLogger
-  pod 'YYWebImage'
+  
+  ###################################  OC  ###################################
+  pod 'JSAnimatedImagesView'              # https://github.com/JaviSoto/JSAnimatedImagesView
+  pod 'YYWebImage'                        # https://github.com/ibireme/YYWebImage
 end
