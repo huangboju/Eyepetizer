@@ -6,7 +6,6 @@ import Alamofire
 
 class ChoiceController: BaseController, LoadingPresenter, MenuPresenter {
     var issueList = [IssueModel]()
-    var nextPageUrl: String?
     var loaderView: LoaderView?
     var menuBtn: MenuBtn?
     
@@ -26,7 +25,7 @@ class ChoiceController: BaseController, LoadingPresenter, MenuPresenter {
         
         setupLoaderView()
         
-        getData(APIHeaper.API_Choice, params: [
+        getData(APIHeaper.API_Choice, parameters: [
             "date" : NSDate.getCurrentTimeStamp(),
             "num" : "7"
             ])
@@ -36,7 +35,7 @@ class ChoiceController: BaseController, LoadingPresenter, MenuPresenter {
         setupMenuBtn()
         
         collectionView.headerViewPulltoRefresh { [unowned self] in
-            self.getData(APIHeaper.API_Choice, params: [
+            self.getData(APIHeaper.API_Choice, parameters: [
                 "date" : NSDate.getCurrentTimeStamp(),
                 "num" : "7"
                 ])
@@ -49,23 +48,21 @@ class ChoiceController: BaseController, LoadingPresenter, MenuPresenter {
         }
     }
     
-    private func getData(api: String, params: [String : AnyObject]? = nil) {
-        Alamofire.request(.GET, api, parameters: params).responseSwiftyJSON ({[unowned self](request, Response, json, error) in
-            print("\(APIHeaper.API_Choice)- \(params)")
-            
+    private func getData(api: String, parameters: [String : AnyObject]? = nil) {
+        Alamofire.request(.GET, api, parameters: parameters).responseSwiftyJSON ({ [unowned self] (request, Response, json, error) in
             if json != .null && error == nil {
                 // 转模型
                 let dict = json.rawValue as! NSDictionary
                 // 获取下一个url
                 self.nextPageUrl = dict["nextPageUrl"] as? String
                 // 内容数组
-                let issueArray = dict["issueList"] as! [[String : AnyObject]]
+                let issueArray = dict["issueList"] as! NSArray
                 let list = issueArray.map({ (dict) -> IssueModel in
-                    return IssueModel(dict: dict)
+                    return IssueModel(dict: dict as! [String : AnyObject])
                 })
                 
                 // 这里判断下拉刷新还是上拉加载更多，如果是上拉加载更多，拼接model。如果是下拉刷新，直接复制
-                if params != nil {
+                if parameters != nil {
                     // 如果params有值就是下拉刷新
                     self.issueList = list
                     self.collectionView.headerViewEndRefresh()

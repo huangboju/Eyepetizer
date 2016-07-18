@@ -7,11 +7,10 @@ import Alamofire
 class DiscoverController: UIViewController, LoadingPresenter {
     var loaderView: LoaderView?
     var models = [DiscoverModel]()
+    let itemSize = SCREEN_WIDTH / 2 - 0.5
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        let itemSize = SCREEN_WIDTH / 2 - 0.5
-        layout.itemSize = CGSize(width: itemSize, height: itemSize)
         layout.sectionInset = UIEdgeInsetsZero
         layout.minimumInteritemSpacing = 1
         layout.minimumLineSpacing = 1
@@ -33,8 +32,7 @@ class DiscoverController: UIViewController, LoadingPresenter {
     
     private func getData() {
         setLoaderViewHidden(false)
-        Alamofire.request(.GET, APIHeaper.API_Discover).responseSwiftyJSON ({ [unowned self](request, response, json, error) -> Void in
-            
+        Alamofire.request(.GET, APIHeaper.API_Discover).responseSwiftyJSON ({ [unowned self](request, response, json, error) in
             if json != .null && error == nil{
                 let jsonArray = json.arrayValue
                 self.models = jsonArray.map({ (dict) -> DiscoverModel in
@@ -66,5 +64,11 @@ extension DiscoverController: UICollectionViewDelegate, UICollectionViewDataSour
         let detailController = DiscoverDetailController(title: model.name, categoryId: model.id)
         detailController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(detailController, animated: true)
+    }
+}
+
+extension DiscoverController: UICollectionViewDelegateFlowLayout {
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return indexPath.row == 2 ? CGSize(width: SCREEN_WIDTH, height: itemSize)  : CGSize(width: itemSize, height: itemSize)
     }
 }

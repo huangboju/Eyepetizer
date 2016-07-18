@@ -53,7 +53,6 @@ class MainNavigation: UINavigationController, UIGestureRecognizerDelegate, UINav
                 return false
             }
         }
-        
         return true
     }
 
