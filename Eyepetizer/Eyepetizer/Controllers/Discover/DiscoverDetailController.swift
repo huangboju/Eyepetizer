@@ -18,7 +18,7 @@ class DiscoverDetailController: BaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
-        navigationItem.leftBarButtonItem = UIBarButtonItem.barButtonItemWithImg(R.image.ic_action_back(), selectedImg: nil, target: self, action: #selector(leftBtnDidClick))
+//        navigationItem.leftBarButtonItem = UIBarButtonItem.barButtonItemWithImg(R.image.ic_action_back(), selectedImg: nil, target: self, action: #selector(leftBtnDidClick))
         view.addSubview(headerView)
         headerView.headerViewTitleDidClick { [unowned self] (targetBtn, index) in
             self.itemDidClick(index)

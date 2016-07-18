@@ -2,6 +2,8 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
+import SwiftyJSON
+
 class BaseDiscoverDetail: UIViewController, LoadingPresenter, DataPresenter {
     var loaderView: LoaderView?
     var nextPageUrl: String?
@@ -46,11 +48,15 @@ class BaseDiscoverDetail: UIViewController, LoadingPresenter, DataPresenter {
         onPrepare()
     }
     
+    func onLoadSuccess(json: JSON) {}
+    
+    func onLoadFailure(error: NSError) {}
+    
     func onPrepare() {
         setLoaderViewHidden(false)
         collectionView.footerViewPullToRefresh { [unowned self] in
             if let nextPageUrl = self.nextPageUrl {
-                self.netWork(nextPageUrl, parameters: nil)
+                self.netWork(nextPageUrl)
             }
         }
     }

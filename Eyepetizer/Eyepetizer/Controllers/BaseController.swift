@@ -17,7 +17,9 @@ class BaseController: UIViewController {
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.delegate = nil
+        if !(navigationController?.visibleViewController is VideoDetailController) {
+            navigationController?.delegate = nil
+        }
     }
 }
 

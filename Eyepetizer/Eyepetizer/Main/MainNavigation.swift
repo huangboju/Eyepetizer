@@ -13,6 +13,8 @@ class MainNavigation: UINavigationController, UIGestureRecognizerDelegate, UINav
         }
         navigationBar.tintColor = UIColor.blackColor()
         navigationBar.barStyle = .Default
+        navigationBar.backIndicatorImage = R.image.ic_action_back()
+        navigationBar.backIndicatorTransitionMaskImage = R.image.ic_action_back()
     }
     
     override func pushViewController(viewController: UIViewController, animated: Bool) {
