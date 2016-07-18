@@ -55,25 +55,24 @@ class ChoiceController: BaseController, LoadingPresenter, MenuPresenter, DataPre
     }
     
     func onLoadSuccess(isPaging: Bool, json: JSON) {
-        let dict = json.rawValue as! NSDictionary
-        // 获取下一个url
-        self.nextPageUrl = dict["nextPageUrl"] as? String
-        // 内容数组
-        let issueArray = dict["issueList"] as! NSArray
-        let list = issueArray.map({ (dict) -> IssueModel in
-            return IssueModel(dict: dict as! [String : AnyObject])
-        })
-        
-        if isPaging {
-            issueList = list
-            collectionView.headerViewEndRefresh()
-        } else {
-            issueList.appendContentsOf(list)
-            collectionView.footerViewEndRefresh()
+        if let dict = json.dictionary {
+            self.nextPageUrl = dict["nextPageUrl"]?.string
+            if let issueArray = dict["issueList"]?.arrayValue {
+                let list = issueArray.map({ (dict) -> IssueModel in
+                    return IssueModel(dict: dict.rawValue as? [String : AnyObject] ?? [String : AnyObject]())
+                })
+                
+                if isPaging {
+                    issueList = list
+                    collectionView.headerViewEndRefresh()
+                } else {
+                    issueList.appendContentsOf(list)
+                    collectionView.footerViewEndRefresh()
+                }
+            }
+            setLoaderViewHidden(true)
+            collectionView.reloadData()
         }
-        
-        setLoaderViewHidden(true)
-        collectionView.reloadData()
     }
     
     func menuBtnDidClick() {

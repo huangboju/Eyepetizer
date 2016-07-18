@@ -51,7 +51,7 @@ extension DataPresenter {
     }
     
     func onLoadSuccess(isPaging: Bool, json: JSON) {
-    
+        //这个方法给外部调用
     }
     
     func failure(error: NSError) {
@@ -61,6 +61,6 @@ extension DataPresenter {
     }
     
     func onLoadFailure(error: NSError) {
-        
+        //这个方法给外部调用
     }
 }

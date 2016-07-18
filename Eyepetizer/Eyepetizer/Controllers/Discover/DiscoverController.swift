@@ -40,7 +40,6 @@ class DiscoverController: UIViewController, LoadingPresenter, DataPresenter {
     }
     
     func onLoadSuccess(isPaging: Bool, json: JSON) {
-        
         setLoaderViewHidden(false)
         if json != .null {
             let jsonArray = json.arrayValue
