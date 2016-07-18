@@ -16,9 +16,10 @@ protocol DataPresenter: class {
     func onLoadFailure(error: NSError)
 }
 
-extension DataPresenter where Self: UIViewController {
+extension DataPresenter {
     
     func netWork(url: String, parameters: [String : AnyObject]? = nil) {
+        print(url)
         Alamofire.request(.GET, url, parameters: parameters).validate().responseJSON { response in
             switch response.result {
             case .Success:

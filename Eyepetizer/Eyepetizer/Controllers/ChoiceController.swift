@@ -2,17 +2,16 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-import Alamofire
 import SwiftyJSON
 
 class ChoiceController: BaseController, LoadingPresenter, MenuPresenter, DataPresenter {
     var issueList = [IssueModel]()
     var loaderView: LoaderView?
-    var menuBtn: MenuBtn?
+    var menuBtn: MenuButton?
     
     var nextPageUrl: String?
     var data: [ItemModel] = [ItemModel]()
-    var endpoint: String = "" {
+    var endpoint = "" {
         willSet {
             netWork(newValue, parameters: [
                 "date" : NSDate.getCurrentTimeStamp(),
@@ -39,7 +38,7 @@ class ChoiceController: BaseController, LoadingPresenter, MenuPresenter, DataPre
         
         setLoaderViewHidden(false)
         
-        setupMenuBtn()
+        setupMenuButton()
         
         collectionView.headerViewPulltoRefresh { [unowned self] in
             self.netWork(APIHeaper.API_Choice, parameters: [

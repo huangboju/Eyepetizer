@@ -41,7 +41,6 @@ class CollectionContoller: UIViewController, LoadingPresenter, DataPresenter {
         view.addSubview(collectionView)
         listViewCreated()
         setupLoaderView()
-        netWork(endpoint, parameters: nil)
     }
     
     func onPrepare() {}
