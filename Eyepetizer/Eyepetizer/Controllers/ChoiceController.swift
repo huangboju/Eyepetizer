@@ -3,11 +3,23 @@
 //
 
 import Alamofire
+import SwiftyJSON
 
-class ChoiceController: BaseController, LoadingPresenter, MenuPresenter {
+class ChoiceController: BaseController, LoadingPresenter, MenuPresenter, DataPresenter {
     var issueList = [IssueModel]()
     var loaderView: LoaderView?
     var menuBtn: MenuBtn?
+    
+    var nextPageUrl: String?
+    var data: [ItemModel] = [ItemModel]()
+    var endpoint: String = "" {
+        willSet {
+            netWork(newValue, parameters: [
+                "date" : NSDate.getCurrentTimeStamp(),
+                "num" : "7"
+                ])
+        }
+    }
     
     private lazy var collectionView: CollectionView = {
         let collectionView = CollectionView(frame: self.view.bounds, collectionViewLayout: CollectionLayout())
@@ -22,60 +34,47 @@ class ChoiceController: BaseController, LoadingPresenter, MenuPresenter {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(collectionView)
-        
         setupLoaderView()
-        
-        getData(APIHeaper.API_Choice, parameters: [
-            "date" : NSDate.getCurrentTimeStamp(),
-            "num" : "7"
-            ])
+        endpoint = APIHeaper.API_Choice
         
         setLoaderViewHidden(false)
         
         setupMenuBtn()
         
         collectionView.headerViewPulltoRefresh { [unowned self] in
-            self.getData(APIHeaper.API_Choice, parameters: [
+            self.netWork(APIHeaper.API_Choice, parameters: [
                 "date" : NSDate.getCurrentTimeStamp(),
                 "num" : "7"
                 ])
         }
         
         collectionView.footerViewPullToRefresh {[unowned self] in
-            if let url = self.nextPageUrl {
-                self.getData(url)
+            if let nextPageUrl = self.nextPageUrl {
+                self.netWork(nextPageUrl)
             }
         }
     }
     
-    private func getData(api: String, parameters: [String : AnyObject]? = nil) {
-        Alamofire.request(.GET, api, parameters: parameters).responseSwiftyJSON ({ [unowned self] (request, Response, json, error) in
-            if json != .null && error == nil {
-                // 转模型
-                let dict = json.rawValue as! NSDictionary
-                // 获取下一个url
-                self.nextPageUrl = dict["nextPageUrl"] as? String
-                // 内容数组
-                let issueArray = dict["issueList"] as! NSArray
-                let list = issueArray.map({ (dict) -> IssueModel in
-                    return IssueModel(dict: dict as! [String : AnyObject])
-                })
-                
-                // 这里判断下拉刷新还是上拉加载更多，如果是上拉加载更多，拼接model。如果是下拉刷新，直接复制
-                if parameters != nil {
-                    // 如果params有值就是下拉刷新
-                    self.issueList = list
-                    self.collectionView.headerViewEndRefresh()
-                } else {
-                    self.issueList.appendContentsOf(list)
-                    self.collectionView.footerViewEndRefresh()
-                }
-                
-                self.setLoaderViewHidden(true)
-                // 刷新
-                self.collectionView.reloadData()
-            }
-            })
+    func onLoadSuccess(isPaging: Bool, json: JSON) {
+        let dict = json.rawValue as! NSDictionary
+        // 获取下一个url
+        self.nextPageUrl = dict["nextPageUrl"] as? String
+        // 内容数组
+        let issueArray = dict["issueList"] as! NSArray
+        let list = issueArray.map({ (dict) -> IssueModel in
+            return IssueModel(dict: dict as! [String : AnyObject])
+        })
+        
+        if isPaging {
+            issueList = list
+            collectionView.headerViewEndRefresh()
+        } else {
+            issueList.appendContentsOf(list)
+            collectionView.footerViewEndRefresh()
+        }
+        
+        setLoaderViewHidden(true)
+        collectionView.reloadData()
     }
     
     func menuBtnDidClick() {

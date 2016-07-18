@@ -48,7 +48,7 @@ class BaseDiscoverDetail: UIViewController, LoadingPresenter, DataPresenter {
         onPrepare()
     }
     
-    func onLoadSuccess(json: JSON) {}
+    func onLoadSuccess(isPaging: Bool, json: JSON) {}
     
     func onLoadFailure(error: NSError) {}
     

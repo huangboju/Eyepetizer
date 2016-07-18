@@ -12,7 +12,7 @@ protocol DataPresenter: class {
     
     //http://swifter.tips/protocol-extension/
     func netWork(url: String, parameters: [String : AnyObject]?)
-    func onLoadSuccess(json: JSON)
+    func onLoadSuccess(isPaging: Bool, json: JSON)
     func onLoadFailure(error: NSError)
 }
 
@@ -24,7 +24,7 @@ extension DataPresenter where Self: UIViewController {
             case .Success:
                 print("✅✅✅", response.request?.URL)
                 if let value = response.result.value {
-                    self.success(parameters, json: JSON(value))
+                    self.success(parameters != nil, json: JSON(value))
                 }
             case .Failure(let error):
                 print("❌❌❌", response.request?.URL)
@@ -33,25 +33,25 @@ extension DataPresenter where Self: UIViewController {
         }
     }
     
-     func success(parameters: [String : AnyObject]?, json: JSON) {
+     func success(isPaging: Bool, json: JSON) {
         if let dataDict = json.rawValue as? [String : AnyObject] {
             nextPageUrl = dataDict["nextPageUrl"] as? String
             if let items = dataDict["videoList"] as? NSArray {
                 let list = items.map({ (dict) -> ItemModel in
                     ItemModel(dict: dict as? [String : AnyObject])
                 })
-                if parameters != nil {
+                if isPaging {
                     data = list
                 } else {
                     data.appendContentsOf(list)
                 }
-                onLoadSuccess(json)
+                onLoadSuccess(isPaging, json: json)
             }
         }
     }
     
-    func onLoadSuccess(json: JSON) {
-        
+    func onLoadSuccess(isPaging: Bool, json: JSON) {
+    
     }
     
     func failure(error: NSError) {
