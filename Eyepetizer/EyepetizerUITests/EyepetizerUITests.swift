@@ -1,6 +1,6 @@
 //
-//  EyepetizerUITests.swift
-//  EyepetizerUITests
+//  petizerUITests.swift
+//  petizerUITests
 //
 //  Created by 伯驹 黄 on 16/7/11.
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class EyepetizerUITests: XCTestCase {
+class petizerUITests: XCTestCase {
 
     override func setUp() {
         super.setUp()
