@@ -19,12 +19,11 @@ protocol DataPresenter: class {
 extension DataPresenter {
     
     func netWork(url: String, parameters: [String : AnyObject]? = nil) {
-        print(url)
         Alamofire.request(.GET, url, parameters: parameters).validate().responseJSON { response in
             switch response.result {
             case .Success:
-                print("✅✅✅", response.request?.URL)
                 if let value = response.result.value {
+                    print("✅✅✅", response.request?.URL)
                     self.success(parameters != nil, json: JSON(value))
                 }
             case .Failure(let error):
@@ -46,9 +45,9 @@ extension DataPresenter {
                 } else {
                     data.appendContentsOf(list)
                 }
-                onLoadSuccess(isPaging, json: json)
             }
         }
+        onLoadSuccess(isPaging, json: json)
     }
     
     func onLoadSuccess(isPaging: Bool, json: JSON) {

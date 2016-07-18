@@ -2,12 +2,21 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-import Alamofire
+import SwiftyJSON
 
-class DiscoverController: UIViewController, LoadingPresenter {
+class DiscoverController: UIViewController, LoadingPresenter, DataPresenter {
     var loaderView: LoaderView?
     var models = [DiscoverModel]()
     let itemSize = SCREEN_WIDTH / 2 - 0.5
+    
+    var endpoint: String = "" {
+        willSet {
+            netWork(newValue)
+        }
+    }
+    
+    var nextPageUrl: String?
+    var data: [ItemModel] = [ItemModel]()
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -27,21 +36,20 @@ class DiscoverController: UIViewController, LoadingPresenter {
         super.viewDidLoad()
         view.addSubview(collectionView)
         setupLoaderView()
-        getData()
+        endpoint = APIHeaper.API_Discover
     }
     
-    private func getData() {
+    func onLoadSuccess(isPaging: Bool, json: JSON) {
+        
         setLoaderViewHidden(false)
-        Alamofire.request(.GET, APIHeaper.API_Discover).responseSwiftyJSON ({ [unowned self](request, response, json, error) in
-            if json != .null && error == nil{
-                let jsonArray = json.arrayValue
-                self.models = jsonArray.map({ (dict) -> DiscoverModel in
-                    return DiscoverModel(dict: dict.rawValue as? [String : AnyObject] ?? [String : AnyObject]())
-                })
-                self.collectionView.reloadData()
-            }
-            self.setLoaderViewHidden(true)
+        if json != .null {
+            let jsonArray = json.arrayValue
+            self.models = jsonArray.map({ (dict) -> DiscoverModel in
+                return DiscoverModel(dict: dict.rawValue as? [String : AnyObject] ?? [String : AnyObject]())
             })
+            self.collectionView.reloadData()
+        }
+        self.setLoaderViewHidden(true)
     }
 }
 
