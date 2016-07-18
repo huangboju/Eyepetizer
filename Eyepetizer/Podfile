@@ -12,7 +12,7 @@ target 'Eyepetizer' do
   pod 'SnapKit'                           # https://github.com/SnapKit/SnapKit
   pod 'StarWars'                          # https://github.com/Yalantis/StarWars.iOS
   pod 'XCGLogger', '~> 3.3'               # https://github.com/DaveWoodCom/XCGLogger
-  
+
   ###################################  OC  ###################################
   pod 'JSAnimatedImagesView'              # https://github.com/JaviSoto/JSAnimatedImagesView
   pod 'YYWebImage'                        # https://github.com/ibireme/YYWebImage
