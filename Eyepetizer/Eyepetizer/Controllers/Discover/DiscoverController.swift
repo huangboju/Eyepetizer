@@ -65,8 +65,6 @@ extension DiscoverController: UICollectionViewDelegate, UICollectionViewDataSour
         let model = models[indexPath.row]
         let detailController = DiscoverDetailController(title: model.name, categoryId: model.id)
         detailController.hidesBottomBarWhenPushed = true
-        log.debug("A debug message")
-        print(detailController, "🚗🚗🚗🚗")
         navigationController?.pushViewController(detailController, animated: true)
     }
 }

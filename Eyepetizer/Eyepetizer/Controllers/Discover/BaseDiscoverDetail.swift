@@ -2,16 +2,33 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-class BaseDiscoverDetail: UIViewController, LoadingPresenter {
+class BaseDiscoverDetail: UIViewController, LoadingPresenter, DataPresenter {
     var loaderView: LoaderView?
     var nextPageUrl: String?
-    var models = [ItemModel]()
     var categoryId = 0
-    var endpoint = ""
+    
+    //MARK: - 💛 DataPresenter 💛
+    var endpoint = "" {
+        willSet {
+            netWork(newValue, parameters: ["categoryId": categoryId])
+        }
+    }
+    
+    var data: [ItemModel] = [ItemModel]() {
+        willSet {
+            if data.count != 0 {
+                collectionView.footerViewEndRefresh()
+            }
+        }
+        didSet {
+            collectionView.reloadData()
+            setLoaderViewHidden(true)
+        }
+    }
     
     lazy var collectionView: CollectionView = {
         let rect = CGRect(x: 0, y: 0, width: self.view.frame.width, height: SCREEN_HEIGHT - TAB_BAR_HEIGHT - TOP_BAR_HEIGHT)
-        var collectionView = CollectionView(frame: rect, collectionViewLayout:CollectionLayout())
+        let collectionView = CollectionView(frame: rect, collectionViewLayout:CollectionLayout())
         collectionView.delegate = self
         collectionView.dataSource = self
         return collectionView
@@ -30,16 +47,13 @@ class BaseDiscoverDetail: UIViewController, LoadingPresenter {
     }
     
     func onPrepare() {
-        getData(endpoint, parameters: ["categoryId": categoryId])
         setLoaderViewHidden(false)
         collectionView.footerViewPullToRefresh { [unowned self] in
-            if let url = self.nextPageUrl {
-                self.getData(url)
+            if let nextPageUrl = self.nextPageUrl {
+                self.netWork(nextPageUrl, parameters: nil)
             }
         }
     }
-    
-    func getData(url: String = "", parameters: [String : AnyObject]? = nil) {}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -48,7 +62,7 @@ class BaseDiscoverDetail: UIViewController, LoadingPresenter {
 
 extension BaseDiscoverDetail: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return models.count
+        return data.count
     }
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -56,14 +70,13 @@ extension BaseDiscoverDetail: UICollectionViewDelegate, UICollectionViewDataSour
     }
 
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        (cell as? ChoiceCell)?.model = models[indexPath.row]
+        (cell as? ChoiceCell)?.model = data[indexPath.row]
     }
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if parentViewController is DiscoverDetailController {
             (parentViewController as? DiscoverDetailController)?.selectCell = collectionView.cellForItemAtIndexPath(indexPath) as? ChoiceCell
         }
-        let model = models[indexPath.row]
-        navigationController?.pushViewController(VideoDetailController(model: model), animated: true)
+        navigationController?.pushViewController(VideoDetailController(model: data[indexPath.row]), animated: true)
     }
 }

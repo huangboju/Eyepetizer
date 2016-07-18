@@ -2,9 +2,28 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-class CollectionContoller: UIViewController, LoadingPresenter {
+class CollectionContoller: UIViewController, LoadingPresenter, DataPresenter {
     var loaderView: LoaderView?
-    var models = [ItemModel]()
+    var nextPageUrl: String?
+    
+    //MARK: - 💛 DataPresenter 💛
+    var endpoint = "" {
+        willSet {
+            netWork(newValue, parameters: nil)
+        }
+    }
+    
+    var data: [ItemModel] = [ItemModel]() {
+        willSet {
+            if data.count != 0 {
+                collectionView.footerViewEndRefresh()
+            }
+        }
+        didSet {
+            collectionView.reloadData()
+            setLoaderViewHidden(true)
+        }
+    }
     
     lazy var collectionView: CollectionView = {
         let rect = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - TAB_BAR_HEIGHT - CHARTS_HEIGHT - TOP_BAR_HEIGHT)
@@ -22,14 +41,12 @@ class CollectionContoller: UIViewController, LoadingPresenter {
         view.addSubview(collectionView)
         listViewCreated()
         setupLoaderView()
-        getData()
+        netWork(endpoint, parameters: nil)
     }
     
     func onPrepare() {}
     
     func listViewCreated() {}
-    
-    func getData() {}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -38,7 +55,7 @@ class CollectionContoller: UIViewController, LoadingPresenter {
 
 extension CollectionContoller: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return models.count
+        return data.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -47,7 +64,7 @@ extension CollectionContoller: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         let cell = cell as? ChoiceCell
-        cell?.model = models[indexPath.row]
+        cell?.model = data[indexPath.row]
         cell?.index = "\(indexPath.row + 1)"
     }
     
@@ -55,7 +72,7 @@ extension CollectionContoller: UICollectionViewDelegate, UICollectionViewDataSou
         if parentViewController is PopularController {
             (parentViewController as? PopularController)?.selectCell = collectionView.cellForItemAtIndexPath(indexPath) as? ChoiceCell
         }
-        let model = models[indexPath.row]
+        let model = data[indexPath.row]
         navigationController?.pushViewController(VideoDetailController(model: model), animated: true)
     }
     

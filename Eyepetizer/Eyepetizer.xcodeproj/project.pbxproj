@@ -34,6 +34,7 @@
 		D83A5E1A1D38B9A4002078DB /* Lobster 1.4.otf in Resources */ = {isa = PBXBuildFile; fileRef = D83A5E171D38B9A4002078DB /* Lobster 1.4.otf */; };
 		D83A5E1C1D38BA86002078DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83A5E1B1D38BA86002078DB /* AppDelegate.swift */; };
 		D83A5E1E1D38BAA0002078DB /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83A5E1D1D38BAA0002078DB /* Constant.swift */; };
+		D83DAF2E1D3C7F0500AFF0D1 /* DataPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83DAF2D1D3C7F0500AFF0D1 /* DataPresenter.swift */; };
 		D8A333071D34EFCE00EAEF36 /* LoadingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A333061D34EFCE00EAEF36 /* LoadingPresenter.swift */; };
 		D8A333091D34F01B00EAEF36 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A333081D34F01B00EAEF36 /* LoaderView.swift */; };
 		D8A3330B1D34F11300EAEF36 /* APPImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A3330A1D34F11300EAEF36 /* APPImageView.swift */; };
@@ -129,6 +130,7 @@
 		D83A5E171D38B9A4002078DB /* Lobster 1.4.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lobster 1.4.otf"; sourceTree = "<group>"; };
 		D83A5E1B1D38BA86002078DB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D83A5E1D1D38BAA0002078DB /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = SOURCE_ROOT; };
+		D83DAF2D1D3C7F0500AFF0D1 /* DataPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPresenter.swift; sourceTree = "<group>"; };
 		D8A333061D34EFCE00EAEF36 /* LoadingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingPresenter.swift; sourceTree = "<group>"; };
 		D8A333081D34F01B00EAEF36 /* LoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		D8A3330A1D34F11300EAEF36 /* APPImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APPImageView.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 				D8A333061D34EFCE00EAEF36 /* LoadingPresenter.swift */,
 				D8A3330C1D35D09600EAEF36 /* MenuPresenter.swift */,
 				D8A333121D35D61A00EAEF36 /* Reusable.swift */,
+				D83DAF2D1D3C7F0500AFF0D1 /* DataPresenter.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -707,6 +710,7 @@
 				D8BB32401D34B9AF002684CF /* ShapeView.swift in Sources */,
 				D8BB322B1D348973002684CF /* TabbarTransition.swift in Sources */,
 				D828026D1D3734690019A7A2 /* UIScrollView+Extension.swift in Sources */,
+				D83DAF2E1D3C7F0500AFF0D1 /* DataPresenter.swift in Sources */,
 				D8B3260A1D3726AD009D77A5 /* MenuViewController.swift in Sources */,
 				D8BB323E1D34B865002684CF /* UIView+Extension.swift in Sources */,
 				D8BB31FE1D337728002684CF /* MainNavigation.swift in Sources */,
