@@ -22,10 +22,6 @@ class MainNavigation: UINavigationController, UIGestureRecognizerDelegate, UINav
         super.pushViewController(viewController, animated: animated)
     }
     
-    override func popViewControllerAnimated(animated: Bool) -> UIViewController? {
-        return super.popViewControllerAnimated(animated)
-    }
-    
     override func popToRootViewControllerAnimated(animated: Bool) -> [UIViewController]? {
         if respondsToSelector(Selector("interactivePopGestureRecognizer")) && animated {
             interactivePopGestureRecognizer?.enabled = false

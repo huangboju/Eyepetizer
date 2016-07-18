@@ -26,6 +26,12 @@ class VideoDetailController: UIViewController {
         view.addGestureRecognizer(edgePan)
     }
     
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.delegate = nil
+    }
+    
     convenience init(model: ItemModel) {
         self.init()
         self.model = model

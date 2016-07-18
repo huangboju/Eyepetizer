@@ -2,6 +2,10 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
+import XCGLogger
+
+let log = XCGLogger.defaultInstance()
+
 let IPHONE6P_WIDTH: CGFloat = 414
 let IPHONE6P_HEIGHT: CGFloat = 736
 let IPHONE6_WIDTH: CGFloat = 375
