@@ -2,13 +2,20 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-import Alamofire
-
-class ChoiceController: BaseController, LoadingPresenter, MenuPresenter {
-    var issueList = [IssueModel]()
-    var nextPageUrl: String?
+class ChoiceController: BaseController, LoadingPresenter, MenuPresenter, DataPresenter {
     var loaderView: LoaderView?
-    var menuBtn: MenuBtn?
+    var menuButton: MenuButton?
+    
+    var data: [IssueModel] = [IssueModel]()
+    var nextPageUrl: String?
+    var endpoint = "" {
+        willSet {
+            netWork(newValue, parameters: [
+                "date" : NSDate.getCurrentTimeStamp(),
+                "num" : "7"
+                ], key: "issueList")
+        }
+    }
     
     private lazy var collectionView: CollectionView = {
         let collectionView = CollectionView(frame: self.view.bounds, collectionViewLayout: CollectionLayout())
@@ -23,62 +30,40 @@ class ChoiceController: BaseController, LoadingPresenter, MenuPresenter {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(collectionView)
-        
         setupLoaderView()
-        
-        getData(APIHeaper.API_Choice, params: [
-            "date" : NSDate.getCurrentTimeStamp(),
-            "num" : "7"
-            ])
+        endpoint = APIHeaper.API_Choice
         
         setLoaderViewHidden(false)
         
-        setupMenuBtn()
+        setupMenuButton()
         
         collectionView.headerViewPulltoRefresh { [unowned self] in
-            self.getData(APIHeaper.API_Choice, params: [
+            self.netWork(APIHeaper.API_Choice, parameters: [
                 "date" : NSDate.getCurrentTimeStamp(),
                 "num" : "7"
-                ])
+                ], key: "issueList")
         }
         
         collectionView.footerViewPullToRefresh {[unowned self] in
-            if let url = self.nextPageUrl {
-                self.getData(url)
+            if let nextPageUrl = self.nextPageUrl {
+                self.netWork(nextPageUrl, key: "issueList")
             }
         }
     }
     
-    private func getData(api: String, params: [String : AnyObject]? = nil) {
-        Alamofire.request(.GET, api, parameters: params).responseSwiftyJSON ({[unowned self](request, Response, json, error) in
-            print("\(APIHeaper.API_Choice)- \(params)")
-            
-            if json != .null && error == nil {
-                // 转模型
-                let dict = json.rawValue as! NSDictionary
-                // 获取下一个url
-                self.nextPageUrl = dict["nextPageUrl"] as? String
-                // 内容数组
-                let issueArray = dict["issueList"] as! [[String : AnyObject]]
-                let list = issueArray.map({ (dict) -> IssueModel in
-                    return IssueModel(dict: dict)
-                })
-                
-                // 这里判断下拉刷新还是上拉加载更多，如果是上拉加载更多，拼接model。如果是下拉刷新，直接复制
-                if params != nil {
-                    // 如果params有值就是下拉刷新
-                    self.issueList = list
-                    self.collectionView.headerViewEndRefresh()
-                } else {
-                    self.issueList.appendContentsOf(list)
-                    self.collectionView.footerViewEndRefresh()
-                }
-                
-                self.setLoaderViewHidden(true)
-                // 刷新
-                self.collectionView.reloadData()
-            }
-            })
+    func onLoadSuccess(isPaging: Bool, jsons: [DATA]) {
+        let list = jsons.map({ (dict) -> IssueModel in
+            return IssueModel(dict: dict.dictionary)
+        })
+        if isPaging {
+            data = list
+            collectionView.headerViewEndRefresh()
+        } else {
+            data.appendContentsOf(list)
+            collectionView.footerViewEndRefresh()
+        }
+        setLoaderViewHidden(true)
+        collectionView.reloadData()
     }
     
     func menuBtnDidClick() {
@@ -91,7 +76,7 @@ class ChoiceController: BaseController, LoadingPresenter, MenuPresenter {
         }
         
         presentationAnimator.supportView = navigationController?.navigationBar
-        presentationAnimator.presentButton = menuBtn
+        presentationAnimator.presentButton = menuButton
         presentationAnimator.duration = 0.15
         presentViewController(menuController, animated: true, completion: nil)
     }
@@ -99,17 +84,17 @@ class ChoiceController: BaseController, LoadingPresenter, MenuPresenter {
 
 extension ChoiceController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return issueList.count
+        return data.count
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let issueModel = issueList[section]
+        let issueModel = data[section]
         return issueModel.itemList.count
     }
     
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         let cell = cell as? ChoiceCell
-        let issueModel = issueList[indexPath.section]
+        let issueModel = data[indexPath.section]
         cell?.model = issueModel.itemList[indexPath.row]
     }
     
@@ -120,7 +105,7 @@ extension ChoiceController: UICollectionViewDelegate, UICollectionViewDataSource
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         selectCell = collectionView.cellForItemAtIndexPath(indexPath) as? ChoiceCell
     
-        let issueModel = issueList[indexPath.section]
+        let issueModel = data[indexPath.section]
         let model = issueModel.itemList[indexPath.row]
         
         if model.playUrl.isEmpty {
@@ -133,7 +118,7 @@ extension ChoiceController: UICollectionViewDelegate, UICollectionViewDataSource
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         if kind == UICollectionElementKindSectionHeader {
             let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: ChoiceHeaderView.reuseIdentifier, forIndexPath: indexPath) as? ChoiceHeaderView
-            let issueModel = issueList[indexPath.section]
+            let issueModel = data[indexPath.section]
             if let image = issueModel.headerImage {
                 headerView?.image = image
             } else {
@@ -146,7 +131,7 @@ extension ChoiceController: UICollectionViewDelegate, UICollectionViewDataSource
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        let issueModel = issueList[section]
+        let issueModel = data[section]
         return issueModel.isHaveSectionView ? CGSize(width: SCREEN_WIDTH, height: 50) : CGSize.zero
     }
 }

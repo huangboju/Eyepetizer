@@ -14,11 +14,17 @@ class BaseController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.delegate = self
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        if !(navigationController?.visibleViewController is VideoDetailController) {
+            navigationController?.delegate = nil
+        }
+    }
 }
 
 extension BaseController: UINavigationControllerDelegate {
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-
         if operation == .Push && toVC is VideoDetailController {
             return VideoDetailPushTransition()
         }

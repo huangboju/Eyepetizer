@@ -2,7 +2,7 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-class CollectionContoller: UIViewController, LoadingPresenter, DataPresenter {
+class CollectionList: UIViewController, LoadingPresenter, DataPresenter {
     var loaderView: LoaderView?
     var nextPageUrl: String?
     
@@ -15,7 +15,7 @@ class CollectionContoller: UIViewController, LoadingPresenter, DataPresenter {
     
     var data: [ItemModel] = [ItemModel]() {
         willSet {
-            if !data.isEmpty {
+            if data.count != 0 {
                 collectionView.footerViewEndRefresh()
             }
         }
@@ -41,31 +41,23 @@ class CollectionContoller: UIViewController, LoadingPresenter, DataPresenter {
         view.addSubview(collectionView)
         listViewCreated()
         setupLoaderView()
+        netWork(endpoint, key: "videoList")
     }
-    
-    func onLoadSuccess(isPaging: Bool, jsons: [DATA]) {
-        let list = jsons.map({ (dict) -> ItemModel in
-            ItemModel(dict: dict.dictionary)
-        })
-        if isPaging {
-            data = list
-        } else {
-            data.appendContentsOf(list)
-        }
-    }
-    
-    func onLoadFailure(error: NSError) {}
     
     func onPrepare() {}
     
     func listViewCreated() {}
-
+    
+    func onPerform() {}
+    
+    func onWillDisplayCell(collectionView: UICollectionView, cell: UICollectionViewCell, indexPath: NSIndexPath) {}
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 }
 
-extension CollectionContoller: UICollectionViewDelegate, UICollectionViewDataSource {
+extension CollectionList: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
     }
@@ -75,12 +67,11 @@ extension CollectionContoller: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        let cell = cell as? ChoiceCell
-        cell?.model = data[indexPath.row]
-        cell?.index = "\(indexPath.row + 1)"
+        onWillDisplayCell(collectionView, cell: cell, indexPath: indexPath)
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        onPerform()
         if parentViewController is PopularController {
             (parentViewController as? PopularController)?.selectCell = collectionView.cellForItemAtIndexPath(indexPath) as? ChoiceCell
         }

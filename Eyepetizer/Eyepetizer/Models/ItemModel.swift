@@ -6,8 +6,8 @@ struct ItemModel {
     /// 类型
     var type = ""
     // data
-    var image : String?
-    var text : String?
+    var image: String?
+    var text: String?
     var id = 0
     /// 标题
     var title = ""
@@ -36,33 +36,28 @@ struct ItemModel {
     // 评论数
     var replyCount = 0
     
-    init(dict: [String : AnyObject]?) {
-        guard let dict = dict else {
-            return
-        }
-        self.type = dict["type"] as? String ?? ""
-        let dataDict = dict["data"] as? [String : AnyObject] ?? dict
-        image = dataDict["image"] as? String ?? nil
-        text = dataDict["text"] as? String ?? nil
-        id = dataDict["id"] as? Int ?? 0
-        title = dataDict["title"] as? String ?? ""
-        description = dataDict["description"] as? String ?? ""
-        category = dataDict["category"] as? String ?? ""
-        duration = dataDict["duration"] as? Int ?? 0
-        playUrl = dataDict["playUrl"] as? String ?? ""
+    init(dict: [String : DATA]?) {
+        self.type = dict?["type"]?.string ?? ""
+        let dataDict = dict?["data"]?.dictionary ?? dict
+        image = dataDict?["image"]?.string
+        text = dataDict?["text"]?.string
+        id = dataDict?["id"]?.int ?? 0
+        title = dataDict?["title"]?.string ?? ""
+        description = dataDict?["description"]?.string ?? ""
+        category = dataDict?["category"]?.string ?? ""
+        duration = dataDict?["duration"]?.int ?? 0
+        playUrl = dataDict?["playUrl"]?.string ?? ""
         
         // 图片
-        let coverDict = dataDict["cover"] as? [String : AnyObject] ?? nil
-        if let cover = coverDict {
-            feed = cover["feed"] as? String ?? ""
-            blurred = cover["blurred"] as? String ?? ""
-        }
+        feed = dataDict?["cover"]?["feed"].string ?? ""
+        blurred = dataDict?["cover"]?["blurred"].string ?? ""
+        
         // 评论喜欢分享数量
-        let consumptionDict = dataDict["consumption"] as? [String : AnyObject]
+        let consumptionDict = dataDict?["consumption"]?.dictionary
         if let consumption = consumptionDict {
-            collectionCount = consumption["collectionCount"] as? Int ?? 0
-            shareCount = consumption["shareCount"] as? Int ?? 0
-            replyCount = consumption["replyCount"] as? Int ?? 0
+            collectionCount = consumption["collectionCount"]?.int ?? 0
+            shareCount = consumption["shareCount"]?.int ?? 0
+            replyCount = consumption["replyCount"]?.int ?? 0
         }
     }
 }
