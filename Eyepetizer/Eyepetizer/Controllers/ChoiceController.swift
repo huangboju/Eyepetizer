@@ -2,15 +2,12 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-import SwiftyJSON
-
 class ChoiceController: BaseController, LoadingPresenter, MenuPresenter, DataPresenter {
-    var issueList = [IssueModel]()
     var loaderView: LoaderView?
-    var menuBtn: MenuButton?
+    var menuButton: MenuButton?
     
+    var data: [IssueModel] = [IssueModel]()
     var nextPageUrl: String?
-    var data: [ItemModel] = [ItemModel]()
     var endpoint = "" {
         willSet {
             netWork(newValue, parameters: [
@@ -54,7 +51,7 @@ class ChoiceController: BaseController, LoadingPresenter, MenuPresenter, DataPre
         }
     }
     
-    func onLoadSuccess(isPaging: Bool, json: JSON) {
+    func onLoadSuccess(isPaging: Bool, json: DATA) {
         if let dict = json.dictionary {
             self.nextPageUrl = dict["nextPageUrl"]?.string
             if let issueArray = dict["issueList"]?.arrayValue {
@@ -63,10 +60,10 @@ class ChoiceController: BaseController, LoadingPresenter, MenuPresenter, DataPre
                 })
                 
                 if isPaging {
-                    issueList = list
+                    data = list
                     collectionView.headerViewEndRefresh()
                 } else {
-                    issueList.appendContentsOf(list)
+                    data.appendContentsOf(list)
                     collectionView.footerViewEndRefresh()
                 }
             }
@@ -85,7 +82,7 @@ class ChoiceController: BaseController, LoadingPresenter, MenuPresenter, DataPre
         }
         
         presentationAnimator.supportView = navigationController?.navigationBar
-        presentationAnimator.presentButton = menuBtn
+        presentationAnimator.presentButton = menuButton
         presentationAnimator.duration = 0.15
         presentViewController(menuController, animated: true, completion: nil)
     }
@@ -93,17 +90,17 @@ class ChoiceController: BaseController, LoadingPresenter, MenuPresenter, DataPre
 
 extension ChoiceController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return issueList.count
+        return data.count
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let issueModel = issueList[section]
+        let issueModel = data[section]
         return issueModel.itemList.count
     }
     
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         let cell = cell as? ChoiceCell
-        let issueModel = issueList[indexPath.section]
+        let issueModel = data[indexPath.section]
         cell?.model = issueModel.itemList[indexPath.row]
     }
     
@@ -114,7 +111,7 @@ extension ChoiceController: UICollectionViewDelegate, UICollectionViewDataSource
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         selectCell = collectionView.cellForItemAtIndexPath(indexPath) as? ChoiceCell
     
-        let issueModel = issueList[indexPath.section]
+        let issueModel = data[indexPath.section]
         let model = issueModel.itemList[indexPath.row]
         
         if model.playUrl.isEmpty {
@@ -127,7 +124,7 @@ extension ChoiceController: UICollectionViewDelegate, UICollectionViewDataSource
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         if kind == UICollectionElementKindSectionHeader {
             let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: ChoiceHeaderView.reuseIdentifier, forIndexPath: indexPath) as? ChoiceHeaderView
-            let issueModel = issueList[indexPath.section]
+            let issueModel = data[indexPath.section]
             if let image = issueModel.headerImage {
                 headerView?.image = image
             } else {
@@ -140,7 +137,7 @@ extension ChoiceController: UICollectionViewDelegate, UICollectionViewDataSource
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        let issueModel = issueList[section]
+        let issueModel = data[section]
         return issueModel.isHaveSectionView ? CGSize(width: SCREEN_WIDTH, height: 50) : CGSize.zero
     }
 }

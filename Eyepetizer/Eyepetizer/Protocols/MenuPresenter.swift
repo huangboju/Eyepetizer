@@ -3,14 +3,14 @@
 //
 
 protocol MenuPresenter: class {
-    var menuBtn: MenuButton? { get set }
+    var menuButton: MenuButton? { get set }
     func menuBtnDidClick()
 }
 
 extension MenuPresenter where Self: UIViewController {
     func setupMenuButton(type: MenuButtonType = .None) {
-        menuBtn = MenuButton(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 40, height: 40)), type: type)
-        menuBtn?.addTarget(self, action: Selector("menuBtnDidClick"), forControlEvents: .TouchUpInside)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuBtn!)
+        menuButton = MenuButton(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 40, height: 40)), type: type)
+        menuButton?.addTarget(self, action: Selector("menuBtnDidClick"), forControlEvents: .TouchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton!)
     }
 }

@@ -48,7 +48,21 @@ class BaseDiscoverDetail: UIViewController, LoadingPresenter, DataPresenter {
         onPrepare()
     }
     
-    func onLoadSuccess(isPaging: Bool, json: JSON) {}
+    func onLoadSuccess(isPaging: Bool, json: JSON) {
+        if let dataDict = json.rawValue as? [String : AnyObject] {
+            nextPageUrl = dataDict["nextPageUrl"] as? String
+            if let items = dataDict["videoList"] as? NSArray {
+                let list = items.map({ (dict) -> ItemModel in
+                    ItemModel(dict: dict as? [String : AnyObject])
+                })
+                if isPaging {
+                    data = list
+                } else {
+                    data.appendContentsOf(list)
+                }
+            }
+        }
+    }
     
     func onLoadFailure(error: NSError) {}
     

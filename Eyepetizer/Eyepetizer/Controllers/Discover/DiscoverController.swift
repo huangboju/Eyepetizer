@@ -2,21 +2,18 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-import SwiftyJSON
-
 class DiscoverController: UIViewController, LoadingPresenter, DataPresenter {
     var loaderView: LoaderView?
-    var models = [DiscoverModel]()
     let itemSize = SCREEN_WIDTH / 2 - 0.5
+    
+    var data: [DiscoverModel] = [DiscoverModel]()
     
     var endpoint: String = "" {
         willSet {
             netWork(newValue)
         }
     }
-    
     var nextPageUrl: String?
-    var data: [ItemModel] = [ItemModel]()
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -39,11 +36,11 @@ class DiscoverController: UIViewController, LoadingPresenter, DataPresenter {
         endpoint = APIHeaper.API_Discover
     }
     
-    func onLoadSuccess(isPaging: Bool, json: JSON) {
+    func onLoadSuccess(isPaging: Bool, json: DATA) {
         setLoaderViewHidden(false)
         if json != .null {
             let jsonArray = json.arrayValue
-            self.models = jsonArray.map({ (dict) -> DiscoverModel in
+            self.data = jsonArray.map({ (dict) -> DiscoverModel in
                 return DiscoverModel(dict: dict.rawValue as? [String : AnyObject] ?? [String : AnyObject]())
             })
             self.collectionView.reloadData()
@@ -54,7 +51,7 @@ class DiscoverController: UIViewController, LoadingPresenter, DataPresenter {
 
 extension DiscoverController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return models.count
+        return data.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -63,11 +60,11 @@ extension DiscoverController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         let cell = cell as? DiscoverCell
-        cell?.model = models[indexPath.row]
+        cell?.model = data[indexPath.row]
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let model = models[indexPath.row]
+        let model = data[indexPath.row]
         let detailController = DiscoverDetailController(title: model.name, categoryId: model.id)
         detailController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(detailController, animated: true)
