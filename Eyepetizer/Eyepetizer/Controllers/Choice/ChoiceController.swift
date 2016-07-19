@@ -38,7 +38,7 @@ class ChoiceController: BaseController, LoadingPresenter, MenuPresenter, DataPre
         setupMenuButton()
         
         collectionView.headerViewPulltoRefresh { [unowned self] in
-            self.netWork(APIHeaper.API_Choice, parameters: [
+            self.netWork(self.endpoint, parameters: [
                 "date" : NSDate.getCurrentTimeStamp(),
                 "num" : "7"
                 ], key: "issueList")
