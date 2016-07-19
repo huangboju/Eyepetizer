@@ -24,7 +24,7 @@ struct IssueModel {
         type = dict?["type"]?.string ?? ""
         cound = dict?["cound"]?.int ?? 0
         if let itemArray = dict?["itemList"]?.array {
-            self.itemList = itemArray.map({ (dict) -> ItemModel in
+            itemList = itemArray.map({ (dict) -> ItemModel in
                 return ItemModel(dict: dict.dictionary)
             })
         }
