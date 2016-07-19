@@ -36,6 +36,8 @@ struct ItemModel {
     // 评论数
     var replyCount = 0
     
+    init() {}
+    
     init(dict: [String : DATA]?) {
         self.type = dict?["type"]?.string ?? ""
         let dataDict = dict?["data"]?.dictionary ?? dict

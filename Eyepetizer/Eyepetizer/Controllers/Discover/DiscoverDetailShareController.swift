@@ -7,5 +7,6 @@ class DiscoverDetailShareController: BaseDiscoverDetail {
     override func onPrepare() {
         super.onPrepare()
         endpoint = APIHeaper.API_Discover_Share
+        endpoint = getEndpoint(APIHeaper.API_Discover_Share, parameters: ["categoryId" : categoryId])
     }
 }

@@ -10,7 +10,7 @@ class BaseDiscoverDetail: UIViewController, LoadingPresenter, DataPresenter {
     //MARK: - 💛 DataPresenter 💛
     var endpoint = "" {
         willSet {
-            netWork(newValue, parameters: ["categoryId": categoryId], key: "videoList")
+            netWork(newValue, key: "videoList")
         }
     }
     

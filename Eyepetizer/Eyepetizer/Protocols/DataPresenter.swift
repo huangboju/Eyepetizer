@@ -52,12 +52,11 @@ extension DataPresenter {
                 onLoadSuccess(isPaging, jsons: onMap(jsons))
             }
         } else if let jsons = json.array {
-            onMap(jsons)
             onLoadSuccess(isPaging, jsons: onMap(jsons))
         }
     }
     
-    func onLoadSuccess(isPaging: Bool, jsons: [AnyObject]) {
+    func onLoadSuccess(isPaging: Bool, jsons: [Self.AbstractType]) {
         //这个方法给外部调用
         //写在这里 外部就不必须调用
     }

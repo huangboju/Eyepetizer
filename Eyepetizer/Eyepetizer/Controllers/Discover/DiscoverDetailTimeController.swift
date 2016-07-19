@@ -6,6 +6,6 @@ class DiscoverDetailTimeController: BaseDiscoverDetail {
     
     override func onPrepare() {
         super.onPrepare()
-        endpoint = APIHeaper.API_Discover_Date
+        endpoint = getEndpoint(APIHeaper.API_Discover_Date, parameters: ["categoryId" : categoryId])
     }
 }

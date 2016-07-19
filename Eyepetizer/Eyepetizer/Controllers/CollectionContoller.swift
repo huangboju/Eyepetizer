@@ -57,8 +57,6 @@ class CollectionContoller: UIViewController, LoadingPresenter, DataPresenter {
         }
     }
     
-    func onLoadFailure(error: NSError) {}
-    
     func onPrepare() {}
     
     func listViewCreated() {}
