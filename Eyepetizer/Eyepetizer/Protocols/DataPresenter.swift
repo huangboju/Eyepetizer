@@ -13,21 +13,29 @@ protocol DataPresenter: class {
     var nextPageUrl: String? { set get }
     var endpoint: String { set get }
     
-    //http://swifter.tips/protocol-extension/
-    func netWork(url: String, parameters: [String : AnyObject]?)
-    func onLoadSuccess(isPaging: Bool, json: DATA)
+    func netWork(url: String, parameters: [String : AnyObject]?, key: String)
+    func onLoadSuccess(isPaging: Bool, jsons: [DATA])
     func onLoadFailure(error: NSError)
 }
 
 extension DataPresenter {
     
-    func netWork(url: String, parameters: [String : AnyObject]? = nil) {
+    var nextPageUrl: String? {
+        set {
+            nextPageUrl = nil
+        }
+        get {
+            return nil
+        }
+    }
+    
+    func netWork(url: String, parameters: [String : AnyObject]? = nil, key: String) {
         Alamofire.request(.GET, url, parameters: parameters).validate().responseJSON { response in
             switch response.result {
             case .Success:
                 if let value = response.result.value {
                     print("✅✅✅", response.request?.URL)
-                    self.success(parameters != nil, json: JSON(value))
+                    self.success(parameters != nil, json: JSON(value), key: key)
                 }
             case .Failure(let error):
                 print("❌❌❌", response.request?.URL)
@@ -36,12 +44,20 @@ extension DataPresenter {
         }
     }
     
-     func success(isPaging: Bool, json: JSON) {
-        onLoadSuccess(isPaging, json: json)
+    func success(isPaging: Bool, json: JSON, key: String) {
+        if let dict = json.dictionary {
+            self.nextPageUrl = dict["nextPageUrl"]?.string
+            if let jsons = dict[key]?.arrayValue {
+                onLoadSuccess(isPaging, jsons: jsons)
+            }
+        } else if let jsons = json.array {
+            onLoadSuccess(isPaging, jsons: jsons)
+        }
     }
     
-    func onLoadSuccess(isPaging: Bool, json: DATA) {
+    func onLoadSuccess(isPaging: Bool, jsons: [DATA]) {
         //这个方法给外部调用
+        //写在这里 外部就不必须调用
     }
     
     func failure(error: NSError) {
@@ -52,5 +68,6 @@ extension DataPresenter {
     
     func onLoadFailure(error: NSError) {
         //这个方法给外部调用
+        //写在这里 外部就不必须调用
     }
 }

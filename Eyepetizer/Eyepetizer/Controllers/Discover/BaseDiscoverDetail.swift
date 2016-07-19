@@ -2,8 +2,6 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-import SwiftyJSON
-
 class BaseDiscoverDetail: UIViewController, LoadingPresenter, DataPresenter {
     var loaderView: LoaderView?
     var nextPageUrl: String?
@@ -12,7 +10,7 @@ class BaseDiscoverDetail: UIViewController, LoadingPresenter, DataPresenter {
     //MARK: - 💛 DataPresenter 💛
     var endpoint = "" {
         willSet {
-            netWork(newValue, parameters: ["categoryId": categoryId])
+            netWork(newValue, parameters: ["categoryId": categoryId], key: "videoList")
         }
     }
     
@@ -48,19 +46,14 @@ class BaseDiscoverDetail: UIViewController, LoadingPresenter, DataPresenter {
         onPrepare()
     }
     
-    func onLoadSuccess(isPaging: Bool, json: JSON) {
-        if let dataDict = json.dictionary {
-            nextPageUrl = dataDict["nextPageUrl"]?.string
-            if let items = dataDict["videoList"]?.array {
-                let list = items.map({ (dict) -> ItemModel in
-                    ItemModel(dict: dict.rawValue as? [String : AnyObject])
-                })
-                if isPaging {
-                    data = list
-                } else {
-                    data.appendContentsOf(list)
-                }
-            }
+    func onLoadSuccess(isPaging: Bool, jsons: [DATA]) {
+        let list = jsons.map({ (dict) -> ItemModel in
+            ItemModel(dict: dict.rawValue as? [String : AnyObject])
+        })
+        if isPaging {
+            data = list
+        } else {
+            data.appendContentsOf(list)
         }
     }
     
@@ -70,7 +63,7 @@ class BaseDiscoverDetail: UIViewController, LoadingPresenter, DataPresenter {
         setLoaderViewHidden(false)
         collectionView.footerViewPullToRefresh { [unowned self] in
             if let nextPageUrl = self.nextPageUrl {
-                self.netWork(nextPageUrl)
+                self.netWork(nextPageUrl, key: "videoList")
             }
         }
     }

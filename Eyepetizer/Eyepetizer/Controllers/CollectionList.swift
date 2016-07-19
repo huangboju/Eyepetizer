@@ -9,7 +9,7 @@ class CollectionList: UIViewController, LoadingPresenter, DataPresenter {
     //MARK: - 💛 DataPresenter 💛
     var endpoint = "" {
         willSet {
-            netWork(newValue, parameters: nil)
+            netWork(newValue, key: "videoList")
         }
     }
     
@@ -41,7 +41,7 @@ class CollectionList: UIViewController, LoadingPresenter, DataPresenter {
         view.addSubview(collectionView)
         listViewCreated()
         setupLoaderView()
-        netWork(endpoint, parameters: nil)
+        netWork(endpoint, key: "videoList")
     }
     
     func onPrepare() {}

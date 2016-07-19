@@ -7,13 +7,11 @@ class DiscoverController: UIViewController, LoadingPresenter, DataPresenter {
     let itemSize = SCREEN_WIDTH / 2 - 0.5
     
     var data: [DiscoverModel] = [DiscoverModel]()
-    
     var endpoint: String = "" {
         willSet {
-            netWork(newValue)
+            netWork(newValue, key: "")
         }
     }
-    var nextPageUrl: String?
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -36,16 +34,13 @@ class DiscoverController: UIViewController, LoadingPresenter, DataPresenter {
         endpoint = APIHeaper.API_Discover
     }
     
-    func onLoadSuccess(isPaging: Bool, json: DATA) {
+    func onLoadSuccess(isPaging: Bool, jsons: [DATA]) {
         setLoaderViewHidden(false)
-        if json != .null {
-            let jsonArray = json.arrayValue
-            self.data = jsonArray.map({ (dict) -> DiscoverModel in
-                return DiscoverModel(dict: dict.rawValue as? [String : AnyObject] ?? [String : AnyObject]())
-            })
-            self.collectionView.reloadData()
-        }
-        self.setLoaderViewHidden(true)
+        data = jsons.map({ (dict) -> DiscoverModel in
+            return DiscoverModel(dict: dict.rawValue as? [String : AnyObject])
+        })
+        collectionView.reloadData()
+        setLoaderViewHidden(true)
     }
 }
 

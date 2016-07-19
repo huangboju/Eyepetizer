@@ -13,7 +13,7 @@ class ChoiceController: BaseController, LoadingPresenter, MenuPresenter, DataPre
             netWork(newValue, parameters: [
                 "date" : NSDate.getCurrentTimeStamp(),
                 "num" : "7"
-                ])
+                ], key: "issueList")
         }
     }
     
@@ -41,35 +41,29 @@ class ChoiceController: BaseController, LoadingPresenter, MenuPresenter, DataPre
             self.netWork(APIHeaper.API_Choice, parameters: [
                 "date" : NSDate.getCurrentTimeStamp(),
                 "num" : "7"
-                ])
+                ], key: "issueList")
         }
         
         collectionView.footerViewPullToRefresh {[unowned self] in
             if let nextPageUrl = self.nextPageUrl {
-                self.netWork(nextPageUrl)
+                self.netWork(nextPageUrl, key: "issueList")
             }
         }
     }
     
-    func onLoadSuccess(isPaging: Bool, json: DATA) {
-        if let dict = json.dictionary {
-            self.nextPageUrl = dict["nextPageUrl"]?.string
-            if let issueArray = dict["issueList"]?.arrayValue {
-                let list = issueArray.map({ (dict) -> IssueModel in
-                    return IssueModel(dict: dict.rawValue as? [String : AnyObject] ?? [String : AnyObject]())
-                })
-                
-                if isPaging {
-                    data = list
-                    collectionView.headerViewEndRefresh()
-                } else {
-                    data.appendContentsOf(list)
-                    collectionView.footerViewEndRefresh()
-                }
-            }
-            setLoaderViewHidden(true)
-            collectionView.reloadData()
+    func onLoadSuccess(isPaging: Bool, jsons: [DATA]) {
+        let list = jsons.map({ (dict) -> IssueModel in
+            return IssueModel(dict: dict.rawValue as? [String : AnyObject] ?? [String : AnyObject]())
+        })
+        if isPaging {
+            data = list
+            collectionView.headerViewEndRefresh()
+        } else {
+            data.appendContentsOf(list)
+            collectionView.footerViewEndRefresh()
         }
+        setLoaderViewHidden(true)
+        collectionView.reloadData()
     }
     
     func menuBtnDidClick() {

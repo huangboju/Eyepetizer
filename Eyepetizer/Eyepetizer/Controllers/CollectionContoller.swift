@@ -9,7 +9,7 @@ class CollectionContoller: UIViewController, LoadingPresenter, DataPresenter {
     //MARK: - 💛 DataPresenter 💛
     var endpoint = "" {
         willSet {
-            netWork(newValue, parameters: nil)
+            netWork(newValue, key: "videoList")
         }
     }
     
@@ -43,19 +43,14 @@ class CollectionContoller: UIViewController, LoadingPresenter, DataPresenter {
         setupLoaderView()
     }
     
-    func onLoadSuccess(isPaging: Bool, json: DATA) {
-        if let dataDict = json.dictionary {
-            nextPageUrl = dataDict["nextPageUrl"]?.stringValue
-            if let items = dataDict["videoList"]?.arrayValue {
-                let list = items.map({ (dict) -> ItemModel in
-                    ItemModel(dict: dict.rawValue as? [String : AnyObject])
-                })
-                if isPaging {
-                    data = list
-                } else {
-                    data.appendContentsOf(list)
-                }
-            }
+    func onLoadSuccess(isPaging: Bool, jsons: [DATA]) {
+        let list = jsons.map({ (dict) -> ItemModel in
+            ItemModel(dict: dict.rawValue as? [String : AnyObject])
+        })
+        if isPaging {
+            data = list
+        } else {
+            data.appendContentsOf(list)
         }
     }
     
