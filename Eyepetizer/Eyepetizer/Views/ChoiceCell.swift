@@ -8,7 +8,6 @@ class ChoiceCell: UICollectionViewCell {
     var model: ItemModel? {
         didSet {
             if let feed = model?.feed {
-                print("feed", feed)
                 backgroundImageView.yy_setImageWithURL(NSURL(string: feed)!, options: .ProgressiveBlur)
             } else {
                 if let image = model?.image {
@@ -79,7 +78,7 @@ class ChoiceCell: UICollectionViewCell {
         return indexLabel
     }()
     
-    private lazy var indexView : UIView = {
+    private lazy var indexView: UIView = {
         let indexView = UIView()
         indexView.hidden = true
         indexView.backgroundColor = UIColor.clearColor()

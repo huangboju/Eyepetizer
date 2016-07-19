@@ -41,7 +41,6 @@ class CollectionList: UIViewController, LoadingPresenter, DataPresenter {
         view.addSubview(collectionView)
         listViewCreated()
         setupLoaderView()
-        netWork(endpoint, key: "videoList")
     }
     
     func onPrepare() {}

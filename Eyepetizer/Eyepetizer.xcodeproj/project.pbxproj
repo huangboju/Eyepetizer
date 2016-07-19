@@ -36,6 +36,7 @@
 		D83A5E1E1D38BAA0002078DB /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83A5E1D1D38BAA0002078DB /* Constant.swift */; };
 		D83DAF2E1D3C7F0500AFF0D1 /* DataPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83DAF2D1D3C7F0500AFF0D1 /* DataPresenter.swift */; };
 		D83DAF321D3CB21100AFF0D1 /* CollectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83DAF311D3CB21100AFF0D1 /* CollectionList.swift */; };
+		D83DAF361D3DC67100AFF0D1 /* ChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83DAF351D3DC67100AFF0D1 /* ChoiceController.swift */; };
 		D8A333071D34EFCE00EAEF36 /* LoadingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A333061D34EFCE00EAEF36 /* LoadingPresenter.swift */; };
 		D8A333091D34F01B00EAEF36 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A333081D34F01B00EAEF36 /* LoaderView.swift */; };
 		D8A3330B1D34F11300EAEF36 /* APPImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A3330A1D34F11300EAEF36 /* APPImageView.swift */; };
@@ -57,7 +58,6 @@
 		D8BB31FC1D337059002684CF /* LaunchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8BB31FB1D337059002684CF /* LaunchView.xib */; };
 		D8BB31FE1D337728002684CF /* MainNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB31FD1D337728002684CF /* MainNavigation.swift */; };
 		D8BB32011D3377E5002684CF /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB32001D3377E5002684CF /* UIFont+Extension.swift */; };
-		D8BB32051D3385F5002684CF /* ChoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB32041D3385F5002684CF /* ChoiceController.swift */; };
 		D8BB32071D338608002684CF /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB32061D338608002684CF /* BaseController.swift */; };
 		D8BB32091D33868C002684CF /* VideoDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB32081D33868C002684CF /* VideoDetailController.swift */; };
 		D8BB320D1D33896D002684CF /* VideoDetailPushTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB320C1D33896D002684CF /* VideoDetailPushTransition.swift */; };
@@ -132,6 +132,7 @@
 		D83A5E1D1D38BAA0002078DB /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = SOURCE_ROOT; };
 		D83DAF2D1D3C7F0500AFF0D1 /* DataPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPresenter.swift; sourceTree = "<group>"; };
 		D83DAF311D3CB21100AFF0D1 /* CollectionList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionList.swift; sourceTree = "<group>"; };
+		D83DAF351D3DC67100AFF0D1 /* ChoiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoiceController.swift; sourceTree = "<group>"; };
 		D8A333061D34EFCE00EAEF36 /* LoadingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingPresenter.swift; sourceTree = "<group>"; };
 		D8A333081D34F01B00EAEF36 /* LoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		D8A3330A1D34F11300EAEF36 /* APPImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APPImageView.swift; sourceTree = "<group>"; };
@@ -153,7 +154,6 @@
 		D8BB31FB1D337059002684CF /* LaunchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchView.xib; sourceTree = "<group>"; };
 		D8BB31FD1D337728002684CF /* MainNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigation.swift; sourceTree = "<group>"; };
 		D8BB32001D3377E5002684CF /* UIFont+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
-		D8BB32041D3385F5002684CF /* ChoiceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoiceController.swift; sourceTree = "<group>"; };
 		D8BB32061D338608002684CF /* BaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		D8BB32081D33868C002684CF /* VideoDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoDetailController.swift; sourceTree = "<group>"; };
 		D8BB320C1D33896D002684CF /* VideoDetailPushTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoDetailPushTransition.swift; sourceTree = "<group>"; };
@@ -260,6 +260,14 @@
 				D83A5E171D38B9A4002078DB /* Lobster 1.4.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		D83DAF341D3DC5DA00AFF0D1 /* Choice */ = {
+			isa = PBXGroup;
+			children = (
+				D83DAF351D3DC67100AFF0D1 /* ChoiceController.swift */,
+			);
+			path = Choice;
 			sourceTree = "<group>";
 		};
 		D8A333051D34EF9500EAEF36 /* Protocols */ = {
@@ -414,9 +422,9 @@
 		D8F04F6A1D33629700BFE94D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D83DAF341D3DC5DA00AFF0D1 /* Choice */,
 				D82802851D37B96F0019A7A2 /* Popular */,
 				D82802741D37630D0019A7A2 /* Discover */,
-				D8BB32041D3385F5002684CF /* ChoiceController.swift */,
 				D8A5CF951D38D74E00298E85 /* CollectionContoller.swift */,
 				D8BB32061D338608002684CF /* BaseController.swift */,
 				D8BB32081D33868C002684CF /* VideoDetailController.swift */,
@@ -661,7 +669,6 @@
 				D8A333151D35D67B00EAEF36 /* UICollectionView+Extension.swift in Sources */,
 				D8A3331E1D35DE6600EAEF36 /* GuillotineMenuTransitionAnimation.swift in Sources */,
 				D8BB322E1D348C01002684CF /* ItemModel.swift in Sources */,
-				D8BB32051D3385F5002684CF /* ChoiceController.swift in Sources */,
 				D8BB32011D3377E5002684CF /* UIFont+Extension.swift in Sources */,
 				D8BB32321D3490D2002684CF /* ChoiceModel.swift in Sources */,
 				D8BB32301D348E11002684CF /* Int+Extension.swift in Sources */,
@@ -698,6 +705,7 @@
 				D82802711D373DAB0019A7A2 /* String+Extension.swift in Sources */,
 				D8A5CF981D38D92800298E85 /* BaseDiscoverDetail.swift in Sources */,
 				D8BB32071D338608002684CF /* BaseController.swift in Sources */,
+				D83DAF361D3DC67100AFF0D1 /* ChoiceController.swift in Sources */,
 				D8BB320D1D33896D002684CF /* VideoDetailPushTransition.swift in Sources */,
 				D8BB32491D34BF6E002684CF /* R.generated.swift in Sources */,
 				D8BB32361D349C02002684CF /* VideoDetailView.swift in Sources */,

@@ -44,7 +44,7 @@ class ChoiceController: BaseController, LoadingPresenter, MenuPresenter, DataPre
                 ], key: "issueList")
         }
         
-        collectionView.footerViewPullToRefresh {[unowned self] in
+        collectionView.footerViewPullToRefresh { [unowned self] in
             if let nextPageUrl = self.nextPageUrl {
                 self.netWork(nextPageUrl, key: "issueList")
             }
