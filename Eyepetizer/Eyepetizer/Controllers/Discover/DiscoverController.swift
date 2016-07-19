@@ -37,7 +37,7 @@ class DiscoverController: UIViewController, LoadingPresenter, DataPresenter {
     func onLoadSuccess(isPaging: Bool, jsons: [DATA]) {
         setLoaderViewHidden(false)
         data = jsons.map({ (dict) -> DiscoverModel in
-            return DiscoverModel(dict: dict.rawValue as? [String : AnyObject])
+            return DiscoverModel(dict: dict.dictionary)
         })
         collectionView.reloadData()
         setLoaderViewHidden(true)

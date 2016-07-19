@@ -7,18 +7,19 @@ struct ChoiceModel {
     /// 下一个page的地址
     var nextPageUrl = ""
     /// 下次更新的时间
-    var nextPublishTime : Int16!
+    var nextPublishTime: Int16!
     var newestIssueType = ""
     
-    init(dict: [String : AnyObject]) {
-        self.nextPageUrl = dict["nextPageUrl"] as? String ?? ""
-        self.nextPublishTime = dict["nextPublishTime"] as? Int16 ?? 0
-        self.newestIssueType = dict["newestIssueType"] as? String ?? ""
+    init(dict: [String : DATA]) {
+        nextPageUrl = dict["nextPageUrl"]?.string ?? ""
+        nextPublishTime = dict["nextPublishTime"]?.int16 ?? 0
+        newestIssueType = dict["newestIssueType"]?.string ?? ""
         
-        let issueArray = dict["issueList"] as! [[String : AnyObject]]
-        self.issueList = issueArray.map({ (dict) -> IssueModel in
-            return IssueModel(dict: dict)
-        })
+        if let issueArray = dict["issueList"]?.array {
+            issueList = issueArray.map({ (dict) -> IssueModel in
+                return IssueModel(dict: dict.dictionary)
+            })
+        }
     }
     
 }

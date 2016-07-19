@@ -53,7 +53,7 @@ class ChoiceController: BaseController, LoadingPresenter, MenuPresenter, DataPre
     
     func onLoadSuccess(isPaging: Bool, jsons: [DATA]) {
         let list = jsons.map({ (dict) -> IssueModel in
-            return IssueModel(dict: dict.rawValue as? [String : AnyObject] ?? [String : AnyObject]())
+            return IssueModel(dict: dict.dictionary)
         })
         if isPaging {
             data = list

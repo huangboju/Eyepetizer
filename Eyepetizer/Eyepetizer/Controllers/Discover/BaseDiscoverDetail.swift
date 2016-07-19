@@ -48,7 +48,7 @@ class BaseDiscoverDetail: UIViewController, LoadingPresenter, DataPresenter {
     
     func onLoadSuccess(isPaging: Bool, jsons: [DATA]) {
         let list = jsons.map({ (dict) -> ItemModel in
-            ItemModel(dict: dict.rawValue as? [String : AnyObject])
+            ItemModel(dict: dict.dictionary)
         })
         if isPaging {
             data = list

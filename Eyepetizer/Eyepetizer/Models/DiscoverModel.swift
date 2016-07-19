@@ -13,11 +13,11 @@ struct DiscoverModel {
     /// 背景色
     var bgColor = ""
     
-    init(dict: [String : AnyObject]?) {
-        id = dict?["id"] as? Int ?? 0
-        name = dict?["name"] as? String ?? ""
-        alias = dict?["alias"] as? String ?? ""
-        bgPicture = dict?["bgPicture"] as? String ?? ""
-        bgColor = dict?["bgColor"] as? String ?? ""
+    init(dict: [String : DATA]?) {
+        id = dict?["id"]?.int ?? 0
+        name = dict?["name"]?.string ?? ""
+        alias = dict?["alias"]?.string ?? ""
+        bgPicture = dict?["bgPicture"]?.string ?? ""
+        bgColor = dict?["bgColor"]?.string ?? ""
     }
 }
