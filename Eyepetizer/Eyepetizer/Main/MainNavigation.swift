@@ -13,6 +13,8 @@ class MainNavigation: UINavigationController, UIGestureRecognizerDelegate, UINav
         }
         navigationBar.tintColor = UIColor.blackColor()
         navigationBar.barStyle = .Default
+        navigationBar.backIndicatorImage = R.image.ic_action_back()
+        navigationBar.backIndicatorTransitionMaskImage = R.image.ic_action_back()
     }
     
     override func pushViewController(viewController: UIViewController, animated: Bool) {
@@ -20,10 +22,6 @@ class MainNavigation: UINavigationController, UIGestureRecognizerDelegate, UINav
             interactivePopGestureRecognizer?.enabled = false
         }
         super.pushViewController(viewController, animated: animated)
-    }
-    
-    override func popViewControllerAnimated(animated: Bool) -> UIViewController? {
-        return super.popViewControllerAnimated(animated)
     }
     
     override func popToRootViewControllerAnimated(animated: Bool) -> [UIViewController]? {
@@ -55,7 +53,6 @@ class MainNavigation: UINavigationController, UIGestureRecognizerDelegate, UINav
                 return false
             }
         }
-        
         return true
     }
 

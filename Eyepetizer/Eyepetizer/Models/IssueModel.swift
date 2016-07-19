@@ -18,14 +18,14 @@ struct IssueModel {
     
     var itemList = [ItemModel]()
     
-    init(dict: [String : AnyObject]) {
-        date = dict["date"] as? Int16 ?? 0
-        publishTime = dict["publishTime"] as? Int16 ?? 0
-        type = dict["type"] as? String ?? ""
-        cound = dict["cound"] as? Int ?? 0
-        if let itemArray = dict["itemList"] as? [[String : AnyObject]] {
-            self.itemList = itemArray.map({ (dict) -> ItemModel in
-                return ItemModel(dict: dict)
+    init(dict: [String : DATA]?) {
+        date = dict?["date"]?.int16 ?? 0
+        publishTime = dict?["publishTime"]?.int16 ?? 0
+        type = dict?["type"]?.string ?? ""
+        cound = dict?["cound"]?.int ?? 0
+        if let itemArray = dict?["itemList"]?.array {
+            itemList = itemArray.map({ (dict) -> ItemModel in
+                return ItemModel(dict: dict.dictionary)
             })
         }
         

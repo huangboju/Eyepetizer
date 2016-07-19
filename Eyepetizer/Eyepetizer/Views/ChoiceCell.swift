@@ -8,6 +8,7 @@ class ChoiceCell: UICollectionViewCell {
     var model: ItemModel? {
         didSet {
             if let feed = model?.feed {
+                print("feed", feed)
                 backgroundImageView.yy_setImageWithURL(NSURL(string: feed)!, options: .ProgressiveBlur)
             } else {
                 if let image = model?.image {

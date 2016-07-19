@@ -20,10 +20,15 @@ class VideoDetailController: UIViewController {
         view.addSubview(detailView)
         detailView.model = model
         navigationController?.delegate = self
-        navigationItem.leftBarButtonItem = UIBarButtonItem.barButtonItemWithImg(R.image.ic_action_back(), selectedImg: nil, target: self, action: #selector(leftBtnDidClick))
         let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(edgePanGesture))
         edgePan.edges = .Left
         view.addGestureRecognizer(edgePan)
+    }
+    
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.delegate = nil
     }
     
     convenience init(model: ItemModel) {

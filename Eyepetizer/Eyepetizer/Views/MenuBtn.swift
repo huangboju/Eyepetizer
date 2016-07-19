@@ -2,12 +2,12 @@
 //  Copyright © 2016年 xiAo_Ju. All rights reserved.
 //
 
-public enum MenuBtnType {
+public enum MenuButtonType {
     case None, Date
 }
 
-class MenuBtn: UIButton {
-    private var type: MenuBtnType = .None
+class MenuButton: UIButton {
+    private var type: MenuButtonType = .None
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -16,7 +16,7 @@ class MenuBtn: UIButton {
         setImage(R.image.ic_action_menu(), forState: .Normal)
     }
     
-    convenience init(frame: CGRect, type: MenuBtnType) {
+    convenience init(frame: CGRect, type: MenuButtonType) {
         self.init(frame: frame)
         self.type = type
         
