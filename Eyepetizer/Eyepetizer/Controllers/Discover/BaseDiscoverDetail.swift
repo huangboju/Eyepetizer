@@ -49,11 +49,11 @@ class BaseDiscoverDetail: UIViewController, LoadingPresenter, DataPresenter {
     }
     
     func onLoadSuccess(isPaging: Bool, json: JSON) {
-        if let dataDict = json.rawValue as? [String : AnyObject] {
-            nextPageUrl = dataDict["nextPageUrl"] as? String
-            if let items = dataDict["videoList"] as? NSArray {
+        if let dataDict = json.dictionary {
+            nextPageUrl = dataDict["nextPageUrl"]?.string
+            if let items = dataDict["videoList"]?.array {
                 let list = items.map({ (dict) -> ItemModel in
-                    ItemModel(dict: dict as? [String : AnyObject])
+                    ItemModel(dict: dict.rawValue as? [String : AnyObject])
                 })
                 if isPaging {
                     data = list
