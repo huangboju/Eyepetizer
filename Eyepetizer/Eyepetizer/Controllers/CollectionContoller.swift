@@ -43,14 +43,17 @@ class CollectionContoller: UIViewController, LoadingPresenter, DataPresenter {
         setupLoaderView()
     }
     
-    func onLoadSuccess(isPaging: Bool, jsons: [DATA]) {
-        let list = jsons.map({ (dict) -> ItemModel in
-            ItemModel(dict: dict.dictionary)
+    func onMap(results: [DATA]) -> [ItemModel] {
+        return results.map({
+            ItemModel(dict: $0.dictionary)
         })
+    }
+    
+    func onLoadSuccess(isPaging: Bool, jsons: [ItemModel]) {
         if isPaging {
-            data = list
+            data = jsons
         } else {
-            data.appendContentsOf(list)
+            data.appendContentsOf(jsons)
         }
     }
     

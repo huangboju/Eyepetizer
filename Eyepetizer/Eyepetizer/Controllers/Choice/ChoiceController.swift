@@ -51,15 +51,18 @@ class ChoiceController: BaseController, LoadingPresenter, MenuPresenter, DataPre
         }
     }
     
-    func onLoadSuccess(isPaging: Bool, jsons: [DATA]) {
-        let list = jsons.map({ (dict) -> IssueModel in
-            return IssueModel(dict: dict.dictionary)
+    func onMap(results: [DATA]) -> [IssueModel] {
+        return results.map({
+            IssueModel(dict: $0.dictionary)
         })
+    }
+    
+    func onLoadSuccess(isPaging: Bool, jsons: [IssueModel]) {
         if isPaging {
-            data = list
+            data = jsons
             collectionView.headerViewEndRefresh()
         } else {
-            data.appendContentsOf(list)
+            data.appendContentsOf(jsons)
             collectionView.footerViewEndRefresh()
         }
         setLoaderViewHidden(true)

@@ -34,11 +34,15 @@ class DiscoverController: UIViewController, LoadingPresenter, DataPresenter {
         endpoint = APIHeaper.API_Discover
     }
     
-    func onLoadSuccess(isPaging: Bool, jsons: [DATA]) {
-        setLoaderViewHidden(false)
-        data = jsons.map({ (dict) -> DiscoverModel in
-            return DiscoverModel(dict: dict.dictionary)
+    func onMap(results: [DATA]) -> [DiscoverModel] {
+        return results.map({
+            return DiscoverModel(dict: $0.dictionary)
         })
+    }
+    
+    func onLoadSuccess(isPaging: Bool, jsons: [DiscoverModel]) {
+        setLoaderViewHidden(false)
+        data = jsons
         collectionView.reloadData()
         setLoaderViewHidden(true)
     }

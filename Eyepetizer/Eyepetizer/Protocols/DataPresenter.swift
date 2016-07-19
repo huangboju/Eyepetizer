@@ -14,8 +14,9 @@ protocol DataPresenter: class {
     var endpoint: String { set get }
     
     func netWork(url: String, parameters: [String : AnyObject]?, key: String)
-    func onLoadSuccess(isPaging: Bool, jsons: [DATA])
+    func onLoadSuccess(isPaging: Bool, jsons: [AbstractType])
     func onLoadFailure(error: NSError)
+    func onMap(results: [DATA]) -> [AbstractType]
 }
 
 extension DataPresenter {
@@ -46,16 +47,17 @@ extension DataPresenter {
     
     func success(isPaging: Bool, json: JSON, key: String) {
         if let dict = json.dictionary {
-            self.nextPageUrl = dict["nextPageUrl"]?.string
+            nextPageUrl = dict["nextPageUrl"]?.string
             if let jsons = dict[key]?.arrayValue {
-                onLoadSuccess(isPaging, jsons: jsons)
+                onLoadSuccess(isPaging, jsons: onMap(jsons))
             }
         } else if let jsons = json.array {
-            onLoadSuccess(isPaging, jsons: jsons)
+            onMap(jsons)
+            onLoadSuccess(isPaging, jsons: onMap(jsons))
         }
     }
     
-    func onLoadSuccess(isPaging: Bool, jsons: [DATA]) {
+    func onLoadSuccess(isPaging: Bool, jsons: [AnyObject]) {
         //这个方法给外部调用
         //写在这里 外部就不必须调用
     }
