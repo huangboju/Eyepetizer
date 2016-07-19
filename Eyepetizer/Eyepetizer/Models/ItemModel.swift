@@ -49,9 +49,8 @@ struct ItemModel {
         playUrl = dataDict?["playUrl"]?.string ?? ""
         
         // 图片
-        let coverDict = dataDict?["cover"]?.dictionary
-        feed = coverDict?["feed"]?.string ?? ""
-        blurred = coverDict?["blurred"]?.string ?? ""
+        feed = dataDict?["cover"]?["feed"].string ?? ""
+        blurred = dataDict?["cover"]?["blurred"].string ?? ""
         
         // 评论喜欢分享数量
         let consumptionDict = dataDict?["consumption"]?.dictionary
